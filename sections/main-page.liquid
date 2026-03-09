@@ -1,0 +1,291 @@
+﻿
+
+{% liquid
+  assign mirrored_page_handles = 'about-us,contact,todays-deal,track-your-order,customer-reviews,shipping&returns,shipping-and-returns,payment&returns,payment-and-returns,return&returns,return-and-returns,privacy-policy,terms-of-service,cancellation' | split: ','
+  assign is_mirrored_page = false
+  assign page_content_plain = closest.page.content | strip_html | strip
+  assign has_admin_page_content = false
+  if mirrored_page_handles contains closest.page.handle
+    assign is_mirrored_page = true
+  endif
+  if page_content_plain != blank
+    assign has_admin_page_content = true
+  endif
+%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="section page-width-content color-{{ section.settings.color_scheme }}">
+  <div
+    class="
+      spacing-style
+      layout-panel-flex
+      layout-panel-flex--column
+      section-content-wrapper
+      mobile-column
+    "
+    style="
+      {% render 'layout-panel-style', settings: section.settings %}
+      {% render 'spacing-style', settings: section.settings %}
+    "
+  >
+    {% if is_mirrored_page and has_admin_page_content == false %}
+      <div class="melyla-info-page rte">
+        <h1>{{ closest.page.title }}</h1>
+
+        {% case closest.page.handle %}
+          {% when 'about-us' %}
+            <p>Melyla is a Black-owned brand built on timeless leather craftsmanship, culture, and storytelling.</p>
+            <p>Our goal is simple: create statement bags that feel premium, practical, and expressive for everyday life.</p>
+            <p>Every collection is designed with care and made to balance style, structure, and long-term wear.</p>
+            <h3>What We Stand For</h3>
+            <p>1. Thoughtful design with bold character.</p>
+            <p>2. Reliable quality you can carry every day.</p>
+            <p>3. Customer-first service from order to delivery.</p>
+
+          {% when 'contact' %}
+            <p>Need help with an order, return, shipping update, or product question?</p>
+            <p>Our team is here to support you. Please use the contact form below and include your order number when relevant.</p>
+            <p>Support email: support@melyla.com</p>
+
+          {% when 'todays-deal' %}
+            <p>Welcome to today's featured offers at Melyla.</p>
+            <p>Deals are refreshed regularly and may be available for a limited time while inventory lasts.</p>
+            <p>Discounts shown on product pages are applied at checkout when eligible.</p>
+            <h3>Deal Notes</h3>
+            <p>1. Promotions cannot always be combined unless stated.</p>
+            <p>2. Sale items may have limited color or stock availability.</p>
+            <p>3. Processing time still applies for all placed orders.</p>
+
+          {% when 'track-your-order' %}
+            <p>You can track your order using your shipping confirmation details.</p>
+            <p>Most orders are processed within 1-2 business days and arrive in 4-6 business days after dispatch.</p>
+            <h3>How To Track</h3>
+            <p>1. Open your shipping confirmation email from Melyla.</p>
+            <p>2. Click the tracking link to view carrier updates.</p>
+            <p>3. If you cannot find the email, contact us with your order number and checkout email.</p>
+            <p>Support email: support@melyla.com</p>
+
+          {% when 'customer-reviews' %}
+            <p>Real feedback from Melyla customers helps us improve every detail of our products and service.</p>
+            <p>We value honest experiences about design, quality, delivery, and long-term use.</p>
+            <h3>Share Your Review</h3>
+            <p>1. Include your order number for faster verification.</p>
+            <p>2. Mention the bag model and color you purchased.</p>
+            <p>3. Add photos to help other customers choose confidently.</p>
+
+          {% when 'shipping&returns' or 'shipping-and-returns' %}
+            <h3>Shipping Policy</h3>
+            <p>Orders are typically processed within 1-2 business days.</p>
+            <p>Standard delivery usually takes 4-6 business days after shipment confirmation.</p>
+            <p>Shipping times may vary during holidays, promotions, or high-volume periods.</p>
+            <h3>Return Policy</h3>
+            <p>You may request a return within 30 days of delivery for eligible items in original condition.</p>
+            <p>Returned items must be unused and include original packaging when possible.</p>
+            <p>To initiate a return, contact support@melyla.com with your order number.</p>
+
+          {% when 'payment&returns' or 'payment-and-returns' %}
+            <h3>Payment Methods</h3>
+            <p>Melyla accepts major credit and debit cards, as well as accelerated checkout options shown at checkout.</p>
+            <p>All payments are securely processed. We do not store your full payment details on our servers.</p>
+            <h3>Refunds</h3>
+            <p>Approved refunds are issued to the original payment method.</p>
+            <p>Please allow 5-10 business days for your bank or provider to post the refund.</p>
+
+          {% when 'return&returns' or 'return-and-returns' %}
+            <h3>Return & Refund Policy</h3>
+            <p>If you are not fully satisfied, you can request a return within 30 days of delivery.</p>
+            <p>Items must be unused, in original condition, and returned with all original components.</p>
+            <p>Once approved and received, refunds are issued to your original payment method.</p>
+            <p>For return instructions, contact support@melyla.com.</p>
+
+          {% when 'privacy-policy' %}
+            <h3>Privacy Policy</h3>
+            <p>Melyla respects your privacy and protects your personal information.</p>
+            <p>We collect information needed to process orders, provide support, and improve your shopping experience.</p>
+            <p>We do not sell your personal data. Information is shared only with trusted partners required to operate services such as payments and shipping.</p>
+            <p>By using this website, you agree to this policy and its updates.</p>
+
+          {% when 'terms-of-service' %}
+            <h3>Terms of Service</h3>
+            <p>By accessing or purchasing from Melyla, you agree to our terms, policies, and applicable laws.</p>
+            <p>Product availability, pricing, and promotions may change without prior notice.</p>
+            <p>We reserve the right to refuse, limit, or cancel orders when necessary, including suspected fraud or policy abuse.</p>
+            <p>Your continued use of this site constitutes acceptance of these terms.</p>
+
+          {% when 'cancellation' %}
+            <h3>Order Cancellation</h3>
+            <p>If your order has not entered fulfillment, we can usually cancel it upon request.</p>
+            <p>After dispatch, cancellation may no longer be possible and a return request may be required after delivery.</p>
+            <p>To request cancellation, contact support@melyla.com immediately with your order number.</p>
+        {% endcase %}
+      </div>
+    {% else %}
+      {% content_for 'blocks' %}
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .section.page-width-content {
+    --page-content-width: 96rem;
+  }
+
+  .section.page-width-content .section-content-wrapper {
+    max-width: min(96rem, calc(100vw - 64px));
+    margin-inline: auto;
+  }
+
+  .section.page-width-content .rte,
+  .section.page-width-content .text-block.rte > * {
+    color: #1f1f1f;
+    font-size: 1.08rem;
+    font-weight: 500;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .section.page-width-content :is(h1, h2, h3) {
+    color: #0f1115;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+  }
+
+  .section.page-width-content h1 {
+    font-size: clamp(2.75rem, 5vw, 4.2rem);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .section.page-width-content h2 {
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    text-transform: uppercase;
+    margin-top: 24px;
+  }
+
+  .section.page-width-content h3 {
+    font-size: clamp(1.95rem, 3vw, 2.8rem);
+    text-transform: uppercase;
+    margin-top: 28px;
+  }
+
+  .section.page-width-content hr {
+    border: 0;
+    border-top: 1px solid #e2e2e2;
+    margin: 22px 0;
+  }
+
+  .section.page-width-content ul {
+    padding-inline-start: 1.25rem;
+  }
+
+  @media screen and (max-width: 989px) {
+    .section.page-width-content .section-content-wrapper {
+      max-width: calc(100vw - 28px);
+    }
+
+    .section.page-width-content .rte,
+    .section.page-width-content .text-block.rte > * {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+
+  .melyla-info-page {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  .melyla-info-page h1 {
+    margin: 0 0 20px;
+    text-align: center;
+  }
+
+  .melyla-info-page h3 {
+    margin: 24px 0 10px;
+    font-weight: 700;
+  }
+
+  .melyla-info-page p {
+    margin: 0 0 12px;
+    line-height: 1.6;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.page",
+  "class": "section-wrapper",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_divider"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "content_direction",
+      "label": "t:settings.direction",
+      "options": [
+        {
+          "value": "column",
+          "label": "t:options.vertical"
+        }
+      ],
+      "default": "column",
+      "visible_if": "{{ section.settings.gap < 0 }}"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}
+

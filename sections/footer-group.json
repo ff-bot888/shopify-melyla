@@ -1,0 +1,19 @@
+{
+    "type":  "footer",
+    "name":  "Footer",
+    "sections":  {
+                     "custom_liquid_melyla_footer":  {
+                                                          "type":  "custom-liquid",
+                                                          "settings":  {
+                                                                           "custom_liquid":  "\u003cdiv class=\"af-footer\"\u003e\n  \u003cdiv class=\"af-footer__brand\"\u003eMelyla\u003c/div\u003e\n  \u003cdiv class=\"af-footer__top\"\u003e\n    \u003cdiv class=\"af-footer__col af-footer__col--contact\"\u003e\n      \u003ch4\u003eCONTACT\u003c/h4\u003e\n      \u003cp\u003e\u003cstrong\u003eAddress:\u003c/strong\u003e 1209 Mountain Road Pl Ne Ste N, Albuquerque, NM 87110, United States\u003c/p\u003e\n      \u003cp\u003e\u003cstrong\u003eEmail:\u003c/strong\u003e \u003ca href=\"mailto:cs@melyla.com\"\u003ecs@melyla.com\u003c/a\u003e\u003c/p\u003e\n    \u003c/div\u003e\n    \u003cdiv class=\"af-footer__col\"\u003e\n      \u003ch4\u003eCUSTOMER SUPPORT\u003c/h4\u003e\n      \u003cul\u003e\n        \u003cli\u003e\u003ca href=\"/pages/meet-melyla-s-founder\"\u003eMeet Melyla\u0027s Founder\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/about-us\"\u003eAbout Melyla\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/contact\"\u003eContact Us\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/track-your-order\"\u003eTrack Your Order\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/shipping-delivery\"\u003eShipping \u0026amp; Delivery\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/return-refund\"\u003eReturn \u0026amp; Refund\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/cancellation-policy\"\u003eCancellation Policy\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/privacy-policy\"\u003ePrivacy Policy\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/term-of-service\"\u003eTerm of Service\u003c/a\u003e\u003c/li\u003e\n      \u003c/ul\u003e\n    \u003c/div\u003e\n    \u003cdiv class=\"af-footer__col\"\u003e\n      \u003ch4\u003eMAIN MENU\u003c/h4\u003e\n      \u003cul\u003e\n        \u003cli\u003e\u003ca href=\"/collections/all\"\u003eShop by Product\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/collections/shop-by-style\"\u003eShop by Style\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/collections/shop-by-look\"\u003eShop by Look\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/collections/shop-by-message\"\u003eShop by Message\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/collections/todays-deal\"\u003eToday\u0027s Deal\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/customer-reviews\"\u003eCustomer Reviews\u003c/a\u003e\u003c/li\u003e\n      \u003c/ul\u003e\n    \u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"af-footer__bottom\"\u003e\u0026copy; {{ \u0027now\u0027 | date: \u0027%Y\u0027 }} {{ shop.name }} \u0026nbsp;\u0026nbsp; Powered by Shopify\u003c/div\u003e\n\u003c/div\u003e",
+                                                                           "color_scheme":  "scheme-1",
+                                                                           "section_width":  "full-width",
+                                                                           "padding-block-start":  0,
+                                                                           "padding-block-end":  0
+                                                                       }
+                                                      }
+                 },
+    "order":  [
+                  "custom_liquid_melyla_footer"
+              ]
+}

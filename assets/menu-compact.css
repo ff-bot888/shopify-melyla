@@ -1,0 +1,52 @@
+/* Compact cards: SHOP BY STYLE / SHOP BY LOOK / SHOP BY MESSAGE */
+
+/* Anchor only compact dropdowns to their own top-level item */
+#header-group .menu-list__list-item:has(> .menu-list__submenu):not(:has(> .menu-list__submenu .mega-menu__link--parent)) {
+  position: relative !important;
+}
+
+#header-group .menu-list__submenu:not(:has(.mega-menu__link--parent)) {
+  position: absolute !important;
+  top: 100% !important;
+  left: 50% !important;
+  right: auto !important;
+  width: auto !important;
+  max-width: 360px !important;
+  min-width: 0 !important;
+  transform: translateX(-50%) !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+  padding: 0 !important;
+  z-index: 90 !important;
+}
+
+#header-group .menu-list__submenu:not(:has(.mega-menu__link--parent)) .menu-list__submenu-inner {
+  display: inline-block !important;
+  width: max-content !important;
+  min-width: 132px !important;
+  max-width: 300px !important;
+  padding: 8px 0 !important;
+  background: #fff !important;
+  border: 1px solid #e1e1e1 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+#header-group .menu-list__submenu:not(:has(.mega-menu__link--parent)) .mega-menu,
+#header-group .menu-list__submenu:not(:has(.mega-menu__link--parent)) .mega-menu__grid,
+#header-group .menu-list__submenu:not(:has(.mega-menu__link--parent)) .mega-menu__list {
+  display: block !important;
+  width: auto !important;
+  background: transparent !important;
+}
+
+#header-group .menu-list__submenu:not(:has(.mega-menu__link--parent)) .mega-menu__link {
+  font-size: 1.05rem !important;
+  line-height: 1.2 !important;
+  padding: 8px 16px !important;
+  background: transparent !important;
+}

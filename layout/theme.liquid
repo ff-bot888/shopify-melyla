@@ -1,0 +1,242 @@
+<!doctype html>
+<html
+  {% if request.design_mode %}
+    class="shopify-design-mode"
+  {% endif %}
+  lang="{{ request.locale.iso_code }}"
+>
+  <head>
+    {%- if settings.favicon != blank -%}
+      <link
+        rel="icon"
+        type="image/png"
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
+      >
+    {%- endif -%}
+
+    {% comment %} This a way to wait for main content to load when navigating to a new page so that the view transitions can work consistently {% endcomment %}
+    {% if settings.transition_to_main_product or settings.page_transition_enabled %}
+      <link
+        rel="expect"
+        href="#MainContent"
+        blocking="render"
+        id="view-transition-render-blocker"
+      >
+    {% endif %}
+
+    {%- render 'meta-tags' -%}
+    {%- render 'stylesheets' -%}
+    {{ 'menu-mega.css' | asset_url | stylesheet_tag }}
+    {{ 'menu-compact.css' | asset_url | stylesheet_tag }}
+    {%- render 'fonts' -%}
+    {%- render 'scripts' -%}
+    {%- render 'theme-styles-variables' -%}
+    {%- render 'color-schemes' -%}
+
+    {% if request.design_mode %}
+      {%- render 'theme-editor' -%}
+    {% endif %}
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
+    {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
+    <div id="header-group">
+      {% sections 'header-group' %}
+    </div>
+
+    <script>
+      // Inline header height and menu style calculations to prevent layout shift
+      // Note: Updates in calculateHeaderGroupHeight(), updateTransparentHeaderOffset() and setHeaderMenuStyle() utilities.js should be kept in sync with this function
+      (function setHeaderHeighCustomProperties() {
+        /*
+         * Header calculation functions for maintaining CSS variables
+         * Mimic calculateHeaderGroupHeight() in utilities.js
+         */
+        const header = document.querySelector('header-component');
+        const headerGroup = document.querySelector('#header-group');
+        const hasHeaderSection = headerGroup?.querySelector('.header-section');
+
+        if (!header || !headerGroup) return;
+
+        const headerTopRow = header.querySelector('.header__row--top');
+        const headerHeight = header.offsetHeight;
+
+        // Calculate the total height of the header group
+        let headerGroupHeight = 0;
+        const children = headerGroup.children;
+        for (let i = 0; i < children.length; i++) {
+          const element = children[i];
+          if (element === header || !(element instanceof HTMLElement)) continue;
+          headerGroupHeight += element.offsetHeight;
+        }
+
+        // Check for transparent header special case
+        if (header.hasAttribute('transparent') && header.parentElement?.nextElementSibling) {
+          headerGroupHeight += headerHeight;
+        }
+
+        // Set CSS variables
+        document.body.style.setProperty('--header-height', `${headerHeight}px`);
+        document.body.style.setProperty('--header-group-height', `${headerGroupHeight}px`);
+
+        if (headerTopRow) {
+          window.requestAnimationFrame(function () {
+            document.body.style.setProperty('--top-row-height', `${headerTopRow.offsetHeight}px`);
+          });
+        }
+
+        /**
+         * Updates CSS custom properties for transparent header offset calculation
+         * Mimic updateTransparentHeaderOffset() in utilities.js
+         */
+
+        if (!hasHeaderSection || !header?.hasAttribute('transparent')) {
+          document.body.style.setProperty('--transparent-header-offset-boolean', '0');
+          return;
+        }
+
+        const hasImmediateSection = hasHeaderSection.nextElementSibling?.classList.contains('shopify-section');
+
+        const shouldApplyOffset = !hasImmediateSection ? '1' : '0';
+        document.body.style.setProperty('--transparent-header-offset-boolean', shouldApplyOffset);
+      })();
+
+      (function setHeaderMenuStyle() {
+        const headerComponent = document.querySelector('#header-component');
+        if (headerComponent) {
+          const isTouchDevice = 'ontouchstart' in window && navigator.maxTouchPoints > 0;
+          const overflowList = headerComponent?.querySelector('overflow-list');
+          const hasReachedMinimum = overflowList && overflowList.hasAttribute('minimum-reached');
+          headerComponent.dataset.menuStyle = isTouchDevice || hasReachedMinimum ? 'drawer' : 'menu';
+        }
+      })();
+    </script>
+
+    <main
+      id="MainContent"
+      class="content-for-layout"
+      role="main"
+      data-page-transition-enabled="{{ settings.page_transition_enabled }}"
+      data-product-transition="{{ settings.transition_to_main_product }}"
+      data-template="{{ template }}"
+    >
+      {{ content_for_layout }}
+    </main>
+
+    <footer>
+      {% sections 'footer-group' %}
+    </footer>
+
+    {% render 'search-modal' %}
+
+    {% if settings.quick_add or settings.mobile_quick_add %}
+      {% render 'quick-add-modal' %}
+    {% endif %}
+
+    <script>
+      (function initMelylaGalleryDrag() {
+        const ensureControls = (scroller) => {
+          const gallery = scroller.closest('.af-melyla-gallery');
+          if (!gallery) return { scroller, prev: null, next: null };
+
+          let viewport = scroller.parentElement;
+          if (!viewport || !viewport.classList.contains('af-melyla-gallery__viewport')) {
+            viewport = document.createElement('div');
+            viewport.className = 'af-melyla-gallery__viewport';
+            scroller.parentNode.insertBefore(viewport, scroller);
+            viewport.appendChild(scroller);
+          }
+
+          let prev = viewport.querySelector('.af-melyla-gallery__nav--prev');
+          let next = viewport.querySelector('.af-melyla-gallery__nav--next');
+
+          if (!prev) {
+            prev = document.createElement('button');
+            prev.type = 'button';
+            prev.className = 'af-melyla-gallery__nav af-melyla-gallery__nav--prev';
+            prev.setAttribute('aria-label', 'Previous');
+            prev.textContent = '‹';
+            viewport.appendChild(prev);
+          }
+
+          if (!next) {
+            next = document.createElement('button');
+            next.type = 'button';
+            next.className = 'af-melyla-gallery__nav af-melyla-gallery__nav--next';
+            next.setAttribute('aria-label', 'Next');
+            next.textContent = '›';
+            viewport.appendChild(next);
+          }
+
+          return { scroller, prev, next };
+        };
+
+        const bindScroller = (scroller) => {
+          if (!scroller || scroller.dataset.dragBound === 'true') return;
+          scroller.dataset.dragBound = 'true';
+          const controls = ensureControls(scroller);
+
+          let isDown = false;
+          let startX = 0;
+          let startScrollLeft = 0;
+
+          const pageXFromEvent = (event) => {
+            if (event.touches && event.touches.length) return event.touches[0].pageX;
+            if (event.changedTouches && event.changedTouches.length) return event.changedTouches[0].pageX;
+            return event.pageX;
+          };
+
+          const onDragStart = (event) => {
+            isDown = true;
+            scroller.classList.add('is-dragging');
+            startX = pageXFromEvent(event);
+            startScrollLeft = scroller.scrollLeft;
+          };
+
+          const onDragMove = (event) => {
+            if (!isDown) return;
+            event.preventDefault();
+            const x = pageXFromEvent(event);
+            const walk = x - startX;
+            scroller.scrollLeft = startScrollLeft - walk;
+          };
+
+          const onDragEnd = () => {
+            isDown = false;
+            scroller.classList.remove('is-dragging');
+          };
+
+          scroller.addEventListener('mousedown', onDragStart);
+          scroller.addEventListener('mousemove', onDragMove);
+          scroller.addEventListener('mouseleave', onDragEnd);
+          scroller.addEventListener('mouseup', onDragEnd);
+
+          scroller.addEventListener('touchstart', onDragStart, { passive: true });
+          scroller.addEventListener('touchmove', onDragMove, { passive: false });
+          scroller.addEventListener('touchend', onDragEnd);
+          scroller.addEventListener('touchcancel', onDragEnd);
+
+          if (controls.prev && controls.next) {
+            const step = () => Math.max(260, Math.round(scroller.clientWidth * 0.72));
+            controls.prev.addEventListener('click', () => {
+              scroller.scrollBy({ left: -step(), behavior: 'smooth' });
+            });
+            controls.next.addEventListener('click', () => {
+              scroller.scrollBy({ left: step(), behavior: 'smooth' });
+            });
+          }
+        };
+
+        const bindAll = () => {
+          document.querySelectorAll('.af-melyla-gallery__scroller').forEach(bindScroller);
+        };
+
+        bindAll();
+        document.addEventListener('shopify:section:load', bindAll);
+      })();
+    </script>
+
+  </body>
+</html>

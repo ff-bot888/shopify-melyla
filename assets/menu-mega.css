@@ -1,0 +1,83 @@
+/* Mega menu: SHOP BY PRODUCT only */
+
+/* Remove global white underlay layer created by theme */
+#header-group .header__underlay,
+#header-group .header__underlay::before,
+#header-group .header__underlay::after {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#header-group .header:has(.menu-list__link[aria-expanded='true']) {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* A submenu that contains group headings is treated as full-width mega panel */
+#header-group .menu-list__list-item:has(> .menu-list__submenu:has(.mega-menu__link--parent)) {
+  position: static !important;
+}
+
+#header-group .menu-list__submenu:has(.mega-menu__link--parent) {
+  position: absolute !important;
+  inset: 100% 0 auto 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  transform: none !important;
+  background: #fff !important;
+  border: 0 !important;
+  border-top: 1px solid #e6e6e6 !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+  padding: 14px 0 20px !important;
+  z-index: 80 !important;
+}
+
+#header-group .menu-list__submenu:has(.mega-menu__link--parent) .menu-list__submenu-inner {
+  width: min(1800px, calc(100vw - 60px)) !important;
+  margin: 0 auto !important;
+  padding: 0 18px !important;
+  background: transparent !important;
+  transform: none !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+#header-group .menu-list__submenu:has(.mega-menu__link--parent) .mega-menu,
+#header-group .menu-list__submenu:has(.mega-menu__link--parent) .mega-menu__grid {
+  display: block !important;
+  background: transparent !important;
+}
+
+#header-group .menu-list__submenu:has(.mega-menu__link--parent) .mega-menu__list {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  column-gap: clamp(96px, 11vw, 260px) !important;
+  row-gap: 18px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#header-group .menu-list__submenu:has(.mega-menu__link--parent) .mega-menu__link--parent {
+  font-size: 0.84rem !important;
+  line-height: 1.2 !important;
+  margin-bottom: 12px !important;
+  padding: 0 !important;
+}
+
+#header-group .menu-list__submenu:has(.mega-menu__link--parent) .mega-menu__column ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+#header-group .menu-list__submenu:has(.mega-menu__link--parent) .mega-menu__column ul .mega-menu__link {
+  font-size: 1.06rem !important;
+  line-height: 1.32 !important;
+  margin-bottom: 8px !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
