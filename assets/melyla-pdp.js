@@ -288,6 +288,80 @@ function syncInstallments(scope) {
   if (strong) strong.textContent = installment;
 }
 
+function syncVariantSubtitleTitle(scope, event) {
+  const subtitleConfigNode = document.querySelector('script[data-melyla-variant-subtitles]');
+  const targetMainTitle = scope.querySelector('.product-details h1');
+  if (!(targetMainTitle instanceof HTMLElement) || !(subtitleConfigNode instanceof HTMLScriptElement)) return;
+
+  let subtitleConfig;
+  try {
+    subtitleConfig = JSON.parse(subtitleConfigNode.textContent || '{}');
+  } catch (error) {
+    console.error('Failed to parse variant subtitle config:', error);
+    return;
+  }
+
+  const variantFromEvent = event?.detail?.variant?.id;
+  const variantFromUrl = new URL(window.location.href).searchParams.get('variant');
+  const variantFromForm = scope.querySelector('form[data-type="add-to-cart-form"] input[name="id"]')?.value;
+  const variantId = String(variantFromEvent || variantFromForm || variantFromUrl || '');
+  const subtitle = subtitleConfig?.variants?.[variantId];
+  const fallbackTitle = subtitleConfig?.productTitle || '';
+  const displayTitle = (subtitle || fallbackTitle || '').trim();
+  if (!displayTitle) return;
+
+  targetMainTitle.textContent = `AFROYLA ${displayTitle}`;
+
+  const sourceHtml = event?.detail?.data?.html;
+  if (!sourceHtml) return;
+  const sourceViewTitleLink = sourceHtml.querySelector('[data-testid="product-information"] .view-product-title a.link');
+  const targetViewTitleLink = scope.querySelector('.view-product-title a.link');
+  if (sourceViewTitleLink instanceof HTMLAnchorElement && targetViewTitleLink instanceof HTMLAnchorElement) {
+    targetViewTitleLink.href = sourceViewTitleLink.href;
+  }
+}
+
+function initJudgeMeReviews(scope) {
+  const root = scope.querySelector('[data-testid="melyla-product-reviews"]');
+  if (!root) return;
+
+  const widget = root.querySelector('#judgeme_product_reviews');
+  const badge = document.querySelector('[data-testid="product-information"] .jdgm-preview-badge');
+  const variantConfigNode = document.querySelector('script[data-melyla-variant-subtitles]');
+
+  let productId = '';
+  if (variantConfigNode instanceof HTMLScriptElement) {
+    try {
+      const config = JSON.parse(variantConfigNode.textContent || '{}');
+      productId = String(config?.productId || '');
+    } catch (error) {
+      console.error('Failed to parse product config for reviews:', error);
+    }
+  }
+
+  if (productId) {
+    if (widget instanceof HTMLElement && !widget.getAttribute('data-id')) {
+      widget.setAttribute('data-id', productId);
+    }
+    if (badge instanceof HTMLElement && !badge.getAttribute('data-id')) {
+      badge.setAttribute('data-id', productId);
+    }
+  }
+
+  root.classList.add('is-ready');
+
+  const jdgm = window.jdgm;
+  if (jdgm) {
+    try {
+      jdgm.loadBadges?.();
+      jdgm.loadAllWidgets?.();
+      jdgm.initializeWidgets?.();
+    } catch (error) {
+      console.error('Judge.me refresh failed:', error);
+    }
+  }
+}
+
 function trySelectFirstAvailableVariant(scope) {
   const variantPicker = scope.querySelector('variant-picker');
   if (!variantPicker) return;
@@ -766,9 +840,11 @@ async function boot() {
   syncOfferCardPrices(scope);
   syncOfferOptions(scope);
   syncInstallments(scope);
+  syncVariantSubtitleTitle(scope);
+  initJudgeMeReviews(scope);
 
   const target = scope.closest('.shopify-section') || document;
-  target.addEventListener(ThemeEvents.variantUpdate, () => {
+  target.addEventListener(ThemeEvents.variantUpdate, (event) => {
     const nextScope = getProductFormSection();
     if (!nextScope) return;
     bindOfferCards(nextScope);
@@ -779,6 +855,8 @@ async function boot() {
     syncOfferCardPrices(nextScope);
     syncOfferOptions(nextScope);
     syncInstallments(nextScope);
+    syncVariantSubtitleTitle(nextScope, event);
+    initJudgeMeReviews(nextScope);
   });
 
   if (!globalCartListenersBound) {

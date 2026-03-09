@@ -151,28 +151,10 @@
                                                                                                                                                             }
                                                                                                                                              },
                                                                                                                             "review_iBqA9W":  {
-                                                                                                                                                  "type":  "text",
+                                                                                                                                                  "type":  "custom-liquid",
                                                                                                                                                   "name":  "Product rating",
                                                                                                                                                   "settings":  {
-                                                                                                                                                                   "text":  "\u003cp\u003e\u003cstrong\u003e\u2605\u2605\u2605\u2605\u2606\u003c/strong\u003e 1196 reviews\u003c/p\u003e",
-                                                                                                                                                                   "width":  "100%",
-                                                                                                                                                                   "max_width":  "normal",
-                                                                                                                                                                   "alignment":  "left",
-                                                                                                                                                                   "type_preset":  "custom",
-                                                                                                                                                                   "font":  "var(--font-body--family)",
-                                                                                                                                                                   "font_size":  "1.125rem",
-                                                                                                                                                                   "line_height":  "tight",
-                                                                                                                                                                   "letter_spacing":  "normal",
-                                                                                                                                                                   "case":  "none",
-                                                                                                                                                                   "wrap":  "pretty",
-                                                                                                                                                                   "color":  "",
-                                                                                                                                                                   "background":  false,
-                                                                                                                                                                   "background_color":  "#00000026",
-                                                                                                                                                                   "corner_radius":  0,
-                                                                                                                                                                   "padding-block-start":  0,
-                                                                                                                                                                   "padding-block-end":  0,
-                                                                                                                                                                   "padding-inline-start":  0,
-                                                                                                                                                                   "padding-inline-end":  0
+                                                                                                                                                                   "custom_liquid":  "\u003cp class=\"melyla-static-rating\"\u003e\u003cstrong\u003e\u2605\u2605\u2605\u2605\u2606\u003c/strong\u003e \u003cspan data-random-reviews\u003e1568 reviews\u003c/span\u003e\u003c/p\u003e\u003cscript\u003e(function(){var el=document.querySelector('[data-testid=\"product-information\"] [data-random-reviews]');if(!el)return;var n=Math.floor(Math.random()*1001)+1000;el.textContent=n+' reviews';})();\u003c/script\u003e"
                                                                                                                                                                },
                                                                                                                                                   "blocks":  {
 
@@ -895,11 +877,18 @@
                                                                  "padding-block-start":  100,
                                                                  "padding-block-end":  36
                                                              }
-                                            }
+                                            },
+                     "product_reviews_melyla":  {
+                                                     "type":  "product-reviews-melyla",
+                                                     "settings":  {
+
+                                                                  }
+                                                 }
                  },
     "order":  [
                   "main",
                   "product_faq_melyla",
+                  "product_reviews_melyla",
                   "product_recommendations_qggXJq"
               ]
 }

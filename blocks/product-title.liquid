@@ -5,7 +5,13 @@
   {% assign product_title = '<p>' | append: text | append: '</p>' %}
   {% render 'text', fallback_text: product_title, block: block %}
 {% else %}
-  {% assign product_title = '<p>' | append: closest.product.title | append: '</p>' %}
+  {% liquid
+    assign selected_variant = closest.product.selected_or_first_available_variant
+    assign variant_subtitle = selected_variant.metafields.descriptors.subtitle.value
+    assign display_title = variant_subtitle | default: closest.product.title
+    assign display_title = display_title | escape
+    assign product_title = '<p>' | append: display_title | append: '</p>'
+  %}
   <a
     class="contents user-select-text"
     ref="productTitleLink"

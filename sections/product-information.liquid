@@ -24,6 +24,25 @@
   {% content_for 'blocks' %}
 {% endcapture %}
 
+{% capture variant_subtitles_json %}
+  {
+    "productId": {{ product.id | json }},
+    "productTitle": {{ product.title | json }},
+    "variants": {
+      {% for variant in product.variants %}
+        "{{ variant.id }}": {{ variant.metafields.descriptors.subtitle.value | json }}{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    }
+  }
+{% endcapture %}
+
+<script
+  type="application/json"
+  data-melyla-variant-subtitles
+>
+  {{ variant_subtitles_json | strip }}
+</script>
+
 {% if section.settings.enable_sticky_add_to_cart %}
   {% liquid
     assign current_variant = product.selected_or_first_available_variant

@@ -1882,6 +1882,38 @@ html body [data-testid='product-information'] .product-details .text-block--revi
   line-height: 1.2 !important;
 }
 
+html body [data-testid='product-information'] .product-details .text-block--review_iBqA9W .jdgm-widget,
+html body [data-testid='product-information'] .product-details .text-block--review_iBqA9W .jdgm-prev-badge,
+html body [data-testid='product-information'] .product-details .text-block--review_iBqA9W .jdgm-preview-badge {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+html body [data-testid='product-information'] .product-details .text-block--review_iBqA9W .jdgm-star {
+  font-size: 18px !important;
+}
+
+[data-testid='melyla-product-reviews'] {
+  width: 100%;
+  margin-top: 0;
+  min-height: 200px;
+}
+
+[data-testid='melyla-product-reviews'] #judgeme_product_reviews {
+  width: 100%;
+}
+
+.melyla-product-reviews__title {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
 /* Tighten space before yellow deal card and remove the middle divider line */
 [data-testid='product-information'] .divider-divider_VJhene {
   display: none !important;
