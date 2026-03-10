@@ -1,4 +1,4 @@
-import { ThemeEvents } from '@theme/events';
+import { ThemeEvents, CartAddEvent, CartErrorEvent } from '@theme/events';
 
 const PRICE_SELECTORS = [
   'product-price .price',
@@ -17,6 +17,265 @@ function getProductFormSection() {
 let shouldOpenCartDrawer = false;
 let globalCartListenersBound = false;
 let loadingFallbackTimer = null;
+let cachedMelylaProductConfig = null;
+
+function toFiniteNumber(value, fallback) {
+  const num = Number(value);
+  return Number.isFinite(num) ? num : fallback;
+}
+
+function toBoolean(value, fallback = false) {
+  if (value === true || value === false) return value;
+  if (typeof value === 'string') {
+    const v = value.trim().toLowerCase();
+    if (v === 'true') return true;
+    if (v === 'false') return false;
+  }
+  if (typeof value === 'number') {
+    if (value === 1) return true;
+    if (value === 0) return false;
+  }
+  return fallback;
+}
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function getMelylaProductConfig() {
+  if (cachedMelylaProductConfig) return cachedMelylaProductConfig;
+
+  const configNode = document.querySelector('script[data-melyla-variant-subtitles]');
+  if (!(configNode instanceof HTMLScriptElement)) {
+    cachedMelylaProductConfig = {};
+    return cachedMelylaProductConfig;
+  }
+
+  try {
+    cachedMelylaProductConfig = JSON.parse(configNode.textContent || '{}') || {};
+  } catch (error) {
+    console.error('Failed to parse product config:', error);
+    cachedMelylaProductConfig = {};
+  }
+
+  return cachedMelylaProductConfig;
+}
+
+function normalizeBundleConfig(raw) {
+  const source = raw && typeof raw === 'object' ? raw : {};
+  const sourceHasData = Object.keys(source).length > 0;
+  const hasEnabledField = Object.prototype.hasOwnProperty.call(source, 'bundle_enabled');
+  const fallbackPaidCount = clamp(Math.round(toFiniteNumber(source.paid_count, 2)), 1, 20);
+  const fallbackFreeCount = clamp(Math.round(toFiniteNumber(source.free_count, 3)), 0, 20);
+  const discountPercent = clamp(toFiniteNumber(source.discount_percent, 21), 0, 100);
+  const bundlePriceMultiplier = toFiniteNumber(
+    source.bundle_price_multiplier,
+    fallbackPaidCount * (1 - discountPercent / 100)
+  );
+  const bundleCompareMultiplier = toFiniteNumber(source.bundle_compare_multiplier, fallbackPaidCount);
+  const cartQuantity = clamp(Math.round(toFiniteNumber(source.cart_quantity, fallbackPaidCount)), 1, 50);
+  const paidLabel = String(source.paid_label || (discountPercent > 0 ? `${discountPercent}% OFF` : '')).trim();
+
+  const badge = String(source.badge || 'BEST VALUE').trim();
+  const savePrefix = String(source.save_prefix || 'You save').trim();
+  const saveSuffix = String(source.save_suffix || 'with this bundle').trim();
+  const freeLabel = String(source.free_label || 'FREE').trim();
+
+  const rawItems = Array.isArray(source.items) ? source.items : [];
+  const rawBundleByList = Array.isArray(source.bundle_by_raw)
+    ? source.bundle_by_raw
+    : source.bundle_by_raw
+      ? [source.bundle_by_raw]
+      : [];
+  const neededItemCount = rawItems.length > 0 ? rawItems.length : fallbackPaidCount + fallbackFreeCount;
+  const items = [];
+
+  for (let index = 0; index < neededItemCount; index += 1) {
+    const rawItem = rawItems[index] && typeof rawItems[index] === 'object' ? rawItems[index] : {};
+    const freeByPosition = index >= fallbackPaidCount;
+    const free = rawItem.free === true || (rawItem.free !== false && freeByPosition);
+    const defaultName = free ? `Gift ${Math.max(1, index - fallbackPaidCount + 1)}` : `Bundle Item ${index + 1}`;
+    const priceMultiplierDefault = free ? 0 : 1 - discountPercent / 100;
+    const compareMultiplierDefault = 1;
+    const name = String(rawItem.name || defaultName).trim();
+    const discountLabel = String(rawItem.discount_label || (!free && paidLabel ? paidLabel : '')).trim();
+    const priceMultiplier = Math.max(0, toFiniteNumber(rawItem.price_multiplier, priceMultiplierDefault));
+    const compareMultiplier = Math.max(0, toFiniteNumber(rawItem.compare_multiplier, compareMultiplierDefault));
+    const variantId = String(rawItem.variant_id || rawItem.variantId || '').trim();
+    const isCurrentProduct = rawItem.is_current_product === true;
+    const quantity = clamp(Math.round(toFiniteNumber(rawItem.quantity, 1)), 1, 50);
+    const imageUrl = String(rawItem.image_url || rawItem.image || rawItem.image_src || '').trim();
+    const imageAlt = String(rawItem.image_alt || rawItem.name || defaultName).trim();
+    const subtext = String(rawItem.subtext || rawItem.subtitle || '').trim();
+    const fixedPrice = String(rawItem.fixed_price || rawItem.fixedPrice || '').trim();
+    const fixedCompare = String(rawItem.fixed_compare || rawItem.fixedCompare || '').trim();
+
+    items.push({
+      name,
+      free,
+      subtext,
+      discountLabel,
+      priceMultiplier,
+      compareMultiplier,
+      variantId,
+      isCurrentProduct,
+      quantity,
+      imageUrl,
+      imageAlt,
+      fixedPrice,
+      fixedCompare,
+    });
+  }
+
+  const configuredPaidCount = items.filter((item) => !item.free).length;
+  const configuredFreeCount = items.filter((item) => item.free).length;
+  const targetPaidCount = Math.max(
+    1,
+    rawBundleByList.length + 1,
+    Math.round(toFiniteNumber(source.paid_count, fallbackPaidCount))
+  );
+
+  // If paid lines are missing due to Liquid reference shape mismatch, recover from raw list.
+  if (configuredPaidCount < targetPaidCount && rawBundleByList.length) {
+    for (let i = 0; i < rawBundleByList.length && items.filter((item) => !item.free).length < targetPaidCount; i += 1) {
+      const candidate = rawBundleByList[i];
+      const ref = (candidate && typeof candidate === 'object')
+        ? (candidate.value || candidate.product || candidate.reference || candidate)
+        : candidate;
+      const variant = ref.selected_or_first_available_variant
+        || (Array.isArray(ref.variants) ? ref.variants[0] : null)
+        || ref.variant
+        || null;
+      const variantId = String(variant?.id || '').trim();
+      const imageUrl =
+        String(
+          variant?.featured_image?.src
+          || variant?.featured_image?.url
+          || variant?.featured_image
+          || ref?.featured_image?.src
+          || ref?.featured_image?.url
+          || ref?.featured_image
+          || ''
+        ).trim();
+
+      items.push({
+        name: String(
+          (ref && typeof ref === 'object' ? (ref.title || ref.name) : ref)
+          || `Bundle Item ${items.filter((x) => !x.free).length + 1}`
+        ).trim(),
+        free: false,
+        subtext: '',
+        discountLabel: String(source.paid_label || '').trim(),
+        priceMultiplier: 1,
+        compareMultiplier: 1,
+        variantId,
+        isCurrentProduct: false,
+        quantity: 1,
+        imageUrl,
+        imageAlt: String((ref && typeof ref === 'object' ? (ref.title || ref.name) : ref) || '').trim(),
+        fixedPrice: '',
+        fixedCompare: '',
+      });
+    }
+  }
+
+  const finalPaidCount = items.filter((item) => !item.free).length;
+  const finalFreeCount = items.filter((item) => item.free).length;
+  const paidCount = finalPaidCount > 0 ? finalPaidCount : fallbackPaidCount;
+  const freeCount = finalFreeCount > 0 ? finalFreeCount : fallbackFreeCount;
+  const headlineDefault = freeCount > 0 ? `Buy ${paidCount} Get ${freeCount} FREE` : `Buy ${paidCount}`;
+  const subtitleDefault = freeCount > 0 ? `${paidCount} items + ${freeCount} free gifts` : `${paidCount} items`;
+  const headline = String(source.headline || headlineDefault).trim();
+  const subtitle = String(source.subtitle || subtitleDefault).trim();
+
+  return {
+    enabled: sourceHasData && rawItems.length > 0 && (hasEnabledField ? toBoolean(source.bundle_enabled, false) : true),
+    paidCount,
+    freeCount,
+    discountPercent,
+    cartQuantity,
+    headline,
+    subtitle,
+    badge,
+    paidLabel,
+    savePrefix,
+    saveSuffix,
+    freeLabel,
+    bundlePriceMultiplier: Math.max(0, bundlePriceMultiplier),
+    bundleCompareMultiplier: Math.max(0, bundleCompareMultiplier),
+    items,
+  };
+}
+
+function getBundleConfig() {
+  const config = getMelylaProductConfig();
+  const normalized = normalizeBundleConfig(config?.bundleConfig);
+  if (!normalized.enabled) return normalized;
+
+  // Hard guarantee: paid list must always include current product as the first paid line.
+  const paidItems = normalized.items.filter((item) => !item.free);
+  const currentIndex = paidItems.findIndex((item) => item.isCurrentProduct === true);
+  if (currentIndex < 0) {
+    normalized.items.unshift({
+      name: String(config?.productTitle || 'Current Product'),
+      free: false,
+      subtext: '',
+      discountLabel: normalized.paidLabel || '',
+      priceMultiplier: 1,
+      compareMultiplier: 1,
+      variantId: '',
+      isCurrentProduct: true,
+      quantity: 1,
+      imageUrl: '',
+      imageAlt: String(config?.productTitle || 'Current Product'),
+      fixedPrice: '',
+      fixedCompare: '',
+    });
+  } else if (currentIndex > 0) {
+    // Move current product line to the first paid position for predictable UI.
+    const currentItem = paidItems[currentIndex];
+    normalized.items = [currentItem, ...normalized.items.filter((item) => item !== currentItem)];
+  }
+
+  normalized.paidCount = normalized.items.filter((item) => !item.free).length;
+  normalized.freeCount = normalized.items.filter((item) => item.free).length;
+  const expectedPaidCount = Math.max(
+    normalized.paidCount,
+    Math.max(1, Math.round(toFiniteNumber(config?.bundleConfig?.paid_count, normalized.paidCount || 1)))
+  );
+  while (normalized.items.filter((item) => !item.free).length < expectedPaidCount) {
+    normalized.items.push({
+      name: `Bundle Item ${normalized.items.filter((item) => !item.free).length + 1}`,
+      free: false,
+      subtext: '',
+      discountLabel: normalized.paidLabel || '',
+      priceMultiplier: 1,
+      compareMultiplier: 1,
+      variantId: '',
+      isCurrentProduct: false,
+      quantity: 1,
+      imageUrl: '',
+      imageAlt: '',
+      fixedPrice: '',
+      fixedCompare: '',
+    });
+  }
+  normalized.paidCount = normalized.items.filter((item) => !item.free).length;
+  // Always derive display copy from resolved data, not hand-entered subtitle text.
+  normalized.headline = normalized.freeCount > 0
+    ? `Buy ${normalized.paidCount} Get ${normalized.freeCount} FREE`
+    : `Buy ${normalized.paidCount}`;
+  normalized.subtitle = normalized.freeCount > 0
+    ? `${normalized.paidCount} items + ${normalized.freeCount} free gifts`
+    : `${normalized.paidCount} items`;
+  return normalized;
+}
+
+function getConfiguredPaidCartQty(bundleConfig) {
+  return bundleConfig.items
+    .filter((item) => !item.free && (item.variantId || item.isCurrentProduct))
+    .reduce((sum, item) => sum + Math.max(1, Math.round(item.quantity || 1)), 0);
+}
 
 function setAddToCartLoading(scope, loading) {
   const button = scope?.querySelector('.add-to-cart-button.button');
@@ -99,9 +358,14 @@ function formatMoney(parts, multiplier = 1) {
   return `${parts.prefix}${num.toFixed(parts.decimals)}${parts.suffix}`;
 }
 
+function formatMoneyValue(parts, value) {
+  return `${parts.prefix}${Number(value).toFixed(parts.decimals)}${parts.suffix}`;
+}
+
 function ensureOfferCardDetails(scope) {
   const group = scope.querySelector('[data-melyla-offer-cards]');
   if (!group) return;
+  const bundleConfig = getBundleConfig();
 
   const cards = Array.from(group.querySelectorAll('.melyla-offer-card'));
   cards.forEach((card) => {
@@ -115,11 +379,36 @@ function ensureOfferCardDetails(scope) {
     }
   });
 
-  const bundleCard = group.querySelector('.melyla-offer-card[data-offer-qty="2"]');
+  const bundleCard =
+    group.querySelector('.melyla-offer-card[data-offer-type="bundle"]')
+    || group.querySelector('.melyla-offer-card[data-offer-qty="2"]')
+    || cards[1];
   if (!bundleCard) return;
+  bundleCard.setAttribute('data-offer-type', 'bundle');
 
   let details = bundleCard.querySelector('.melyla-offer-card__details');
   if (!details) return;
+
+  if (!bundleConfig.enabled) {
+    bundleCard.setAttribute('hidden', 'hidden');
+    bundleCard.setAttribute('aria-hidden', 'true');
+    const oldItems = details.querySelector('.melyla-bundle-items');
+    if (oldItems) oldItems.remove();
+
+    const singleCard = group.querySelector('.melyla-offer-card[data-offer-qty="1"]') || cards[0];
+    cards.forEach((item) => {
+      const active = item === singleCard;
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    setQuantity(scope, 1);
+    return;
+  }
+
+  bundleCard.removeAttribute('hidden');
+  bundleCard.removeAttribute('aria-hidden');
+  const configuredPaidQty = getConfiguredPaidCartQty(bundleConfig);
+  bundleCard.setAttribute('data-offer-qty', String(configuredPaidQty > 0 ? configuredPaidQty : bundleConfig.cartQuantity));
 
   if (!details.querySelector('.melyla-offer-card__options')) {
     const options = document.createElement('div');
@@ -129,72 +418,124 @@ function ensureOfferCardDetails(scope) {
     details.prepend(options);
   }
 
-  if (details.querySelector('.melyla-bundle-items')) return;
+  const badgeEl = bundleCard.querySelector('.badge');
+  if (badgeEl) badgeEl.textContent = bundleConfig.badge;
+
+  const titleEl = bundleCard.querySelector('h5');
+  if (titleEl) {
+    titleEl.textContent = bundleConfig.headline;
+    if (bundleConfig.paidLabel) {
+      const off = document.createElement('em');
+      off.className = 'off';
+      off.textContent = bundleConfig.paidLabel;
+      titleEl.append(' ');
+      titleEl.append(off);
+    }
+  }
+
+  const subtitleEl = bundleCard.querySelector('p');
+  if (subtitleEl) subtitleEl.textContent = bundleConfig.subtitle;
+
+  const oldItems = details.querySelector('.melyla-bundle-items');
+  if (oldItems) oldItems.remove();
 
   const bundleItems = document.createElement('div');
   bundleItems.className = 'melyla-bundle-items';
-  bundleItems.innerHTML = `
-    <div class="melyla-bundle-item">
-      <span class="name">Leather Handbag <em>21% OFF</em></span>
-      <span class="price" data-bundle-line="1">$0.00</span>
-      <span class="compare" data-bundle-compare="1"></span>
-    </div>
-    <div class="melyla-bundle-item">
-      <span class="name">Mini Satchel <em>21% OFF</em></span>
-      <span class="price" data-bundle-line="2">$0.00</span>
-      <span class="compare" data-bundle-compare="2"></span>
-    </div>
-    <div class="melyla-bundle-item is-free">
-      <span class="name">Eclipse Makeup Bag</span>
-      <span class="price">FREE</span>
-      <span class="compare" data-bundle-compare="3"></span>
-    </div>
-    <div class="melyla-bundle-item is-free">
-      <span class="name">Wallet</span>
-      <span class="price">FREE</span>
-      <span class="compare" data-bundle-compare="4"></span>
-    </div>
-    <div class="melyla-bundle-item is-free">
-      <span class="name">Mini Wallet</span>
-      <span class="price">FREE</span>
-      <span class="compare" data-bundle-compare="5"></span>
-    </div>
-    <div class="melyla-bundle-save">You save <strong data-bundle-save>$0.00</strong> with this bundle</div>
-  `;
+  const fallbackThumb = group.querySelector('.melyla-offer-card[data-offer-qty="1"] .melyla-offer-card__thumb');
+  const fallbackThumbSrc = fallbackThumb?.getAttribute('src') || '';
+  const fallbackThumbAlt = fallbackThumb?.getAttribute('alt') || '';
+
+  bundleConfig.items.forEach((item, index) => {
+    const row = document.createElement('div');
+    row.className = `melyla-bundle-item${item.free ? ' is-free' : ''}`;
+
+    const thumb = document.createElement('span');
+    thumb.className = 'melyla-bundle-item__thumb';
+    const thumbSrc = item.imageUrl || fallbackThumbSrc;
+    if (thumbSrc) {
+      const img = document.createElement('img');
+      img.src = thumbSrc;
+      img.alt = item.imageAlt || fallbackThumbAlt || item.name;
+      img.loading = 'lazy';
+      thumb.append(img);
+    }
+
+    const meta = document.createElement('div');
+    meta.className = 'melyla-bundle-item__meta';
+    const name = document.createElement('span');
+    name.className = 'name';
+    name.textContent = item.name;
+    if (!item.free && item.discountLabel) {
+      const label = document.createElement('em');
+      label.textContent = item.discountLabel;
+      name.append(' ');
+      name.append(label);
+    }
+    meta.append(name);
+    if (item.subtext) {
+      const sub = document.createElement('span');
+      sub.className = 'subtext';
+      sub.textContent = item.subtext;
+      meta.append(sub);
+    }
+
+    const price = document.createElement('span');
+    price.className = 'price';
+    if (item.free) {
+      price.textContent = bundleConfig.freeLabel;
+    } else {
+      price.setAttribute('data-bundle-line', String(index + 1));
+      price.textContent = '$0.00';
+    }
+
+    const compare = document.createElement('span');
+    compare.className = 'compare';
+    compare.setAttribute('data-bundle-compare', String(index + 1));
+
+    row.append(thumb, meta, price, compare);
+    bundleItems.append(row);
+  });
+
+  const save = document.createElement('div');
+  save.className = 'melyla-bundle-save';
+  save.innerHTML = `${bundleConfig.savePrefix} <strong data-bundle-save>$0.00</strong> ${bundleConfig.saveSuffix}`;
+  bundleItems.append(save);
 
   details.append(bundleItems);
 }
 
-function syncBundleBreakdown(scope, parsed, compareParsed) {
+function syncBundleBreakdown(scope, parsed, compareParsed, bundleConfig) {
   const group = scope.querySelector('[data-melyla-offer-cards]');
-  if (!group || !parsed) return;
-
-  const line1 = group.querySelector('[data-bundle-line="1"]');
-  const line2 = group.querySelector('[data-bundle-line="2"]');
-  const compare1 = group.querySelector('[data-bundle-compare="1"]');
-  const compare2 = group.querySelector('[data-bundle-compare="2"]');
-  const compare3 = group.querySelector('[data-bundle-compare="3"]');
-  const compare4 = group.querySelector('[data-bundle-compare="4"]');
-  const compare5 = group.querySelector('[data-bundle-compare="5"]');
+  if (!group || !parsed || !bundleConfig.enabled) return;
   const saveEl = group.querySelector('[data-bundle-save]');
+  const baseCompare = compareParsed || parsed;
+  let actualTotal = 0;
+  let compareTotal = 0;
 
-  if (line1) line1.textContent = formatMoney(parsed, 0.79);
-  if (line2) line2.textContent = formatMoney(parsed, 0.61);
+  bundleConfig.items.forEach((item, index) => {
+    const lineEl = group.querySelector(`[data-bundle-line="${index + 1}"]`);
+    const compareEl = group.querySelector(`[data-bundle-compare="${index + 1}"]`);
+    const fixedPriceParsed = parseMoney(item.fixedPrice || '');
+    const fixedCompareParsed = parseMoney(item.fixedCompare || '');
+    const qty = Math.max(1, Math.round(item.quantity || 1));
 
-  if (compare1) compare1.textContent = formatMoney(parsed, 1);
-  if (compare2) compare2.textContent = formatMoney(parsed, 0.77);
-  if (compare3) compare3.textContent = formatMoney(parsed, 0.28);
-  if (compare4) compare4.textContent = formatMoney(parsed, 0.35);
-  if (compare5) compare5.textContent = formatMoney(parsed, 0.28);
+    if (!item.free) {
+      const lineText = fixedPriceParsed ? item.fixedPrice : formatMoney(parsed, item.priceMultiplier);
+      if (lineEl) lineEl.textContent = lineText;
+      actualTotal += (fixedPriceParsed ? fixedPriceParsed.value : parsed.value * item.priceMultiplier) * qty;
+    }
+
+    const compareText = fixedCompareParsed
+      ? item.fixedCompare
+      : formatMoney(baseCompare, item.compareMultiplier || 1);
+    if (compareEl) compareEl.textContent = compareText;
+    compareTotal += (fixedCompareParsed ? fixedCompareParsed.value : baseCompare.value * (item.compareMultiplier || 1)) * qty;
+  });
 
   if (saveEl) {
-    if (compareParsed) {
-      const save = compareParsed.value * 2 - parsed.value * 2;
-      const money = { ...parsed, value: Math.max(0, save) };
-      saveEl.textContent = formatMoney(money, 1);
-    } else {
-      saveEl.textContent = formatMoney(parsed, 1.28);
-    }
+    const save = Math.max(0, compareTotal - actualTotal);
+    const money = { ...parsed, value: save };
+    saveEl.textContent = formatMoney(money, 1);
   }
 }
 
@@ -248,6 +589,7 @@ function syncAddToCartPrice(scope) {
 function syncOfferCardPrices(scope) {
   const group = scope.querySelector('[data-melyla-offer-cards]');
   if (!group) return;
+  const bundleConfig = getBundleConfig();
 
   const price = findPriceText(scope);
   if (!price) return;
@@ -255,16 +597,62 @@ function syncOfferCardPrices(scope) {
   const single = group.querySelector('[data-offer-price=\"single\"]');
   const bundle = group.querySelector('[data-offer-price=\"bundle\"]');
   const bundleCompare = group.querySelector('[data-offer-compare=\"bundle\"]');
+  const bundleCard = group.querySelector('.melyla-offer-card[data-offer-type="bundle"]');
 
   const parsed = parseMoney(price);
   if (single) single.textContent = price;
-  if (bundle) bundle.textContent = parsed ? formatMoney(parsed, 2) : `2x ${price}`;
+  if (!bundleConfig.enabled) {
+    if (bundle) bundle.textContent = '';
+    if (bundleCompare) {
+      bundleCompare.textContent = '';
+      bundleCompare.classList.remove('is-visible');
+    }
+    if (bundleCard) bundleCard.setAttribute('hidden', 'hidden');
+    return;
+  }
+
+  if (bundle) {
+    if (parsed) {
+      const baseCompare = parseMoney(findComparePriceText(scope)) || parsed;
+      const paidItems = bundleConfig.items.filter((item) => !item.free);
+      const hasConfiguredPaid = paidItems.some((item) => item.variantId || item.isCurrentProduct);
+
+      if (hasConfiguredPaid) {
+        let total = 0;
+        paidItems.forEach((item) => {
+          const qty = Math.max(1, Math.round(item.quantity || 1));
+          const fixedPriceParsed = parseMoney(item.fixedPrice || '');
+          const line = fixedPriceParsed ? fixedPriceParsed.value : parsed.value * (item.priceMultiplier || 1);
+          total += line * qty;
+        });
+        bundle.textContent = formatMoneyValue(parsed, total);
+
+        if (bundleCompare) {
+          let compareTotal = 0;
+          paidItems.forEach((item) => {
+            const qty = Math.max(1, Math.round(item.quantity || 1));
+            const fixedCompareParsed = parseMoney(item.fixedCompare || '');
+            const lineCompare = fixedCompareParsed
+              ? fixedCompareParsed.value
+              : baseCompare.value * (item.compareMultiplier || 1);
+            compareTotal += lineCompare * qty;
+          });
+          bundleCompare.textContent = formatMoneyValue(baseCompare, compareTotal);
+          bundleCompare.classList.add('is-visible');
+        }
+      } else {
+        bundle.textContent = formatMoney(parsed, bundleConfig.bundlePriceMultiplier);
+      }
+    } else {
+      bundle.textContent = `${bundleConfig.paidCount}x ${price}`;
+    }
+  }
 
   const compare = findComparePriceText(scope);
   const compareParsed = parseMoney(compare);
-  if (bundleCompare) {
+  if (bundleCompare && bundleCompare.textContent === '') {
     if (compareParsed) {
-      bundleCompare.textContent = formatMoney(compareParsed, 2);
+      bundleCompare.textContent = formatMoney(compareParsed, bundleConfig.bundleCompareMultiplier);
       bundleCompare.classList.add('is-visible');
     } else {
       bundleCompare.textContent = '';
@@ -272,7 +660,7 @@ function syncOfferCardPrices(scope) {
     }
   }
 
-  syncBundleBreakdown(scope, parsed, compareParsed);
+  syncBundleBreakdown(scope, parsed, compareParsed, bundleConfig);
 }
 
 function syncInstallments(scope) {
@@ -289,17 +677,9 @@ function syncInstallments(scope) {
 }
 
 function syncVariantSubtitleTitle(scope, event) {
-  const subtitleConfigNode = document.querySelector('script[data-melyla-variant-subtitles]');
   const targetMainTitle = scope.querySelector('.product-details h1');
-  if (!(targetMainTitle instanceof HTMLElement) || !(subtitleConfigNode instanceof HTMLScriptElement)) return;
-
-  let subtitleConfig;
-  try {
-    subtitleConfig = JSON.parse(subtitleConfigNode.textContent || '{}');
-  } catch (error) {
-    console.error('Failed to parse variant subtitle config:', error);
-    return;
-  }
+  if (!(targetMainTitle instanceof HTMLElement)) return;
+  const subtitleConfig = getMelylaProductConfig();
 
   const variantFromEvent = event?.detail?.variant?.id;
   const variantFromUrl = new URL(window.location.href).searchParams.get('variant');
@@ -327,17 +707,8 @@ function initJudgeMeReviews(scope) {
 
   const widget = root.querySelector('#judgeme_product_reviews');
   const badge = document.querySelector('[data-testid="product-information"] .jdgm-preview-badge');
-  const variantConfigNode = document.querySelector('script[data-melyla-variant-subtitles]');
-
-  let productId = '';
-  if (variantConfigNode instanceof HTMLScriptElement) {
-    try {
-      const config = JSON.parse(variantConfigNode.textContent || '{}');
-      productId = String(config?.productId || '');
-    } catch (error) {
-      console.error('Failed to parse product config for reviews:', error);
-    }
-  }
+  const config = getMelylaProductConfig();
+  const productId = String(config?.productId || '');
 
   if (productId) {
     if (widget instanceof HTMLElement && !widget.getAttribute('data-id')) {
@@ -755,6 +1126,116 @@ function bindOfferCards(scope) {
   syncOfferCardState(scope);
 }
 
+function getCartSectionIds() {
+  const components = document.querySelectorAll('cart-items-component');
+  const ids = new Set();
+  components.forEach((item) => {
+    if (item instanceof HTMLElement && item.dataset.sectionId) {
+      ids.add(item.dataset.sectionId);
+    }
+  });
+  return Array.from(ids);
+}
+
+function mergeCartItems(items) {
+  const map = new Map();
+  items.forEach((item) => {
+    const id = Number(item?.id);
+    const quantity = Number(item?.quantity);
+    if (!Number.isFinite(id) || id <= 0 || !Number.isFinite(quantity) || quantity <= 0) return;
+    map.set(id, (map.get(id) || 0) + quantity);
+  });
+  return Array.from(map.entries()).map(([id, quantity]) => ({ id, quantity }));
+}
+
+function buildBundleCartItems(scope, form) {
+  const group = scope.querySelector('[data-melyla-offer-cards]');
+  if (!group) return null;
+  const config = getBundleConfig();
+  if (!config.enabled) return null;
+
+  const activeBundleCard = group.querySelector('.melyla-offer-card.is-active[data-offer-type="bundle"]');
+  if (!activeBundleCard) return null;
+
+  const variantInput = form.querySelector('input[name="id"]');
+  const selectedVariantId = Number(variantInput?.value || '');
+  if (!Number.isFinite(selectedVariantId) || selectedVariantId <= 0) return null;
+
+  const qtyInput = getQuantityInput(scope);
+  const selectedQty = Number(qtyInput?.value || activeBundleCard.getAttribute('data-offer-qty') || '1');
+  const paidQuantity = Math.max(1, Math.round(selectedQty));
+
+  const items = [];
+  const configuredPaidItems = config.items.filter((item) => !item.free && (item.variantId || item.isCurrentProduct));
+  if (configuredPaidItems.length) {
+    configuredPaidItems.forEach((item) => {
+      const paidVariantId = item.isCurrentProduct ? selectedVariantId : Number(item.variantId);
+      if (!Number.isFinite(paidVariantId) || paidVariantId <= 0) return;
+      items.push({
+        id: paidVariantId,
+        quantity: Math.max(1, Math.round(item.quantity || 1)),
+      });
+    });
+  } else {
+    items.push({ id: selectedVariantId, quantity: paidQuantity });
+  }
+
+  config.items
+    .filter((item) => item.free && item.variantId)
+    .forEach((item) => {
+      const giftVariantId = Number(item.variantId);
+      if (!Number.isFinite(giftVariantId) || giftVariantId <= 0) return;
+      items.push({
+        id: giftVariantId,
+        quantity: Math.max(1, Math.round(item.quantity || 1)),
+      });
+    });
+
+  const merged = mergeCartItems(items);
+  if (merged.length <= 1) return null;
+  return merged;
+}
+
+async function addBundleItemsToCart(scope, form, items) {
+  const sectionIds = getCartSectionIds();
+  const payload = {
+    items,
+    sections: sectionIds.join(','),
+    sections_url: window.location.pathname,
+  };
+
+  const response = await fetch(Theme.routes.cart_add_url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify(payload),
+    credentials: 'same-origin',
+  });
+  const data = await response.json();
+
+  if (!response.ok || data?.status) {
+    const message = data?.message || 'Failed to add bundle to cart';
+    const sourceId = form.getAttribute('id') || 'melyla-bundle-add';
+    document.dispatchEvent(new CartErrorEvent(sourceId, message, data?.description, data?.errors));
+    throw new Error(message);
+  }
+
+  const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+  const sourceId = form.getAttribute('id') || String(items[0]?.id || '');
+  const productId = form.getAttribute('data-product-id') || '';
+  document.dispatchEvent(
+    new CartAddEvent({}, sourceId, {
+      source: 'melyla-pdp-bundle',
+      itemCount: totalQuantity,
+      productId,
+      sections: data?.sections || {},
+      variantId: String(items[0]?.id || ''),
+    })
+  );
+}
+
 function bindOtherStyles(scope) {
   const root = scope.querySelector('[data-melyla-other-styles]');
   if (!root || root.dataset.bound === 'true') return;
@@ -813,7 +1294,31 @@ async function boot() {
   }
   if (form && form.dataset.melylaBound !== 'true') {
     form.dataset.melylaBound = 'true';
-    form.addEventListener('submit', () => {
+    form.addEventListener('submit', async (event) => {
+      const bundleItems = buildBundleCartItems(scope, form);
+      if (bundleItems) {
+        event.preventDefault();
+        shouldOpenCartDrawer = true;
+        window.setTimeout(() => {
+          setAddToCartLoading(scope, true);
+        }, 0);
+
+        if (loadingFallbackTimer) window.clearTimeout(loadingFallbackTimer);
+        loadingFallbackTimer = window.setTimeout(() => {
+          const latestScope = getProductFormSection();
+          if (latestScope) setAddToCartLoading(latestScope, false);
+          shouldOpenCartDrawer = false;
+          loadingFallbackTimer = null;
+        }, 8000);
+
+        try {
+          await addBundleItemsToCart(scope, form, bundleItems);
+        } catch (error) {
+          console.error('Bundle add to cart failed:', error);
+        }
+        return;
+      }
+
       shouldOpenCartDrawer = true;
       // Defer one tick so submit is not blocked by early button disable.
       window.setTimeout(() => {

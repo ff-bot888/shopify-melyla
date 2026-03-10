@@ -25,9 +25,200 @@
 {% endcapture %}
 
 {% capture variant_subtitles_json %}
+  {% assign bundle_config_value = product.metafields.custom.bundle_config.value %}
+  {% assign bundle_config_is_metaobject = false %}
+  {% if bundle_config_value != blank and bundle_config_value.bundle_enabled != blank %}
+    {% assign bundle_config_is_metaobject = true %}
+  {% endif %}
   {
     "productId": {{ product.id | json }},
     "productTitle": {{ product.title | json }},
+    "bundleConfig":
+    {% if bundle_config_is_metaobject %}
+      {% assign bundle_by_field = bundle_config_value.fields['bundle_by_list'] | default: bundle_config_value.bundle_by_list %}
+      {% assign bundle_by_products = bundle_by_field.value %}
+      {% if bundle_by_products == blank and bundle_by_field.references != blank %}
+        {% assign bundle_by_products = bundle_by_field.references %}
+      {% endif %}
+      {% if bundle_by_products == blank and bundle_by_field.list != blank %}
+        {% assign bundle_by_products = bundle_by_field.list %}
+      {% endif %}
+      {% if bundle_by_products == blank and bundle_by_field.products != blank %}
+        {% assign bundle_by_products = bundle_by_field.products %}
+      {% endif %}
+      {% if bundle_by_products == blank %}
+        {% assign bundle_by_products = '' %}
+      {% endif %}
+      {% assign bundle_by_single = blank %}
+      {% assign bundle_by_is_collection = false %}
+      {% if bundle_by_products != blank and bundle_by_products.size != blank %}
+        {% assign bundle_by_is_collection = true %}
+      {% elsif bundle_by_products != blank %}
+        {% assign bundle_by_single = bundle_by_products %}
+      {% endif %}
+
+      {% assign bundle_gift_field = bundle_config_value.fields['bundle_gift_variant'] | default: bundle_config_value.bundle_gift_variant %}
+      {% assign bundle_gift_products = bundle_gift_field.value %}
+      {% if bundle_gift_products == blank and bundle_gift_field.references != blank %}
+        {% assign bundle_gift_products = bundle_gift_field.references %}
+      {% endif %}
+      {% if bundle_gift_products == blank and bundle_gift_field.list != blank %}
+        {% assign bundle_gift_products = bundle_gift_field.list %}
+      {% endif %}
+      {% if bundle_gift_products == blank and bundle_gift_field.products != blank %}
+        {% assign bundle_gift_products = bundle_gift_field.products %}
+      {% endif %}
+      {% if bundle_gift_products == blank %}
+        {% assign bundle_gift_products = '' %}
+      {% endif %}
+
+      {% assign paid_count = 1 %}
+      {% assign bundle_by_count = 0 %}
+      {% if bundle_by_is_collection %}
+        {% assign bundle_by_count = bundle_by_products.size | default: 0 %}
+      {% elsif bundle_by_single != blank %}
+        {% assign bundle_by_count = 1 %}
+      {% elsif bundle_by_field != blank %}
+        {% assign bundle_by_count = 1 %}
+      {% endif %}
+      {% assign paid_count = paid_count | plus: bundle_by_count %}
+      {% assign free_count = 0 %}
+      {% assign bundle_gift_count = bundle_gift_products.size | default: 0 %}
+      {% if bundle_gift_count == 0 and bundle_config_value.bundle_gift_variant != blank %}
+        {% assign bundle_gift_count = bundle_config_value.bundle_gift_variant.size | default: 0 %}
+      {% endif %}
+      {% assign free_count = free_count | plus: bundle_gift_count %}
+      {
+        "bundle_enabled": {{ bundle_config_value.bundle_enabled.value | json }},
+        "headline": {{ bundle_config_value.bundle_title.value | json }},
+        "subtitle": {{ bundle_config_value.bundle_subtitle.value | json }},
+        "badge": {{ bundle_config_value.bundle_badge.value | json }},
+        "paid_count": {{ paid_count | json }},
+        "free_count": {{ free_count | json }},
+        "paid_label": {{ bundle_config_value.bundle_discount_label.value | json }},
+        "free_label": {{ bundle_config_value.bundle_gift_label.value | json }},
+        "items": [
+          {
+            "name": {{ product.title | json }},
+            "free": false,
+            "is_current_product": true,
+            "quantity": 1,
+            "price_multiplier": 1,
+            "compare_multiplier": 1,
+            "image_url": {{ product.featured_image | image_url: width: 160 | json }}
+          }
+          {% if bundle_by_single != blank %}
+            {% assign by_product_ref = bundle_by_single %}
+            {% if by_product_ref.value != blank %}
+              {% assign by_product_ref = by_product_ref.value %}
+            {% endif %}
+            {% if by_product_ref.product != blank %}
+              {% assign by_product_ref = by_product_ref.product %}
+            {% endif %}
+            {% if by_product_ref.reference != blank %}
+              {% assign by_product_ref = by_product_ref.reference %}
+            {% endif %}
+            {% assign by_variant = by_product_ref.selected_or_first_available_variant | default: by_product_ref.variants.first %}
+            ,
+            {
+              "name": {{ by_product_ref.title | default: 'Bundle Item' | json }},
+              "free": false,
+              "variant_id": {{ by_variant.id | json }},
+              "quantity": 1,
+              "price_multiplier": 1,
+              "compare_multiplier": 1,
+              "fixed_price": {{ by_variant.price | default: by_product_ref.price | default: 0 | money | json }},
+              "fixed_compare": {{ by_variant.compare_at_price | default: by_variant.price | default: by_product_ref.compare_at_price | default: by_product_ref.price | default: 0 | money | json }},
+              "image_url": {{ by_variant.featured_image | default: by_product_ref.featured_image | image_url: width: 160 | json }}
+            }
+          {% endif %}
+          {% if bundle_by_single == blank and bundle_by_products == blank and bundle_by_field != blank %}
+            {% assign by_product_ref = bundle_by_field %}
+            {% if by_product_ref.value != blank %}
+              {% assign by_product_ref = by_product_ref.value %}
+            {% endif %}
+            {% if by_product_ref.product != blank %}
+              {% assign by_product_ref = by_product_ref.product %}
+            {% endif %}
+            {% if by_product_ref.reference != blank %}
+              {% assign by_product_ref = by_product_ref.reference %}
+            {% endif %}
+            {% assign by_variant = by_product_ref.selected_or_first_available_variant | default: by_product_ref.variants.first %}
+            ,
+            {
+              "name": {{ by_product_ref.title | default: 'Bundle Item' | json }},
+              "free": false,
+              "variant_id": {{ by_variant.id | json }},
+              "quantity": 1,
+              "price_multiplier": 1,
+              "compare_multiplier": 1,
+              "fixed_price": {{ by_variant.price | default: by_product_ref.price | default: 0 | money | json }},
+              "fixed_compare": {{ by_variant.compare_at_price | default: by_variant.price | default: by_product_ref.compare_at_price | default: by_product_ref.price | default: 0 | money | json }},
+              "image_url": {{ by_variant.featured_image | default: by_product_ref.featured_image | image_url: width: 160 | json }}
+            }
+          {% endif %}
+          {% for by_product in bundle_by_products %}
+            {% assign by_product_ref = by_product %}
+            {% if by_product_ref.product != blank %}
+              {% assign by_product_ref = by_product_ref.product %}
+            {% endif %}
+            {% if by_product_ref.reference != blank %}
+              {% assign by_product_ref = by_product_ref.reference %}
+            {% endif %}
+            {% if by_product_ref.value != blank %}
+              {% assign by_product_ref = by_product_ref.value %}
+            {% endif %}
+            {% if by_product_ref.product != blank %}
+              {% assign by_product_ref = by_product_ref.product %}
+            {% endif %}
+            {% assign by_variant = by_product_ref.selected_or_first_available_variant | default: by_product_ref.variants.first %}
+            ,
+            {
+              "name": {{ by_product_ref.title | default: 'Bundle Item' | json }},
+              "free": false,
+              "variant_id": {{ by_variant.id | json }},
+              "quantity": 1,
+              "price_multiplier": 1,
+              "compare_multiplier": 1,
+              "fixed_price": {{ by_variant.price | default: by_product_ref.price | default: 0 | money | json }},
+              "fixed_compare": {{ by_variant.compare_at_price | default: by_variant.price | default: by_product_ref.compare_at_price | default: by_product_ref.price | default: 0 | money | json }},
+              "image_url": {{ by_variant.featured_image | default: by_product_ref.featured_image | image_url: width: 160 | json }}
+            }
+          {% endfor %}
+          {% for gift_product in bundle_gift_products %}
+            {% assign gift_product_ref = gift_product %}
+            {% if gift_product_ref.product != blank %}
+              {% assign gift_product_ref = gift_product_ref.product %}
+            {% endif %}
+            {% if gift_product_ref.reference != blank %}
+              {% assign gift_product_ref = gift_product_ref.reference %}
+            {% endif %}
+            {% if gift_product_ref.value != blank %}
+              {% assign gift_product_ref = gift_product_ref.value %}
+            {% endif %}
+            {% if gift_product_ref.product != blank %}
+              {% assign gift_product_ref = gift_product_ref.product %}
+            {% endif %}
+            {% assign gift_variant = gift_product_ref.selected_or_first_available_variant | default: gift_product_ref.variants.first %}
+            {% if gift_variant == blank %}
+              {% continue %}
+            {% endif %}
+            ,
+            {
+              "name": {{ gift_product_ref.title | json }},
+              "free": true,
+              "variant_id": {{ gift_variant.id | json }},
+              "quantity": 1,
+              "compare_multiplier": 1,
+              "fixed_compare": {{ gift_variant.compare_at_price | default: gift_variant.price | money | json }},
+              "image_url": {{ gift_variant.featured_image | default: gift_product_ref.featured_image | image_url: width: 160 | json }}
+            }
+          {% endfor %}
+        ]
+      }
+    {% else %}
+      {{ bundle_config_value | json }}
+    {% endif %},
     "variants": {
       {% for variant in product.variants %}
         "{{ variant.id }}": {{ variant.metafields.descriptors.subtitle.value | json }}{% unless forloop.last %},{% endunless %}
