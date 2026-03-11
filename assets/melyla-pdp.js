@@ -1,4 +1,4 @@
-import { ThemeEvents, CartAddEvent, CartErrorEvent } from '@theme/events';
+﻿import { ThemeEvents, CartAddEvent, CartErrorEvent } from '@theme/events';
 
 const PRICE_SELECTORS = [
   'product-price .price',
@@ -436,6 +436,21 @@ function ensureOfferCardDetails(scope) {
   const subtitleEl = bundleCard.querySelector('p');
   if (subtitleEl) subtitleEl.textContent = bundleConfig.subtitle;
 
+  // Keep bundle compare price right under bundle sale price
+  const headerEl = bundleCard.querySelector('header');
+  const bundlePriceEl = bundleCard.querySelector('[data-offer-price="bundle"]');
+  const bundleCompareEl = bundleCard.querySelector('[data-offer-compare="bundle"]');
+  if (headerEl && bundlePriceEl) {
+    let priceCol = headerEl.querySelector('.melyla-offer-card__price-col');
+    if (!priceCol) {
+      priceCol = document.createElement('div');
+      priceCol.className = 'melyla-offer-card__price-col';
+      headerEl.append(priceCol);
+    }
+    if (bundlePriceEl.parentElement !== priceCol) priceCol.prepend(bundlePriceEl);
+    if (bundleCompareEl && bundleCompareEl.parentElement !== priceCol) priceCol.append(bundleCompareEl);
+  }
+
   const oldItems = details.querySelector('.melyla-bundle-items');
   if (oldItems) oldItems.remove();
 
@@ -619,25 +634,25 @@ function syncOfferCardPrices(scope) {
 
       if (hasConfiguredPaid) {
         let total = 0;
+        let compareTotalAll = 0;
         paidItems.forEach((item) => {
           const qty = Math.max(1, Math.round(item.quantity || 1));
           const fixedPriceParsed = parseMoney(item.fixedPrice || '');
           const line = fixedPriceParsed ? fixedPriceParsed.value : parsed.value * (item.priceMultiplier || 1);
           total += line * qty;
         });
+        bundleConfig.items.forEach((item) => {
+          const qty = Math.max(1, Math.round(item.quantity || 1));
+          const fixedCompareParsed = parseMoney(item.fixedCompare || '');
+          const lineCompare = fixedCompareParsed
+            ? fixedCompareParsed.value
+            : baseCompare.value * (item.compareMultiplier || 1);
+          compareTotalAll += lineCompare * qty;
+        });
         bundle.textContent = formatMoneyValue(parsed, total);
 
         if (bundleCompare) {
-          let compareTotal = 0;
-          paidItems.forEach((item) => {
-            const qty = Math.max(1, Math.round(item.quantity || 1));
-            const fixedCompareParsed = parseMoney(item.fixedCompare || '');
-            const lineCompare = fixedCompareParsed
-              ? fixedCompareParsed.value
-              : baseCompare.value * (item.compareMultiplier || 1);
-            compareTotal += lineCompare * qty;
-          });
-          bundleCompare.textContent = formatMoneyValue(baseCompare, compareTotal);
+          bundleCompare.textContent = formatMoneyValue(baseCompare, compareTotalAll);
           bundleCompare.classList.add('is-visible');
         }
       } else {
@@ -690,7 +705,7 @@ function syncVariantSubtitleTitle(scope, event) {
   const displayTitle = (subtitle || fallbackTitle || '').trim();
   if (!displayTitle) return;
 
-  targetMainTitle.textContent = `AFROYLA ${displayTitle}`;
+  targetMainTitle.textContent = displayTitle;
 
   const sourceHtml = event?.detail?.data?.html;
   if (!sourceHtml) return;
@@ -1412,3 +1427,4 @@ if (document.readyState === 'loading') {
 } else {
   boot();
 }
+

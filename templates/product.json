@@ -102,7 +102,7 @@
                                                                                                                                                 "type":  "text",
                                                                                                                                                 "name":  "Product title",
                                                                                                                                                 "settings":  {
-                                                                                                                                                                 "text":  "\u003ch1\u003eAFROYLA {{ closest.product.title }}\u003c/h1\u003e",
+                                                                                                                                                                 "text":  "\u003ch1\u003e{{ closest.product.title }}\u003c/h1\u003e",
                                                                                                                                                                  "width":  "100%",
                                                                                                                                                                  "max_width":  "normal",
                                                                                                                                                                  "alignment":  "left",
@@ -892,3 +892,4 @@
                   "product_recommendations_qggXJq"
               ]
 }
+
