@@ -346,9 +346,10 @@
   </div>
 {% else %}
   {% liquid
-    assign imgshow_raw = closest.product.metafields.custom.imgshow.value
+    assign imgshow_mode_raw = closest.product.metafields.custom.imgshowlist.value | default: ''
+    assign imgshow_mode = imgshow_mode_raw | strip | downcase
     assign use_featured_first_layout = false
-    if imgshow_raw == true or imgshow_raw == 'true' or imgshow_raw == 1 or imgshow_raw == '1'
+    if imgshow_mode contains '小图' or imgshow_mode contains 'small'
       assign use_featured_first_layout = true
     endif
   %}
