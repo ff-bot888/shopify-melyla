@@ -1,4 +1,4 @@
-{% doc %}
+﻿{% doc %}
   Product Media Gallery Content
 
   Renders product media gallery for the closest product.
@@ -345,10 +345,18 @@
     {{ 'product-apparel-1' | placeholder_svg_tag: 'product-media-gallery__placeholder-image' }}
   </div>
 {% else %}
+  {% liquid
+    assign imgshow_raw = closest.product.metafields.custom.imgshow.value
+    assign use_featured_first_layout = false
+    if imgshow_raw == true or imgshow_raw == 'true' or imgshow_raw == 1 or imgshow_raw == '1'
+      assign use_featured_first_layout = true
+    endif
+  %}
   <media-gallery
     class="
       spacing-style
       sticky-content
+      {% if use_featured_first_layout %}media-gallery--imgshow-true{% else %}media-gallery--imgshow-false{% endif %}
       {% if media_presentation == 'grid' %}
         media-gallery--{{ block_settings.media_columns }}-column
         {% if block_settings.media_columns == "two" and block_settings.large_first_image%}media-gallery--large-first-image{% endif %}
@@ -974,3 +982,4 @@
     }
   }
 {% endstylesheet %}
+

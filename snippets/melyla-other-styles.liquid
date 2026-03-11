@@ -1,0 +1,80 @@
+{% liquid
+  assign current_product = product | default: closest.product
+  assign source_collection = current_product.collections.first
+  assign current_type = current_product.type | strip
+  assign current_category = current_product.category.full_name | default: current_product.category.name | default: current_product.category | strip
+%}
+
+<div class="melyla-other-styles" data-melyla-other-styles>
+  <h4>Choose Other Styles</h4>
+  <div class="melyla-other-styles__tabs">
+    <button type="button" class="is-active" data-filter="all">All</button>
+    <button type="button" data-filter="best">Best Sellers</button>
+    <button type="button" data-filter="new">New Arrivals</button>
+  </div>
+
+  <div class="melyla-other-styles__grid">
+    {% assign shown_count = 0 %}
+    {% if source_collection != blank %}
+      {% for p in source_collection.products %}
+        {% liquid
+          assign item_category = p.category.full_name | default: p.category.name | default: p.category | strip
+          assign same_bucket = false
+          if current_category != blank and item_category == current_category
+            assign same_bucket = true
+          elsif current_category == blank and current_type != blank and p.type == current_type
+            assign same_bucket = true
+          elsif current_category == blank and current_type == blank
+            assign same_bucket = true
+          endif
+        %}
+        {% if same_bucket %}
+          <a
+            href="{{ p.url }}"
+            class="melyla-other-style-item{% if p.id == current_product.id %} is-active{% endif %}"
+            data-product-id="{{ p.id }}"
+            data-best="{% if p.tags contains 'best-seller' or p.tags contains 'best seller' %}true{% else %}false{% endif %}"
+            data-created="{{ p.published_at | date: '%s' }}"
+          >
+            {% if p.featured_image %}
+              <img src="{{ p.featured_image | image_url: width: 200 }}" alt="{{ p.title | escape }}" loading="lazy">
+            {% endif %}
+          </a>
+          {% assign shown_count = shown_count | plus: 1 %}
+          {% if shown_count >= 24 %}{% break %}{% endif %}
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      {% for p in collections.all.products %}
+        {% liquid
+          assign item_category = p.category.full_name | default: p.category.name | default: p.category | strip
+          assign same_bucket = false
+          if current_category != blank and item_category == current_category
+            assign same_bucket = true
+          elsif current_category == blank and current_type != blank and p.type == current_type
+            assign same_bucket = true
+          elsif current_category == blank and current_type == blank
+            assign same_bucket = true
+          endif
+        %}
+        {% if same_bucket %}
+          <a
+            href="{{ p.url }}"
+            class="melyla-other-style-item{% if p.id == current_product.id %} is-active{% endif %}"
+            data-product-id="{{ p.id }}"
+            data-best="{% if p.tags contains 'best-seller' or p.tags contains 'best seller' %}true{% else %}false{% endif %}"
+            data-created="{{ p.published_at | date: '%s' }}"
+          >
+            {% if p.featured_image %}
+              <img src="{{ p.featured_image | image_url: width: 200 }}" alt="{{ p.title | escape }}" loading="lazy">
+            {% endif %}
+          </a>
+          {% assign shown_count = shown_count | plus: 1 %}
+          {% if shown_count >= 24 %}{% break %}{% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  <button type="button" class="melyla-other-styles__more">Show more designs</button>
+</div>
