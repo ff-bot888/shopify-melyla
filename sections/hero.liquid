@@ -347,11 +347,11 @@
         data-testid="hero-fixed-image-desktop"
       >
     </div>
-    <div class="hero__media-wrapper hero__media-wrapper--mobile">
+    <div class="hero__media-wrapper hero__media-wrapper--mobile hero__media-wrapper--mobile-fixed">
       <img
-        src="https://cdn.shopify.com/s/files/1/0593/6339/3616/files/17_2.png?v=1772521376"
+        src="https://cdn.shopify.com/s/files/1/0593/6339/3616/files/e305402b-4b2c-44a1-aea1-c2fa9d0f792b.jpg?v=1772598706"
         alt="Hero banner"
-        class="hero__media"
+        class="hero__media hero__media--mobile-fixed"
         loading="eager"
         fetchpriority="{{ fetch_priority }}"
         data-testid="hero-fixed-image-mobile"
@@ -488,7 +488,7 @@
 
 <div
   id="Hero-{{ section.id }}"
-  class="hero color-{{ section.settings.color_scheme }}{% if section.blocks.size == 0 and section.settings.section_height == 'auto' %} hero--no-blocks-auto-height{% endif %}{% if section.settings.stack_media_on_mobile %} hero--stack-mobile{% endif %}"
+  class="hero color-{{ section.settings.color_scheme }}{% if section.blocks.size == 0 and section.settings.section_height == 'auto' %} hero--no-blocks-auto-height{% endif %}{% if section.settings.stack_media_on_mobile %} hero--stack-mobile{% endif %}{% if request.page_type == 'index' %} hero--index-page{% endif %}"
   style="
     --hero-border-style: {{ section.settings.border }};
     --hero-border-width: {{ section.settings.border_width }}px;
@@ -690,6 +690,34 @@
     .hero--stack-mobile .hero__media-grid {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(var(--hero-media-count-mobile, 1), calc(100% / var(--hero-media-count-mobile, 1)));
+    }
+
+    /* Homepage hero: let mobile image expand to its natural height (no crop) */
+    .hero--index-page {
+      min-height: auto;
+    }
+
+    .hero--index-page .hero__container {
+      min-height: auto;
+      overflow: visible;
+    }
+
+    .hero--index-page .hero__media-grid {
+      position: relative;
+      inset: auto;
+    }
+
+    /* Homepage fixed mobile hero image: keep full image ratio without crop */
+    .hero__media-wrapper--mobile-fixed {
+      overflow: visible;
+      align-self: start;
+    }
+
+    .hero__media-wrapper--mobile-fixed .hero__media--mobile-fixed {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
     }
   }
 

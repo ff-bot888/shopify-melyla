@@ -280,8 +280,68 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   }
 
   .afroyla-message h2 {
-    white-space: nowrap;
+    white-space: normal !important;
     font-size: clamp(1.15rem, 6vw, 1.75rem);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    text-wrap: balance;
+  }
+
+  .afroyla-message,
+  .afroyla-message p {
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .afroyla-message {
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 16px;
+  }
+
+  /* Mobile: compact "SHOP NOW" action as arrow icon */
+  .section-resource-list .section-resource-list__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .section-resource-list .section-resource-list__header h3 {
+    flex: 1 1 auto;
+    margin: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.15;
+  }
+
+  .section-resource-list .section-resource-list__header :is(a, .button, .button-secondary) {
+    min-height: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent;
+    color: transparent;
+    letter-spacing: 0;
+    font-size: 0;
+    line-height: 1;
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section-resource-list .section-resource-list__header :is(a, .button, .button-secondary)::after {
+    content: "\2192";
+    color: #111;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
   }
 }
 
@@ -718,16 +778,18 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
 
 @media screen and (max-width: 989px) {
   .af-service-strip {
-    padding-block: 50px;
+    padding-block: 22px;
     padding-inline: 24px;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    align-items: stretch;
+    gap: 12px;
   }
 
   .af-service-strip__item {
     width: 100%;
     max-width: 420px;
+    margin: 0 auto;
+    flex: 0 0 auto;
   }
 }
 
@@ -1782,9 +1844,17 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
 }
 
 @media screen and (max-width: 989px) {
+  [data-testid='product-information'] .product-details > .group-block {
+    padding-top: 15px !important;
+  }
+
   [data-testid='product-information'] h1 {
-    font-size: 12px;
-    line-height: 1.24;
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    text-wrap: pretty;
   }
 
   [data-testid='product-information'] .price {
@@ -1807,15 +1877,18 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   }
 
   .melyla-pdp-offer-heading h4 {
-    font-size: 1.82rem;
+    font-size: 24px !important;
+    line-height: 1.15 !important;
   }
 
   .melyla-offer-card h5 {
-    font-size: 2rem;
+    font-size: 16px !important;
+    line-height: 1.15 !important;
   }
 
   .melyla-offer-card strong {
-    font-size: 2.1rem;
+    font-size: 18px !important;
+    line-height: 1.1 !important;
   }
 
   [data-testid='product-information'] .product-form-buttons {
@@ -1850,7 +1923,7 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   }
 
   .melyla-offer-card strong {
-    font-size: 1.45rem;
+    font-size: 18px !important;
   }
 
   .melyla-bundle-item .name {
@@ -2154,6 +2227,63 @@ html body [data-testid='product-information'] .melyla-static-rating strong,
 html body [data-testid='product-information'] .melyla-static-rating [data-random-reviews] {
   font-size: 24px !important;
   line-height: 1.2 !important;
+}
+
+@media screen and (max-width: 989px) {
+  /* Final mobile lock: product title spacing + wrapping */
+  html body [data-testid='product-information'] .product-details > .group-block {
+    padding-top: 15px !important;
+  }
+
+  html body [data-testid='product-information'] .product-details .text-block--text_xrnftG,
+  html body [data-testid='product-information'] .product-details .text-block--text_xrnftG :is(h1, h2, h3, h4, h5, h6, p, span, strong),
+  html body [data-testid='product-information'] .product-details .text-block--text_xrnftG > * {
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    text-wrap: pretty;
+  }
+
+  /* Final mobile lock: offer module typography */
+  html body [data-testid='product-information'] .melyla-pdp-offer-heading h4 {
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+  }
+
+  html body [data-testid='product-information'] .melyla-pdp-offer-heading p {
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+  }
+
+  html body [data-testid='product-information'] .melyla-offer-card h5 {
+    font-size: 16px !important;
+    line-height: 1.15 !important;
+  }
+
+  html body [data-testid='product-information'] .melyla-offer-card strong {
+    font-size: 18px !important;
+    line-height: 1.1 !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  /* Mobile drawer menu: reduce left panel nav font size */
+  .menu-drawer .list-menu__item,
+  .menu-drawer .header-menu__link,
+  .menu-drawer .menu-drawer__menu-item,
+  .menu-drawer summary,
+  .menu-drawer a {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .menu-drawer .menu-drawer__menu-item {
+    min-height: 44px;
+    padding-block: 8px;
+  }
 }
 
 

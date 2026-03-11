@@ -67,14 +67,16 @@ function normalizeBundleConfig(raw) {
   const hasEnabledField = Object.prototype.hasOwnProperty.call(source, 'bundle_enabled');
   const fallbackPaidCount = clamp(Math.round(toFiniteNumber(source.paid_count, 2)), 1, 20);
   const fallbackFreeCount = clamp(Math.round(toFiniteNumber(source.free_count, 3)), 0, 20);
-  const discountPercent = clamp(toFiniteNumber(source.discount_percent, 21), 0, 100);
+  const rawDiscountPercent = Number(source.discount_percent);
+  const hasDiscountPercent = Number.isFinite(rawDiscountPercent);
+  const discountPercent = hasDiscountPercent ? clamp(rawDiscountPercent, 0, 100) : null;
   const bundlePriceMultiplier = toFiniteNumber(
     source.bundle_price_multiplier,
-    fallbackPaidCount * (1 - discountPercent / 100)
+    fallbackPaidCount
   );
   const bundleCompareMultiplier = toFiniteNumber(source.bundle_compare_multiplier, fallbackPaidCount);
   const cartQuantity = clamp(Math.round(toFiniteNumber(source.cart_quantity, fallbackPaidCount)), 1, 50);
-  const paidLabel = String(source.paid_label || (discountPercent > 0 ? `${discountPercent}% OFF` : '')).trim();
+  const paidLabel = String(source.paid_label || '').trim();
 
   const badge = String(source.badge || 'BEST VALUE').trim();
   const savePrefix = String(source.save_prefix || 'You save').trim();
@@ -95,10 +97,10 @@ function normalizeBundleConfig(raw) {
     const freeByPosition = index >= fallbackPaidCount;
     const free = rawItem.free === true || (rawItem.free !== false && freeByPosition);
     const defaultName = free ? `Gift ${Math.max(1, index - fallbackPaidCount + 1)}` : `Bundle Item ${index + 1}`;
-    const priceMultiplierDefault = free ? 0 : 1 - discountPercent / 100;
+    const priceMultiplierDefault = free ? 0 : 1;
     const compareMultiplierDefault = 1;
     const name = String(rawItem.name || defaultName).trim();
-    const discountLabel = String(rawItem.discount_label || (!free && paidLabel ? paidLabel : '')).trim();
+    const discountLabel = String(rawItem.discount_label || '').trim();
     const priceMultiplier = Math.max(0, toFiniteNumber(rawItem.price_multiplier, priceMultiplierDefault));
     const compareMultiplier = Math.max(0, toFiniteNumber(rawItem.compare_multiplier, compareMultiplierDefault));
     const variantId = String(rawItem.variant_id || rawItem.variantId || '').trim();
@@ -360,6 +362,10 @@ function formatMoney(parts, multiplier = 1) {
 
 function formatMoneyValue(parts, value) {
   return `${parts.prefix}${Number(value).toFixed(parts.decimals)}${parts.suffix}`;
+}
+
+function formatMoneyValueRounded(parts, value) {
+  return `${parts.prefix}${Math.round(Number(value) || 0)}${parts.suffix}`;
 }
 
 function ensureOfferCardDetails(scope) {
@@ -631,32 +637,78 @@ function syncOfferCardPrices(scope) {
       const baseCompare = parseMoney(findComparePriceText(scope)) || parsed;
       const paidItems = bundleConfig.items.filter((item) => !item.free);
       const hasConfiguredPaid = paidItems.some((item) => item.variantId || item.isCurrentProduct);
+      let dynamicBundleTotal = 0;
+      let dynamicBundleCompareTotal = 0;
 
       if (hasConfiguredPaid) {
         let total = 0;
         let compareTotalAll = 0;
+        let hasAllPaidFixedPrice = true;
+        let hasAllFixedCompare = true;
         paidItems.forEach((item) => {
           const qty = Math.max(1, Math.round(item.quantity || 1));
           const fixedPriceParsed = parseMoney(item.fixedPrice || '');
+          if (!fixedPriceParsed) hasAllPaidFixedPrice = false;
           const line = fixedPriceParsed ? fixedPriceParsed.value : parsed.value * (item.priceMultiplier || 1);
           total += line * qty;
         });
         bundleConfig.items.forEach((item) => {
           const qty = Math.max(1, Math.round(item.quantity || 1));
           const fixedCompareParsed = parseMoney(item.fixedCompare || '');
+          if (!fixedCompareParsed) hasAllFixedCompare = false;
           const lineCompare = fixedCompareParsed
             ? fixedCompareParsed.value
             : baseCompare.value * (item.compareMultiplier || 1);
           compareTotalAll += lineCompare * qty;
         });
-        bundle.textContent = formatMoneyValue(parsed, total);
+        dynamicBundleTotal = total;
+        dynamicBundleCompareTotal = compareTotalAll;
+        bundle.textContent = hasAllPaidFixedPrice ? formatMoneyValue(parsed, total) : formatMoneyValueRounded(parsed, total);
 
         if (bundleCompare) {
-          bundleCompare.textContent = formatMoneyValue(baseCompare, compareTotalAll);
+          bundleCompare.textContent = hasAllFixedCompare
+            ? formatMoneyValue(baseCompare, compareTotalAll)
+            : formatMoneyValueRounded(baseCompare, compareTotalAll);
           bundleCompare.classList.add('is-visible');
         }
       } else {
-        bundle.textContent = formatMoney(parsed, bundleConfig.bundlePriceMultiplier);
+        const autoTotal = parsed.value * bundleConfig.bundlePriceMultiplier;
+        const autoCompare = baseCompare.value * bundleConfig.bundleCompareMultiplier;
+        dynamicBundleTotal = autoTotal;
+        dynamicBundleCompareTotal = autoCompare;
+        bundle.textContent = formatMoneyValueRounded(parsed, autoTotal);
+        if (bundleCompare) {
+          bundleCompare.textContent = formatMoneyValueRounded(baseCompare, autoCompare);
+          bundleCompare.classList.add('is-visible');
+        }
+      }
+
+      const titleOffEl = bundleCard?.querySelector('h5 .off');
+      const dynamicDiscount = dynamicBundleCompareTotal > 0
+        ? Math.max(0, Math.round(((dynamicBundleCompareTotal - dynamicBundleTotal) / dynamicBundleCompareTotal) * 100))
+        : 0;
+      const resolvedDiscountLabel = bundleConfig.paidLabel || (dynamicDiscount > 0 ? `${dynamicDiscount}% OFF` : '');
+      if (titleOffEl) {
+        if (resolvedDiscountLabel) {
+          titleOffEl.textContent = resolvedDiscountLabel;
+        } else {
+          titleOffEl.remove();
+        }
+      } else if (resolvedDiscountLabel && bundleCard) {
+        const title = bundleCard.querySelector('h5');
+        if (title) {
+          const em = document.createElement('em');
+          em.className = 'off';
+          em.textContent = resolvedDiscountLabel;
+          title.append(' ');
+          title.append(em);
+        }
+      }
+      if (!bundleConfig.paidLabel) {
+        const rowLabels = bundleCard?.querySelectorAll('.melyla-bundle-item:not(.is-free) .name em') || [];
+        rowLabels.forEach((labelEl) => {
+          labelEl.textContent = resolvedDiscountLabel;
+        });
       }
     } else {
       bundle.textContent = `${bundleConfig.paidCount}x ${price}`;
