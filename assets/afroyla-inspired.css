@@ -238,6 +238,14 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   border-radius: 0;
 }
 
+.section-resource-list .resource-list__item .product-card .card-gallery slideshow-slide:not(:first-child),
+.section-resource-list .resource-list__item .product-card .card-gallery .product-media-container:not(:first-child),
+.section-resource-list .resource-list__item .product-card .card-gallery slideshow-controls,
+.section-resource-list .resource-list__item .product-card .card-gallery slideshow-arrows,
+.section-resource-list .resource-list__item .product-card .product-badges {
+  display: none !important;
+}
+
 .section-resource-list .resource-list__item .product-card .product-card__image {
   border-radius: 0;
 }
