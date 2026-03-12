@@ -306,6 +306,7 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    padding-inline: 16px;
   }
 
   .section-resource-list .section-resource-list__header h3 {
@@ -468,16 +469,37 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   }
 
   .af-collection-showcase {
-    padding-inline: 24px;
+    padding-inline: 16px;
   }
 
   .af-collection-showcase__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(334px, 99vw);
+    gap: 0 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 6px;
+    scroll-snap-type: x proximity;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   .af-collection-showcase__card img {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 15 / 22;
     height: auto;
+  }
+
+  .af-collection-showcase__card {
+    scroll-snap-align: start;
+  }
+
+  .af-collection-showcase__card span {
+    min-height: 46px;
+  }
+
+  .af-collection-showcase__grid::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -508,100 +530,70 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   border-color: #111 !important;
 }
 
-/* @Melyla module only */
-.shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery {
+/* @AFROYLA image strip */
+.af-melyla-strip {
   background: #fff;
   padding-inline: 20px;
 }
 
-.shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery h2 {
-  margin: 0 0 22px;
-  text-align: center;
+.af-melyla-strip h2 {
+  margin: 0 0 44px;
   color: #111;
+  text-align: center;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
+  line-height: 1.05;
+  text-transform: none;
 }
 
-.shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery__scroller {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 16px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: none;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  cursor: grab;
-  touch-action: pan-y;
-  -webkit-overflow-scrolling: touch;
+.af-melyla-strip__carousel {
+  --slide-width-max: 420px;
+  --resource-list-column-gap-desktop: 14px;
+  --column-count: 3;
+  --column-count-mobile: 1;
+  --mobile-card-size: 88vw;
 }
 
-.shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery__scroller::-webkit-scrollbar {
-  display: none;
+.af-melyla-strip__carousel slideshow-slides {
+  gap: 14px;
 }
 
-.shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery__item {
-  flex: 0 0 calc((100vw - 40px - 48px) / 3.5);
+.af-melyla-strip__item {
+  display: block;
+  width: 100%;
   text-decoration: none;
 }
 
-.shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery__scroller.is-dragging {
-  cursor: grabbing;
-}
-
-.shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery__viewport {
-  position: relative;
-}
-
-.shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  width: 42px;
-  height: 42px;
-  border: 1px solid #111;
-  border-radius: 999px;
-  background: #fff;
-  color: #111;
-  font-size: 24px;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery__nav--prev {
-  left: 8px;
-}
-
-.shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery__nav--next {
-  right: 8px;
-}
-
-.shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery__item img {
+.af-melyla-strip__item img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
-  -webkit-user-drag: none;
-  user-select: none;
-  pointer-events: none;
+}
+
+.af-melyla-strip__slide {
+  min-width: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .af-melyla-strip__carousel {
+    --slide-width-max: 546px;
+    --column-count: 2.3;
+  }
 }
 
 @media screen and (max-width: 989px) {
-  .shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery {
-    padding-inline: 20px;
+  .af-melyla-strip {
+    padding-inline: 16px;
   }
 
-  .shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery__scroller {
-    gap: 12px;
+  .af-melyla-strip h2 {
+    margin-bottom: 20px;
+    font-size: clamp(2.1rem, 8vw, 2.8rem);
   }
 
-  .shopify-section[id*="product_list_melyla_collection"] .af-melyla-gallery__item {
-    flex-basis: calc((100vw - 40px - 12px) / 1.5);
+  .af-melyla-strip__carousel {
+    --mobile-card-size: 88vw;
   }
 }
 
@@ -691,7 +683,7 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
 }
 
 .af-footer__col--contact strong {
-  font-weight: 800;
+  font-weight: 500;
 }
 
 .af-footer__col ul {
@@ -2284,6 +2276,44 @@ html body [data-testid='product-information'] .melyla-static-rating [data-random
     min-height: 44px;
     padding-block: 8px;
   }
+
 }
 
 
+/* ===== Mobile Header Icons (single tuning block) ===== */
+@media screen and (max-width: 749px) {
+  #header-group {
+    --icon-stroke-width: 1.4px;
+  }
+
+  #header-group .menu-drawer-container .header__icon--summary {
+    padding: 10px !important;
+  }
+
+  /* The source icons use different viewBoxes, so tune each icon visually. */
+  #header-group .header__icon--summary .header-drawer-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  #header-group .search-action svg,
+  #header-group [data-testid='cart-icon'] svg,
+  #header-group .header-actions__action svg {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  #header-group svg.account-button__icon,
+  #header-group .account-button__icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  #header-group .header__icon--summary .header-drawer-icon *,
+  #header-group .search-action svg *,
+  #header-group .header-actions__action svg *,
+  #header-group .account-button__icon svg *,
+  #header-group [data-testid='cart-icon'] svg * {
+    stroke-width: var(--icon-stroke-width) !important;
+  }
+}
