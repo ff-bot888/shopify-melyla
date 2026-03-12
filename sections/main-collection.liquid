@@ -36,14 +36,12 @@
   <div
     class="collection-wrapper grid gap-style{% if section.settings.product_grid_width == 'full-width' %} collection-wrapper--grid-full-width{% endif %}"
   >
-    {% if collection.handle == 'spring-sale' %}
-      <div class="melyla-collection-promo" style="grid-column: var(--full-width);">
-        <h2>SPRING SALE: BUY ONE, GET ONE FREE - SITEWIDE!</h2>
-        <p><em>Any bag, any wallet, any shape, any color - mix and match however you like!</em></p>
-        <p><em>Add any TWO items to your cart and only pay for one.</em></p>
-        <p><em>This deal ends on <strong>March 8th</strong>. No discount code needed - just add to cart.</em></p>
-      </div>
-    {% endif %}
+    <div class="melyla-collection-promo" style="grid-column: var(--full-width);">
+      <h2>SPRING SALE: BUY ONE, GET ONE FREE - SITEWIDE!</h2>
+      <p><em>Any bag, any wallet, any shape, any color - mix and match however you like!</em></p>
+      <p><em>Add any TWO items to your cart and only pay for one.</em></p>
+      <p><em>This deal ends on <strong>March 15th</strong>. No discount code needed - just add to cart.</em></p>
+    </div>
 
     {% content_for 'block',
       type: 'filters',

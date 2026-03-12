@@ -2,7 +2,7 @@
 
 {% if closest.product == blank %}
   {% assign text = 'placeholders.product_title' | t %}
-  {% assign product_title = '<p>' | append: text | append: '</p>' %}
+  {% assign product_title = '<p class="af-collection-product-title">' | append: text | append: '</p>' %}
   {% render 'text', fallback_text: product_title, block: block %}
 {% else %}
   {% liquid
@@ -10,7 +10,7 @@
     assign variant_subtitle = selected_variant.metafields.descriptors.subtitle.value
     assign display_title = variant_subtitle | default: closest.product.title
     assign display_title = display_title | escape
-    assign product_title = '<p>' | append: display_title | append: '</p>'
+    assign product_title = '<p class="af-collection-product-title">' | append: display_title | append: '</p>'
   %}
   <a
     class="contents user-select-text"

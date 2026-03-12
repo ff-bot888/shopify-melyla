@@ -239,8 +239,8 @@
                 </facet-remove-component>
               {% endif %}
             {% endif %}
-            {% if block_settings.filter_style == 'horizontal' %}
-              {% if collection.handle == 'spring-sale' and block_settings.enable_filtering %}
+              {% if block_settings.filter_style == 'horizontal' %}
+                {% if collection and block_settings.enable_filtering %}
                 <button
                   class="melyla-filters-trigger button-unstyled button-unstyled--with-icon"
                   on:click="#filters-drawer/showDialog"

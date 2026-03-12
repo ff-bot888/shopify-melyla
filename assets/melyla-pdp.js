@@ -109,13 +109,15 @@ function normalizeBundleConfig(raw) {
     const imageUrl = String(rawItem.image_url || rawItem.image || rawItem.image_src || '').trim();
     const imageAlt = String(rawItem.image_alt || rawItem.name || defaultName).trim();
     const subtext = String(rawItem.subtext || rawItem.subtitle || '').trim();
+    const productType = String(rawItem.product_type || rawItem.productType || '').trim();
     const fixedPrice = String(rawItem.fixed_price || rawItem.fixedPrice || '').trim();
     const fixedCompare = String(rawItem.fixed_compare || rawItem.fixedCompare || '').trim();
 
     items.push({
       name,
+      productType,
       free,
-      subtext,
+      subtext: normalizeVariantSubtext(subtext),
       discountLabel,
       priceMultiplier,
       compareMultiplier,
@@ -165,8 +167,9 @@ function normalizeBundleConfig(raw) {
           (ref && typeof ref === 'object' ? (ref.title || ref.name) : ref)
           || `Bundle Item ${items.filter((x) => !x.free).length + 1}`
         ).trim(),
+        productType: String(ref?.type || '').trim(),
         free: false,
-        subtext: '',
+        subtext: normalizeVariantSubtext(variant?.title || ''),
         discountLabel: String(source.paid_label || '').trim(),
         priceMultiplier: 1,
         compareMultiplier: 1,
@@ -220,8 +223,9 @@ function getBundleConfig() {
   if (currentIndex < 0) {
     normalized.items.unshift({
       name: String(config?.productTitle || 'Current Product'),
+      productType: String(config?.productType || '').trim(),
       free: false,
-      subtext: '',
+      subtext: normalizeVariantSubtext(config?.currentVariantTitle || ''),
       discountLabel: normalized.paidLabel || '',
       priceMultiplier: 1,
       compareMultiplier: 1,
@@ -248,6 +252,7 @@ function getBundleConfig() {
   while (normalized.items.filter((item) => !item.free).length < expectedPaidCount) {
     normalized.items.push({
       name: `Bundle Item ${normalized.items.filter((item) => !item.free).length + 1}`,
+      productType: '',
       free: false,
       subtext: '',
       discountLabel: normalized.paidLabel || '',
@@ -368,6 +373,31 @@ function formatMoneyValueRounded(parts, value) {
   return `${parts.prefix}${Math.round(Number(value) || 0)}${parts.suffix}`;
 }
 
+function normalizeVariantSubtext(value) {
+  const text = String(value || '').trim();
+  if (!text || text === 'Default Title') return '';
+  return text.replace(/\s*\/\s*/g, ' · ');
+}
+
+function getDisplayCategory(name, productType) {
+  const type = String(productType || '').trim();
+  if (type) return type;
+  return String(name || '').trim();
+}
+
+function ensureProductSubtitle(scope) {
+  const title = scope.querySelector('.product-details h1');
+  if (!(title instanceof HTMLElement)) return null;
+
+  let subtitle = title.parentElement?.querySelector('.melyla-product-subtitle');
+  if (!(subtitle instanceof HTMLElement)) {
+    subtitle = document.createElement('p');
+    subtitle.className = 'melyla-product-subtitle';
+    title.insertAdjacentElement('afterend', subtitle);
+  }
+  return subtitle;
+}
+
 function ensureOfferCardDetails(scope) {
   const group = scope.querySelector('[data-melyla-offer-cards]');
   if (!group) return;
@@ -485,10 +515,10 @@ function ensureOfferCardDetails(scope) {
     meta.className = 'melyla-bundle-item__meta';
     const name = document.createElement('span');
     name.className = 'name';
-    name.textContent = item.name;
-    if (!item.free && item.discountLabel) {
+    name.textContent = getDisplayCategory(item.name, item.productType);
+    if (!item.free) {
       const label = document.createElement('em');
-      label.textContent = item.discountLabel;
+      label.textContent = item.discountLabel || '';
       name.append(' ');
       name.append(label);
     }
@@ -514,6 +544,7 @@ function ensureOfferCardDetails(scope) {
     compare.setAttribute('data-bundle-compare', String(index + 1));
 
     row.append(thumb, meta, price, compare);
+    if (item.isCurrentProduct) row.setAttribute('data-current-product-line', 'true');
     bundleItems.append(row);
   });
 
@@ -534,23 +565,42 @@ function syncBundleBreakdown(scope, parsed, compareParsed, bundleConfig) {
   let compareTotal = 0;
 
   bundleConfig.items.forEach((item, index) => {
+    const rowEl = group.querySelector(`.melyla-bundle-item:nth-of-type(${index + 1})`);
     const lineEl = group.querySelector(`[data-bundle-line="${index + 1}"]`);
     const compareEl = group.querySelector(`[data-bundle-compare="${index + 1}"]`);
+    const discountEl = rowEl?.querySelector('.name em');
     const fixedPriceParsed = parseMoney(item.fixedPrice || '');
     const fixedCompareParsed = parseMoney(item.fixedCompare || '');
     const qty = Math.max(1, Math.round(item.quantity || 1));
+    const lineActualValue = fixedPriceParsed ? fixedPriceParsed.value : parsed.value * (item.priceMultiplier || 1);
+    const lineCompareValue = fixedCompareParsed
+      ? fixedCompareParsed.value
+      : baseCompare.value * (item.compareMultiplier || 1);
 
     if (!item.free) {
       const lineText = fixedPriceParsed ? item.fixedPrice : formatMoney(parsed, item.priceMultiplier);
       if (lineEl) lineEl.textContent = lineText;
-      actualTotal += (fixedPriceParsed ? fixedPriceParsed.value : parsed.value * item.priceMultiplier) * qty;
+      actualTotal += lineActualValue * qty;
+
+      if (discountEl) {
+        const lineDiscount = lineCompareValue > 0
+          ? Math.max(0, Math.round(((lineCompareValue - lineActualValue) / lineCompareValue) * 100))
+          : 0;
+        if (lineDiscount > 0) {
+          discountEl.textContent = `${lineDiscount}% OFF`;
+        } else if (item.discountLabel) {
+          discountEl.textContent = item.discountLabel;
+        } else {
+          discountEl.textContent = '';
+        }
+      }
     }
 
     const compareText = fixedCompareParsed
       ? item.fixedCompare
       : formatMoney(baseCompare, item.compareMultiplier || 1);
     if (compareEl) compareEl.textContent = compareText;
-    compareTotal += (fixedCompareParsed ? fixedCompareParsed.value : baseCompare.value * (item.compareMultiplier || 1)) * qty;
+    compareTotal += lineCompareValue * qty;
   });
 
   if (saveEl) {
@@ -571,11 +621,25 @@ function syncOfferCardState(scope) {
   });
 }
 
+function findActiveOfferPrice(scope) {
+  const activeCard = scope.querySelector('.melyla-offer-card.is-active');
+  if (!activeCard) return null;
+
+  const priceEl = activeCard.querySelector('[data-offer-price="bundle"], [data-offer-price="single"]');
+  const compareEl = activeCard.querySelector('[data-offer-compare="bundle"]');
+  const price = priceEl?.textContent?.replace(/\s+/g, ' ').trim() || '';
+  const compare = compareEl?.textContent?.replace(/\s+/g, ' ').trim() || '';
+
+  if (!price) return null;
+  return { price, compare };
+}
+
 function syncAddToCartPrice(scope) {
   const addToCartButton = scope.querySelector('.add-to-cart-button.button');
   if (!addToCartButton) return;
 
-  const price = findPriceText(scope);
+  const activeOfferPrice = findActiveOfferPrice(scope);
+  const price = activeOfferPrice?.price || findPriceText(scope);
   if (!price) {
     addToCartButton.removeAttribute('data-melyla-price');
     const badge = addToCartButton.querySelector('.melyla-cart-price-badge');
@@ -583,7 +647,7 @@ function syncAddToCartPrice(scope) {
     return;
   }
 
-  const compare = findComparePriceText(scope);
+  const compare = activeOfferPrice?.compare || findComparePriceText(scope);
   addToCartButton.setAttribute('data-melyla-price', price);
   if (compare) {
     addToCartButton.setAttribute('data-melyla-compare', compare);
@@ -687,7 +751,9 @@ function syncOfferCardPrices(scope) {
       const dynamicDiscount = dynamicBundleCompareTotal > 0
         ? Math.max(0, Math.round(((dynamicBundleCompareTotal - dynamicBundleTotal) / dynamicBundleCompareTotal) * 100))
         : 0;
-      const resolvedDiscountLabel = bundleConfig.paidLabel || (dynamicDiscount > 0 ? `${dynamicDiscount}% OFF` : '');
+      const resolvedDiscountLabel = dynamicDiscount > 0
+        ? `${dynamicDiscount}% OFF`
+        : bundleConfig.paidLabel;
       if (titleOffEl) {
         if (resolvedDiscountLabel) {
           titleOffEl.textContent = resolvedDiscountLabel;
@@ -703,12 +769,6 @@ function syncOfferCardPrices(scope) {
           title.append(' ');
           title.append(em);
         }
-      }
-      if (!bundleConfig.paidLabel) {
-        const rowLabels = bundleCard?.querySelectorAll('.melyla-bundle-item:not(.is-free) .name em') || [];
-        rowLabels.forEach((labelEl) => {
-          labelEl.textContent = resolvedDiscountLabel;
-        });
       }
     } else {
       bundle.textContent = `${bundleConfig.paidCount}x ${price}`;
@@ -755,9 +815,15 @@ function syncVariantSubtitleTitle(scope, event) {
   const subtitle = subtitleConfig?.variants?.[variantId];
   const fallbackTitle = subtitleConfig?.productTitle || '';
   const displayTitle = (subtitle || fallbackTitle || '').trim();
+  const displayCategory = getDisplayCategory(displayTitle, subtitleConfig?.productType);
   if (!displayTitle) return;
 
-  targetMainTitle.textContent = displayTitle;
+  targetMainTitle.textContent = displayCategory || displayTitle;
+  const subtitleEl = ensureProductSubtitle(scope);
+  if (subtitleEl) {
+    subtitleEl.textContent = displayTitle;
+    subtitleEl.hidden = !displayTitle || displayTitle === displayCategory;
+  }
 
   const sourceHtml = event?.detail?.data?.html;
   if (!sourceHtml) return;
@@ -1167,6 +1233,12 @@ function syncOfferOptions(scope) {
   option2Selects.forEach((el) => {
     if (option2) el.value = option2;
   });
+
+  const currentLineSubtext = [option1, option2].filter(Boolean).join(' · ');
+  const currentBundleLine = group.querySelector('[data-current-product-line="true"] .subtext');
+  if (currentBundleLine) {
+    currentBundleLine.textContent = currentLineSubtext;
+  }
 }
 
 function bindOfferCards(scope) {
@@ -1187,6 +1259,8 @@ function bindOfferCards(scope) {
       const qty = Number(card.getAttribute('data-offer-qty') || '1');
       setQuantity(scope, qty);
       syncOfferCardState(scope);
+      syncOfferCardPrices(scope);
+      syncAddToCartPrice(scope);
     });
   });
 
@@ -1408,8 +1482,8 @@ async function boot() {
   bindOtherStyles(scope);
   // Keep native Shopify variant availability flow intact.
   // Custom offer UI should not force-switch variant or button state.
-  syncAddToCartPrice(scope);
   syncOfferCardPrices(scope);
+  syncAddToCartPrice(scope);
   syncOfferOptions(scope);
   syncInstallments(scope);
   syncVariantSubtitleTitle(scope);
@@ -1423,8 +1497,8 @@ async function boot() {
     ensureOfferCardDetails(nextScope);
     ensureOfferOptionSelects(nextScope);
     bindOtherStyles(nextScope);
-    syncAddToCartPrice(nextScope);
     syncOfferCardPrices(nextScope);
+    syncAddToCartPrice(nextScope);
     syncOfferOptions(nextScope);
     syncInstallments(nextScope);
     syncVariantSubtitleTitle(nextScope, event);

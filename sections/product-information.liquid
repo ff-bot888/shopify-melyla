@@ -27,12 +27,19 @@
 {% capture variant_subtitles_json %}
   {% assign bundle_config_value = product.metafields.custom.bundle_config.value %}
   {% assign bundle_config_is_metaobject = false %}
+  {% assign current_variant = product.selected_or_first_available_variant %}
+  {% assign current_variant_title = current_variant.title | default: '' %}
+  {% if current_variant_title == 'Default Title' %}
+    {% assign current_variant_title = '' %}
+  {% endif %}
   {% if bundle_config_value != blank and bundle_config_value.bundle_enabled != blank %}
     {% assign bundle_config_is_metaobject = true %}
   {% endif %}
   {
     "productId": {{ product.id | json }},
     "productTitle": {{ product.title | json }},
+    "productType": {{ product.type | json }},
+    "currentVariantTitle": {{ current_variant_title | json }},
     "bundleConfig":
     {% if bundle_config_is_metaobject %}
       {% assign bundle_by_field = bundle_config_value.fields['bundle_by_list'] | default: bundle_config_value.bundle_by_list %}
@@ -100,6 +107,8 @@
         "items": [
           {
             "name": {{ product.title | json }},
+            "product_type": {{ product.type | json }},
+            "subtext": {{ current_variant_title | replace: ' / ', ' · ' | json }},
             "free": false,
             "is_current_product": true,
             "quantity": 1,
@@ -122,6 +131,8 @@
             ,
             {
               "name": {{ by_product_ref.title | default: 'Bundle Item' | json }},
+              "product_type": {{ by_product_ref.type | json }},
+              "subtext": {{ by_variant.title | default: '' | replace: 'Default Title', '' | replace: ' / ', ' · ' | strip | json }},
               "free": false,
               "variant_id": {{ by_variant.id | json }},
               "quantity": 1,
@@ -147,6 +158,8 @@
             ,
             {
               "name": {{ by_product_ref.title | default: 'Bundle Item' | json }},
+              "product_type": {{ by_product_ref.type | json }},
+              "subtext": {{ by_variant.title | default: '' | replace: 'Default Title', '' | replace: ' / ', ' · ' | strip | json }},
               "free": false,
               "variant_id": {{ by_variant.id | json }},
               "quantity": 1,
@@ -175,6 +188,8 @@
             ,
             {
               "name": {{ by_product_ref.title | default: 'Bundle Item' | json }},
+              "product_type": {{ by_product_ref.type | json }},
+              "subtext": {{ by_variant.title | default: '' | replace: 'Default Title', '' | replace: ' / ', ' · ' | strip | json }},
               "free": false,
               "variant_id": {{ by_variant.id | json }},
               "quantity": 1,
@@ -206,6 +221,8 @@
             ,
             {
               "name": {{ gift_product_ref.title | json }},
+              "product_type": {{ gift_product_ref.type | json }},
+              "subtext": {{ gift_variant.title | default: '' | replace: 'Default Title', '' | replace: ' / ', ' · ' | strip | json }},
               "free": true,
               "variant_id": {{ gift_variant.id | json }},
               "quantity": 1,
