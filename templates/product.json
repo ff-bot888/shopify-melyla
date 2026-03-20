@@ -1,895 +1,896 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections":  {
-                     "main":  {
-                                  "type":  "product-information",
-                                  "blocks":  {
-                                                 "media-gallery":  {
-                                                                       "type":  "_product-media-gallery",
-                                                                       "static":  true,
-                                                                       "settings":  {
-                                                                                        "media_presentation":  "grid",
-                                                                                        "media_columns":  "two",
-                                                                                        "image_gap":  12,
-                                                                                        "large_first_image":  false,
-                                                                                        "icons_style":  "none",
-                                                                                        "slideshow_controls_style":  "counter",
-                                                                                        "slideshow_mobile_controls_style":  "dots",
-                                                                                        "thumbnail_position":  "right",
-                                                                                        "thumbnail_width":  44,
-                                                                                        "aspect_ratio":  "adapt",
-                                                                                        "constrain_to_viewport":  true,
-                                                                                        "media_fit":  "cover",
-                                                                                        "media_radius":  0,
-                                                                                        "extend_media":  false,
-                                                                                        "zoom":  true,
-                                                                                        "video_loop":  false,
-                                                                                        "hide_variants":  true,
-                                                                                        "padding-block-start":  0,
-                                                                                        "padding-block-end":  0,
-                                                                                        "padding-inline-start":  0,
-                                                                                        "padding-inline-end":  0
-                                                                                    },
-                                                                       "blocks":  {
-
-                                                                                  }
-                                                                   },
-                                                 "product-details":  {
-                                                                         "type":  "_product-details",
-                                                                         "static":  true,
-                                                                         "settings":  {
-                                                                                          "width":  "fill",
-                                                                                          "custom_width":  100,
-                                                                                          "width_mobile":  "fill",
-                                                                                          "custom_width_mobile":  100,
-                                                                                          "height":  "fit",
-                                                                                          "details_position":  "flex-start",
-                                                                                          "gap":  28,
-                                                                                          "sticky_details_desktop":  true,
-                                                                                          "inherit_color_scheme":  true,
-                                                                                          "color_scheme":  "scheme-1",
-                                                                                          "background_media":  "none",
-                                                                                          "video_position":  "cover",
-                                                                                          "background_image_position":  "cover",
-                                                                                          "border":  "none",
-                                                                                          "border_width":  1,
-                                                                                          "border_opacity":  100,
-                                                                                          "border_radius":  0,
-                                                                                          "padding-block-start":  24,
-                                                                                          "padding-block-end":  24,
-                                                                                          "padding-inline-start":  0,
-                                                                                          "padding-inline-end":  0
-                                                                                      },
-                                                                         "blocks":  {
-                                                                                        "group_icgrde":  {
-                                                                                                             "type":  "group",
-                                                                                                             "name":  "Header",
-                                                                                                             "settings":  {
-                                                                                                                              "open_in_new_tab":  false,
-                                                                                                                              "content_direction":  "column",
-                                                                                                                              "vertical_on_mobile":  true,
-                                                                                                                              "horizontal_alignment":  "flex-start",
-                                                                                                                              "vertical_alignment":  "center",
-                                                                                                                              "align_baseline":  false,
-                                                                                                                              "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                                                                                              "vertical_alignment_flex_direction_column":  "center",
-                                                                                                                              "gap":  10,
-                                                                                                                              "width":  "fill",
-                                                                                                                              "custom_width":  100,
-                                                                                                                              "width_mobile":  "fill",
-                                                                                                                              "custom_width_mobile":  100,
-                                                                                                                              "height":  "fit",
-                                                                                                                              "custom_height":  100,
-                                                                                                                              "inherit_color_scheme":  true,
-                                                                                                                              "color_scheme":  "",
-                                                                                                                              "background_media":  "none",
-                                                                                                                              "video_position":  "cover",
-                                                                                                                              "background_image_position":  "cover",
-                                                                                                                              "border":  "none",
-                                                                                                                              "border_width":  1,
-                                                                                                                              "border_opacity":  100,
-                                                                                                                              "border_radius":  0,
-                                                                                                                              "toggle_overlay":  false,
-                                                                                                                              "overlay_color":  "#00000026",
-                                                                                                                              "overlay_style":  "solid",
-                                                                                                                              "gradient_direction":  "to top",
-                                                                                                                              "padding-block-start":  0,
-                                                                                                                              "padding-block-end":  0,
-                                                                                                                              "padding-inline-start":  0,
-                                                                                                                              "padding-inline-end":  0
-                                                                                                                          },
-                                                                                                             "blocks":  {
-                                                                                                                            "text_xrnftG":  {
-                                                                                                                                                "type":  "text",
-                                                                                                                                                "name":  "Product title",
-                                                                                                                                                "settings":  {
-                                                                                                                                                                 "text":  "\u003ch6\u003e{{ closest.product.title }}\u003c/h6\u003e",
-                                                                                                                                                                 "width":  "100%",
-                                                                                                                                                                 "max_width":  "normal",
-                                                                                                                                                                 "alignment":  "left",
-                                                                                                                                                                 "type_preset":  "custom",
-                                                                                                                                                                 "font":  "var(--font-primary--family)",
-                                                                                                                                                                 "font_size":  "1.25rem",
-                                                                                                                                                                 "line_height":  "tight",
-                                                                                                                                                                 "letter_spacing":  "normal",
-                                                                                                                                                                 "case":  "uppercase",
-                                                                                                                                                                 "wrap":  "pretty",
-                                                                                                                                                                 "color":  "",
-                                                                                                                                                                 "background":  false,
-                                                                                                                                                                 "background_color":  "#00000026",
-                                                                                                                                                                 "corner_radius":  0,
-                                                                                                                                                                 "padding-block-start":  0,
-                                                                                                                                                                 "padding-block-end":  0,
-                                                                                                                                                                 "padding-inline-start":  0,
-                                                                                                                                                                 "padding-inline-end":  0
-                                                                                                                                                             },
-                                                                                                                                                "blocks":  {
-
-                                                                                                                                                           }
-                                                                                                                                            },
-                                                                                                                            "price_tVjtKg":  {
-                                                                                                                                                 "type":  "price",
-                                                                                                                                                 "settings":  {
-                                                                                                                                                                  "show_sale_price_first":  true,
-                                                                                                                                                                  "show_installments":  false,
-                                                                                                                                                                  "show_tax_info":  false,
-                                                                                                                                                                  "type_preset":  "paragraph",
-                                                                                                                                                                  "width":  "100%",
-                                                                                                                                                                  "alignment":  "left",
-                                                                                                                                                                  "font":  "var(--font-body--family)",
-                                                                                                                                                                  "font_size":  "1rem",
-                                                                                                                                                                  "line_height":  "normal",
-                                                                                                                                                                  "letter_spacing":  "normal",
-                                                                                                                                                                  "case":  "none",
-                                                                                                                                                                  "color":  "var(--color-foreground)",
-                                                                                                                                                                  "padding-block-start":  0,
-                                                                                                                                                                  "padding-block-end":  0,
-                                                                                                                                                                  "padding-inline-start":  0,
-                                                                                                                                                                  "padding-inline-end":  0
-                                                                                                                                                              },
-                                                                                                                                                 "blocks":  {
-
-                                                                                                                                                            }
-                                                                                                                                             },
-                                                                                                                            "review_iBqA9W":  {
-                                                                                                                                                  "type":  "custom-liquid",
-                                                                                                                                                  "name":  "Product rating",
-                                                                                                                                                  "settings":  {
-                                                                                                                                                                   "custom_liquid":  "\u003cp class=\"melyla-static-rating\" style=\"font-size:22px;line-height:1.2;\"\u003e\u003cstrong style=\"font-size:22px;line-height:1.2;font-weight:700;\"\u003e\u2605\u2605\u2605\u2605\u2606\u003c/strong\u003e \u003cspan data-random-reviews style=\"font-size:22px;line-height:1.2;\"\u003e1568 reviews\u003c/span\u003e\u003c/p\u003e\u003cscript\u003e(function(){var el=document.querySelector('[data-testid=\"product-information\"] [data-random-reviews]');if(!el)return;var n=Math.floor(Math.random()*1001)+1000;el.textContent=n+' reviews';})();\u003c/script\u003e"
-                                                                                                                                                               },
-                                                                                                                                                  "blocks":  {
-
-                                                                                                                                                             }
-                                                                                                                                              }
-                                                                                                                        },
-                                                                                                             "block_order":  [
-                                                                                                                                 "text_xrnftG",
-                                                                                                                                 "review_iBqA9W",
-                                                                                                                                 "price_tVjtKg"
-                                                                                                                             ]
-                                                                                                         },
-                                                                                        "custom_liquid_trust_badges":  {
-                                                                                                                           "type":  "custom-liquid",
-                                                                                                                           "name":  "Trust badges",
-                                                                                                                           "settings":  {
-                                                                                                                                            "custom_liquid":  "\u003cdiv class=\"melyla-pdp-trust\"\u003e\u003cspan\u003e* Proudly Black-owned!\u003c/span\u003e\u003cspan\u003e+ 30-Day Easy Returns\u003c/span\u003e\u003c/div\u003e"
-                                                                                                                                        },
-                                                                                                                           "blocks":  {
-
-                                                                                                                                      }
-                                                                                                                       },
-                                                                                        "divider_VJhene":  {
-                                                                                                               "type":  "_divider",
-                                                                                                               "name":  "t:names.divider",
-                                                                                                               "settings":  {
-                                                                                                                                "thickness":  1,
-                                                                                                                                "corner_radius":  "square",
-                                                                                                                                "width_percent":  100,
-                                                                                                                                "padding-block-start":  0,
-                                                                                                                                "padding-block-end":  0
-                                                                                                                            },
-                                                                                                               "blocks":  {
-
-                                                                                                                          }
-                                                                                                           },
-                                                                                        "custom_liquid_choose_offer":  {
-                                                                                                                           "type":  "custom-liquid",
-                                                                                                                           "name":  "Choose offer heading",
-                                                                                                                           "settings":  {
-                                                                                                                                            "custom_liquid":  "\u003cdiv class=\"melyla-pdp-offer-heading\"\u003e\u003ch4\u003eCHOOSE YOUR OFFER\u003c/h4\u003e\u003cp\u003eSelect the option that is right for you\u003c/p\u003e\u003c/div\u003e"
-                                                                                                                                        },
-                                                                                                                           "blocks":  {
-
-                                                                                                                                      }
-                                                                                                                       },
-                                                                                        "custom_liquid_offer_steps":  {
-                                                                                                                          "type":  "custom-liquid",
-                                                                                                                          "name":  "Offer steps",
-                                                                                                                          "settings":  {
-                                                                                                                                           "custom_liquid":  "\u003cdiv class=\"melyla-pdp-offer\"\u003e\u003cdiv class=\"melyla-pdp-offer__head\"\u003e\u003cspan\u003eBOGO\u003c/span\u003e\u003cstrong\u003eHOW THE DEAL WORKS:\u003c/strong\u003e\u003c/div\u003e\u003cdiv class=\"melyla-pdp-offer__steps\"\u003e\u003cdiv\u003e\u003cem\u003e01\u003c/em\u003e\u003cspan\u003eAdd this bag\u003c/span\u003e\u003c/div\u003e\u003cb\u003e-\u003e\u003c/b\u003e\u003cdiv\u003e\u003cem\u003e02\u003c/em\u003e\u003cspan\u003eAdd any 2nd item\u003c/span\u003e\u003c/div\u003e\u003cb\u003e-\u003e\u003c/b\u003e\u003cdiv\u003e\u003cem\u003e03\u003c/em\u003e\u003cspan\u003e2nd one is FREE\u003c/span\u003e\u003c/div\u003e\u003c/div\u003e\u003cp\u003e\u003cspan class=\"melyla-pdp-offer__gift\" aria-hidden=\"true\"\u003e\u0026#127873;\u003c/span\u003eOne for you, one to gift - your sister, your mama, your bestie.\u003c/p\u003e\u003c/div\u003e"
-                                                                                                                                       },
-                                                                                                                          "blocks":  {
-
-                                                                                                                                     }
-                                                                                                                      },
-                                                                                        "custom_liquid_offer_cards":  {
-                                                                                                                          "type":  "custom-liquid",
-                                                                                                                          "name":  "Offer cards",
-                                                                                                                          "settings":  {
-                                                                                                                                           "custom_liquid":  "\u003cdiv class=\"melyla-offer-cards\" data-melyla-offer-cards\u003e\u003cbutton type=\"button\" class=\"melyla-offer-card is-active\" data-offer-qty=\"1\" aria-pressed=\"true\"\u003e\u003cheader\u003e\u003cdiv class=\"melyla-offer-card__meta\"\u003e{% if closest.product.featured_image %}\u003cimg class=\"melyla-offer-card__thumb\" src=\"{{ closest.product.featured_image | image_url: width: 88 }}\" alt=\"{{ closest.product.title | escape }}\" loading=\"lazy\"\u003e{% endif %}\u003cdiv\u003e\u003ch5\u003eSingle Product\u003c/h5\u003e\u003cp\u003e1 item\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\u003cstrong data-offer-price=\"single\"\u003e$0.00\u003c/strong\u003e\u003c/header\u003e\u003cdiv class=\"melyla-offer-card__options\"\u003e\u003cspan data-label=\"Size\" data-offer-option=\"1\"\u003eSize\u003c/span\u003e\u003cspan data-label=\"Material\" data-offer-option=\"2\"\u003eMaterial\u003c/span\u003e\u003c/div\u003e\u003c/button\u003e\u003cbutton type=\"button\" class=\"melyla-offer-card\" data-offer-qty=\"2\" aria-pressed=\"false\"\u003e\u003cspan class=\"badge\"\u003eBEST VALUE\u003c/span\u003e\u003cheader\u003e\u003cdiv class=\"melyla-offer-card__meta\"\u003e{% if closest.product.featured_image %}\u003cimg class=\"melyla-offer-card__thumb\" src=\"{{ closest.product.featured_image | image_url: width: 88 }}\" alt=\"{{ closest.product.title | escape }}\" loading=\"lazy\"\u003e{% endif %}\u003cdiv\u003e\u003ch5\u003eBuy 2 Get 3 FREE \u003cem class=\"off\"\u003e\u003c/em\u003e\u003c/h5\u003e\u003cp\u003e2 items + 3 free gifts\u003c/p\u003e\u003c/div\u003e\u003c/div\u003e\u003cstrong data-offer-price=\"bundle\"\u003e2x $0.00\u003c/strong\u003e\u003c/header\u003e\u003csmall class=\"melyla-offer-card__compare\" data-offer-compare=\"bundle\"\u003e\u003c/small\u003e\u003c/button\u003e\u003c/div\u003e"
-                                                                                                                                       },
-                                                                                                                          "blocks":  {
-
-                                                                                                                                     }
-                                                                                                                      },
-                                                                                        "variant_picker_R3rGDr":  {
-                                                                                                                      "type":  "variant-picker",
-                                                                                                                      "settings":  {
-                                                                                                                                       "variant_style":  "buttons",
-                                                                                                                                       "show_swatches":  false,
-                                                                                                                                       "alignment":  "left",
-                                                                                                                                       "padding-block-start":  0,
-                                                                                                                                       "padding-block-end":  0,
-                                                                                                                                       "padding-inline-start":  0,
-                                                                                                                                       "padding-inline-end":  0
-                                                                                                                                   },
-                                                                                                                      "blocks":  {
-
-                                                                                                                                 }
-                                                                                                                  },
-                                                                                        "buy_buttons_eYQEYi":  {
-                                                                                                                   "type":  "buy-buttons",
-                                                                                                                   "settings":  {
-                                                                                                                                    "stacking":  true,
-                                                                                                                                    "show_pickup_availability":  false,
-                                                                                                                                    "padding-block-start":  0,
-                                                                                                                                    "padding-block-end":  0,
-                                                                                                                                    "padding-inline-start":  0,
-                                                                                                                                    "padding-inline-end":  0
-                                                                                                                                },
-                                                                                                                   "blocks":  {
-                                                                                                                                  "quantity":  {
-                                                                                                                                                   "type":  "quantity",
-                                                                                                                                                   "static":  true,
-                                                                                                                                                   "settings":  {
-
-                                                                                                                                                                },
-                                                                                                                                                   "blocks":  {
-
-                                                                                                                                                              }
-                                                                                                                                               },
-                                                                                                                                  "add-to-cart":  {
-                                                                                                                                                      "type":  "add-to-cart",
-                                                                                                                                                      "static":  true,
-                                                                                                                                                      "settings":  {
-                                                                                                                                                                       "style_class":  "button"
-                                                                                                                                                                   },
-                                                                                                                                                      "blocks":  {
-
-                                                                                                                                                                 }
-                                                                                                                                                  },
-                                                                                                                                  "accelerated-checkout":  {
-                                                                                                                                                               "type":  "accelerated-checkout",
-                                                                                                                                                               "static":  true,
-                                                                                                                                                               "settings":  {
-
-                                                                                                                                                                            },
-                                                                                                                                                               "blocks":  {
-
-                                                                                                                                                                          }
-                                                                                                                                                           }
-                                                                                                                              },
-                                                                                                                   "block_order":  [
-
-                                                                                                                                   ]
-                                                                                                               },
-                                                                                        "custom_liquid_bogo_strip":  {
-                                                                                                                         "type":  "custom-liquid",
-                                                                                                                         "name":  "BOGO strip",
-                                                                                                                         "settings":  {
-                                                                                                                                          "custom_liquid":  "\u003cdiv class=\"melyla-pdp-bogo\"\u003e\u003ch4\u003e\u003cspan class=\"flame\"\u003e\ud83d\udd25\u003c/span\u003eBUY 1 GET 1 FREE\u003cspan class=\"flame\"\u003e\ud83d\udd25\u003c/span\u003e\u003c/h4\u003e\u003cp\u003eSimply add any 2 bags or wallets to your cart and one will automatically be free!\u003c/p\u003e\u003cdiv class=\"melyla-pdp-bogo__pill\"\u003e\ud83c\udf1f Mix \u0026amp; match any 2 bags or wallets on the site\u003c/div\u003e\u003csmall\u003eBundle deals (e.g., Buy 2 Get 3) cannot be combined with this offer.\u003c/small\u003e\u003c/div\u003e"
-                                                                                                                                      },
-                                                                                                                         "blocks":  {
-
-                                                                                                                                    }
-                                                                                                                     },
-                                                                                        "custom_liquid_delivery_eta":  {
-                                                                                                                           "type":  "custom-liquid",
-                                                                                                                           "name":  "Delivery ETA",
-                                                                                                                           "settings":  {
-                                                                                                                                            "custom_liquid":  "\u003cdiv class=\"melyla-pdp-delivery\"\u003e\u003cspan class=\"dot\"\u003e\u003c/span\u003eOrder within \u003cstrong\u003e04:19:55\u003c/strong\u003e to get it delivered as soon as \u003cstrong\u003eSat, 07 Mar.\u003c/strong\u003e\u003c/div\u003e"
-                                                                                                                                        },
-                                                                                                                           "blocks":  {
-
-                                                                                                                                      }
-                                                                                                                       },
-                                                                                        "text_aEtTtq":  {
-                                                                                                            "type":  "text",
-                                                                                                            "name":  "Product description",
-                                                                                                            "settings":  {
-                                                                                                                             "text":  "{{ product.description }}",
-                                                                                                                             "width":  "100%",
-                                                                                                                             "max_width":  "normal",
-                                                                                                                             "alignment":  "left",
-                                                                                                                             "type_preset":  "rte",
-                                                                                                                             "font":  "var(--font-primary--family)",
-                                                                                                                             "font_size":  "",
-                                                                                                                             "line_height":  "normal",
-                                                                                                                             "letter_spacing":  "normal",
-                                                                                                                             "case":  "none",
-                                                                                                                             "wrap":  "pretty",
-                                                                                                                             "color":  "",
-                                                                                                                             "background":  false,
-                                                                                                                             "background_color":  "#00000026",
-                                                                                                                             "corner_radius":  0,
-                                                                                                                             "padding-block-start":  0,
-                                                                                                                             "padding-block-end":  0,
-                                                                                                                             "padding-inline-start":  0,
-                                                                                                                             "padding-inline-end":  0
-                                                                                                                         },
-                                                                                                            "blocks":  {
-
-                                                                                                                       }
-                                                                                                        },
-                                                                                        "accordion_product_info":  {
-                                                                                                                       "type":  "accordion",
-                                                                                                                       "name":  "Product info accordion",
-                                                                                                                       "settings":  {
-                                                                                                                                        "icon":  "plus",
-                                                                                                                                        "dividers":  true,
-                                                                                                                                        "type_preset":  "h6",
-                                                                                                                                        "inherit_color_scheme":  true,
-                                                                                                                                        "color_scheme":  "",
-                                                                                                                                        "border":  "none",
-                                                                                                                                        "border_width":  1,
-                                                                                                                                        "border_opacity":  100,
-                                                                                                                                        "border_radius":  0,
-                                                                                                                                        "padding-block-start":  0,
-                                                                                                                                        "padding-block-end":  0,
-                                                                                                                                        "padding-inline-start":  0,
-                                                                                                                                        "padding-inline-end":  0
-                                                                                                                                    },
-                                                                                                                       "blocks":  {
-                                                                                                                                      "accordion_row_features":  {
-                                                                                                                                                                     "type":  "_accordion-row",
-                                                                                                                                                                     "settings":  {
-                                                                                                                                                                                      "heading":  "Features",
-                                                                                                                                                                                      "open_by_default":  false,
-                                                                                                                                                                                      "icon":  "none"
-                                                                                                                                                                                  },
-                                                                                                                                                                     "blocks":  {
-                                                                                                                                                                                    "text":  {
-                                                                                                                                                                                                 "type":  "text",
-                                                                                                                                                                                                 "settings":  {
-                                                                                                                                                                                                                    "text":  "\u003cul\u003e\u003cli\u003eBold original artwork print\u003c/li\u003e\u003cli\u003eTop zip closure + inner pocket\u003c/li\u003e\u003cli\u003eDetachable shoulder strap\u003c/li\u003e\u003cli\u003eDaily size for essentials\u003c/li\u003e\u003c/ul\u003e",
-                                                                                                                                                                                                                  "type_preset":  "rte",
-                                                                                                                                                                                                                  "font":  "var(--font-body--family)",
-                                                                                                                                                                                                                  "font_size":  "",
-                                                                                                                                                                                                                  "line_height":  "normal",
-                                                                                                                                                                                                                  "letter_spacing":  "normal",
-                                                                                                                                                                                                                  "case":  "none",
-                                                                                                                                                                                                                  "wrap":  "pretty",
-                                                                                                                                                                                                                  "width":  "100%",
-                                                                                                                                                                                                                  "max_width":  "normal",
-                                                                                                                                                                                                                  "alignment":  "left",
-                                                                                                                                                                                                                  "padding-block-start":  0,
-                                                                                                                                                                                                                  "padding-block-end":  0,
-                                                                                                                                                                                                                  "padding-inline-start":  0,
-                                                                                                                                                                                                                  "padding-inline-end":  0
-                                                                                                                                                                                                              }
-                                                                                                                                                                                             }
-                                                                                                                                                                                },
-                                                                                                                                                                     "block_order":  [
-                                                                                                                                                                                         "text"
-                                                                                                                                                                                     ]
-                                                                                                                                                                 },
-                                                                                                                                      "accordion_row_material":  {
-                                                                                                                                                                     "type":  "_accordion-row",
-                                                                                                                                                                     "settings":  {
-                                                                                                                                                                                      "heading":  "Material",
-                                                                                                                                                                                      "open_by_default":  false,
-                                                                                                                                                                                      "icon":  "none"
-                                                                                                                                                                                  },
-                                                                                                                                                                     "blocks":  {
-                                                                                                                                                                                    "text":  {
-                                                                                                                                                                                                 "type":  "text",
-                                                                                                                                                                                                 "settings":  {
-                                                                                                                                                                                                                   "text":  "\u003cp\u003ePremium vegan leather with reinforced stitching and a soft-touch lining.\u003c/p\u003e",
-                                                                                                                                                                                                                  "type_preset":  "rte",
-                                                                                                                                                                                                                  "font":  "var(--font-body--family)",
-                                                                                                                                                                                                                  "font_size":  "",
-                                                                                                                                                                                                                  "line_height":  "normal",
-                                                                                                                                                                                                                  "letter_spacing":  "normal",
-                                                                                                                                                                                                                  "case":  "none",
-                                                                                                                                                                                                                  "wrap":  "pretty",
-                                                                                                                                                                                                                  "width":  "100%",
-                                                                                                                                                                                                                  "max_width":  "normal",
-                                                                                                                                                                                                                  "alignment":  "left",
-                                                                                                                                                                                                                  "padding-block-start":  0,
-                                                                                                                                                                                                                  "padding-block-end":  0,
-                                                                                                                                                                                                                  "padding-inline-start":  0,
-                                                                                                                                                                                                                  "padding-inline-end":  0
-                                                                                                                                                                                                              }
-                                                                                                                                                                                             }
-                                                                                                                                                                                },
-                                                                                                                                                                     "block_order":  [
-                                                                                                                                                                                         "text"
-                                                                                                                                                                                     ]
-                                                                                                                                                                 },
-                                                                                                                                      "accordion_row_shipping":  {
-                                                                                                                                                                     "type":  "_accordion-row",
-                                                                                                                                                                     "settings":  {
-                                                                                                                                                                                      "heading":  "Shipping \u0026 Delivery",
-                                                                                                                                                                                      "open_by_default":  false,
-                                                                                                                                                                                      "icon":  "none"
-                                                                                                                                                                                  },
-                                                                                                                                                                     "blocks":  {
-                                                                                                                                                                                    "text":  {
-                                                                                                                                                                                                 "type":  "text",
-                                                                                                                                                                                                 "settings":  {
-                                                                                                                                                                                                                   "text":  "\u003cp\u003eShips from USA. Standard delivery is usually 4-6 business days.\u003c/p\u003e",
-                                                                                                                                                                                                                  "type_preset":  "rte",
-                                                                                                                                                                                                                  "font":  "var(--font-body--family)",
-                                                                                                                                                                                                                  "font_size":  "",
-                                                                                                                                                                                                                  "line_height":  "normal",
-                                                                                                                                                                                                                  "letter_spacing":  "normal",
-                                                                                                                                                                                                                  "case":  "none",
-                                                                                                                                                                                                                  "wrap":  "pretty",
-                                                                                                                                                                                                                  "width":  "100%",
-                                                                                                                                                                                                                  "max_width":  "normal",
-                                                                                                                                                                                                                  "alignment":  "left",
-                                                                                                                                                                                                                  "padding-block-start":  0,
-                                                                                                                                                                                                                  "padding-block-end":  0,
-                                                                                                                                                                                                                  "padding-inline-start":  0,
-                                                                                                                                                                                                                  "padding-inline-end":  0
-                                                                                                                                                                                                              }
-                                                                                                                                                                                             }
-                                                                                                                                                                                },
-                                                                                                                                                                     "block_order":  [
-                                                                                                                                                                                         "text"
-                                                                                                                                                                                     ]
-                                                                                                                                                                 }
-                                                                                                                                  },
-                                                                                                                       "block_order":  [
-                                                                                                                                           "accordion_row_features",
-                                                                                                                                           "accordion_row_material",
-                                                                                                                                           "accordion_row_shipping"
-                                                                                                                                       ]
-                                                                                                                   },
-                                                                                        "custom_liquid_other_styles":  {
-                                                                                                                           "type":  "custom-liquid",
-                                                                                                                           "name":  "Choose other styles",
-                                                                                                                           "settings":  {
-                                                                                                                                            "custom_liquid":  "{% render 'melyla-other-styles', product: closest.product %}"
-                                                                                                                                        },
-                                                                                                                           "blocks":  {
-
-                                                                                                                                      }
-                                                                                                                       },
-                                                                                        "custom_liquid_installments":  {
-                                                                                                                           "type":  "custom-liquid",
-                                                                                                                           "name":  "Installments",
-                                                                                                                           "settings":  {
-                                                                                                                                            "custom_liquid":  "\u003cp class=\"melyla-pdp-installments\"\u003ePay in 4 interest-free installments of \u003cstrong\u003e$35.74\u003c/strong\u003e with \u003cspan class=\"melyla-shop-pay\" aria-label=\"Shop Pay\"\u003e\u003cspan class=\"melyla-shop-pay__shop\"\u003eshop\u003c/span\u003e\u003cspan class=\"melyla-shop-pay__pay\"\u003ePay\u003c/span\u003e\u003c/span\u003e \u003cu\u003eLearn more\u003c/u\u003e\u003c/p\u003e"
-                                                                                                                                        },
-                                                                                                                           "blocks":  {
-
-                                                                                                                                      }
-                                                                                                                       }
-                                                                                    },
-                                                                         "block_order":  [
-                                                                                             "group_icgrde",
-                                                                                             "custom_liquid_installments",
-                                                                                             "custom_liquid_trust_badges",
-                                                                                             "divider_VJhene",
-                                                                                             "custom_liquid_offer_steps",
-                                                                                             "custom_liquid_choose_offer",
-                                                                                             "custom_liquid_offer_cards",
-                                                                                             "variant_picker_R3rGDr",
-                                                                                             "buy_buttons_eYQEYi",
-                                                                                             "custom_liquid_bogo_strip",
-                                                                                             "custom_liquid_other_styles",
-                                                                                             "custom_liquid_delivery_eta",
-                                                                                             "text_aEtTtq",
-                                                                                             "accordion_product_info"
-                                                                                         ]
-                                                                     }
-                                             },
-                                  "settings":  {
-                                                   "content_width":  "content-center-aligned",
-                                                   "desktop_media_position":  "left",
-                                                   "equal_columns":  true,
-                                                   "limit_details_width":  false,
-                                                   "gap":  48,
-                                                   "color_scheme":  "",
-                                                   "padding-block-start":  0,
-                                                   "padding-block-end":  0
-                                               }
-                              },
-                     "product_recommendations_qggXJq":  {
-                                                            "type":  "product-recommendations",
-                                                            "blocks":  {
-                                                                           "text_cbcgyb":  {
-                                                                                               "type":  "text",
-                                                                                               "name":  "t:names.header",
-                                                                                               "settings":  {
-                                                                                                                "text":  "\u003ch3\u003eMORE ITEMS TO CONSIDER\u003c/h3\u003e",
-                                                                                                                "width":  "fit-content",
-                                                                                                                "max_width":  "normal",
-                                                                                                                "alignment":  "center",
-                                                                                                                "type_preset":  "h4",
-                                                                                                                "font":  "var(--font-primary--family)",
-                                                                                                                "font_size":  "",
-                                                                                                                "line_height":  "normal",
-                                                                                                                "letter_spacing":  "normal",
-                                                                                                                "case":  "none",
-                                                                                                                "wrap":  "pretty",
-                                                                                                                "color":  "",
-                                                                                                                "background":  false,
-                                                                                                                "background_color":  "#00000026",
-                                                                                                                "corner_radius":  0,
-                                                                                                                "padding-block-start":  0,
-                                                                                                                "padding-block-end":  0,
-                                                                                                                "padding-inline-start":  0,
-                                                                                                                "padding-inline-end":  0
-                                                                                                            },
-                                                                                               "blocks":  {
-
-                                                                                                          }
-                                                                                           },
-                                                                           "static-product-card":  {
-                                                                                                       "type":  "_product-card",
-                                                                                                       "name":  "t:names.product_card",
-                                                                                                       "static":  true,
-                                                                                                       "settings":  {
-                                                                                                                        "product_card_gap":  8,
-                                                                                                                        "inherit_color_scheme":  true,
-                                                                                                                        "color_scheme":  "",
-                                                                                                                        "border":  "none",
-                                                                                                                        "border_width":  1,
-                                                                                                                        "border_opacity":  100,
-                                                                                                                        "border_radius":  0,
-                                                                                                                        "padding-block-start":  0,
-                                                                                                                        "padding-block-end":  8,
-                                                                                                                        "padding-inline-start":  0,
-                                                                                                                        "padding-inline-end":  0
-                                                                                                                    },
-                                                                                                       "blocks":  {
-                                                                                                                      "product_card_gallery_DNizbJ":  {
-                                                                                                                                                          "type":  "_product-card-gallery",
-                                                                                                                                                          "name":  "t:names.product_card_media",
-                                                                                                                                                          "settings":  {
-                                                                                                                                                                           "image_ratio":  "adapt",
-                                                                                                                                                                           "border":  "none",
-                                                                                                                                                                           "border_width":  1,
-                                                                                                                                                                           "border_opacity":  100,
-                                                                                                                                                                           "border_radius":  0,
-                                                                                                                                                                           "padding-block-start":  0,
-                                                                                                                                                                           "padding-block-end":  0,
-                                                                                                                                                                           "padding-inline-start":  0,
-                                                                                                                                                                           "padding-inline-end":  0
-                                                                                                                                                                       },
-                                                                                                                                                          "blocks":  {
-
-                                                                                                                                                                     }
-                                                                                                                                                      },
-                                                                                                                      "product_title_M7MJkb":  {
-                                                                                                                                                   "type":  "product-title",
-                                                                                                                                                   "name":  "t:names.product_title",
-                                                                                                                                                   "settings":  {
-                                                                                                                                                                    "width":  "100%",
-                                                                                                                                                                    "max_width":  "normal",
-                                                                                                                                                                    "alignment":  "left",
-                                                                                                                                                                    "type_preset":  "rte",
-                                                                                                                                                                    "font":  "var(--font-body--family)",
-                                                                                                                                                                    "font_size":  "1rem",
-                                                                                                                                                                    "line_height":  "normal",
-                                                                                                                                                                    "letter_spacing":  "normal",
-                                                                                                                                                                    "case":  "none",
-                                                                                                                                                                    "wrap":  "pretty",
-                                                                                                                                                                    "color":  "var(--color-foreground)",
-                                                                                                                                                                    "background":  false,
-                                                                                                                                                                    "background_color":  "#00000026",
-                                                                                                                                                                    "corner_radius":  0,
-                                                                                                                                                                    "padding-block-start":  4,
-                                                                                                                                                                    "padding-block-end":  0,
-                                                                                                                                                                    "padding-inline-start":  0,
-                                                                                                                                                                    "padding-inline-end":  0
-                                                                                                                                                                },
-                                                                                                                                                   "blocks":  {
-
-                                                                                                                                                              }
-                                                                                                                                               },
-                                                                                                                      "price_gLWgA6":  {
-                                                                                                                                           "type":  "price",
-                                                                                                                                           "settings":  {
-                                                                                                                                                            "show_sale_price_first":  true,
-                                                                                                                                                            "show_installments":  false,
-                                                                                                                                                            "show_tax_info":  false,
-                                                                                                                                                            "type_preset":  "h6",
-                                                                                                                                                            "width":  "100%",
-                                                                                                                                                            "alignment":  "left",
-                                                                                                                                                            "font":  "var(--font-body--family)",
-                                                                                                                                                            "font_size":  "1rem",
-                                                                                                                                                            "line_height":  "normal",
-                                                                                                                                                            "letter_spacing":  "normal",
-                                                                                                                                                            "case":  "none",
-                                                                                                                                                            "color":  "var(--color-foreground)",
-                                                                                                                                                            "padding-block-start":  0,
-                                                                                                                                                            "padding-block-end":  0,
-                                                                                                                                                            "padding-inline-start":  0,
-                                                                                                                                                            "padding-inline-end":  0
-                                                                                                                                                        },
-                                                                                                                                           "blocks":  {
-
-                                                                                                                                                      }
-                                                                                                                                       }
-                                                                                                                  },
-                                                                                                       "block_order":  [
-                                                                                                                           "product_card_gallery_DNizbJ",
-                                                                                                                           "product_title_M7MJkb",
-                                                                                                                           "price_gLWgA6"
-                                                                                                                       ]
-                                                                                                   }
-                                                                       },
-                                                            "block_order":  [
-                                                                                "text_cbcgyb"
-                                                                            ],
-                                                            "name":  "t:names.product_recommendations",
-                                                            "settings":  {
-                                                                             "product":  "{{ closest.product }}",
-                                                                             "recommendation_type":  "related",
-                                                                             "layout_type":  "grid",
-                                                                             "carousel_on_mobile":  false,
-                                                                             "max_products":  4,
-                                                                             "columns":  4,
-                                                                             "mobile_columns":  "2",
-                                                                             "columns_gap":  12,
-                                                                             "rows_gap":  24,
-                                                                             "icons_style":  "arrow",
-                                                                             "icons_shape":  "none",
-                                                                             "section_width":  "page-width",
-                                                                             "gap":  28,
-                                                                             "color_scheme":  "scheme-1",
-                                                                             "padding-block-start":  48,
-                                                                             "padding-block-end":  48
-                                                                         }
-                                                        },
-                     "product_faq_melyla":  {
-                                                "type":  "section",
-                                                "blocks":  {
-                                                               "text_heading":  {
-                                                                                    "type":  "text",
-                                                                                    "name":  "FAQ heading",
-                                                                                    "settings":  {
-                                                                                                     "text":  "\u003ch2\u003eYOU MAY BE WONDERING...\u003c/h2\u003e",
-                                                                                                     "width":  "fill",
-                                                                                                     "max_width":  "normal",
-                                                                                                     "alignment":  "center",
-                                                                                                     "type_preset":  "h2",
-                                                                                                     "font":  "var(--font-primary--family)",
-                                                                                                     "font_size":  "",
-                                                                                                     "line_height":  "normal",
-                                                                                                     "letter_spacing":  "normal",
-                                                                                                     "case":  "none",
-                                                                                                     "wrap":  "pretty",
-                                                                                                     "color":  "",
-                                                                                                     "background":  false,
-                                                                                                     "background_color":  "#00000026",
-                                                                                                     "corner_radius":  0,
-                                                                                                     "padding-block-start":  0,
-                                                                                                     "padding-block-end":  0,
-                                                                                                     "padding-inline-start":  0,
-                                                                                                     "padding-inline-end":  0
-                                                                                                 },
-                                                                                    "blocks":  {
-
-                                                                                               }
-                                                                                },
-                                                               "accordion":  {
-                                                                                 "type":  "accordion",
-                                                                                 "name":  "FAQ rows",
-                                                                                 "settings":  {
-                                                                                                  "icon":  "plus",
-                                                                                                  "dividers":  true,
-                                                                                                  "type_preset":  "h5",
-                                                                                                  "inherit_color_scheme":  true,
-                                                                                                  "color_scheme":  "",
-                                                                                                  "border":  "none",
-                                                                                                  "border_width":  1,
-                                                                                                  "border_opacity":  100,
-                                                                                                  "border_radius":  0,
-                                                                                                  "padding-block-start":  0,
-                                                                                                  "padding-block-end":  0,
-                                                                                                  "padding-inline-start":  0,
-                                                                                                  "padding-inline-end":  0
-                                                                                              },
-                                                                                 "blocks":  {
-                                                                                                "row_black_owned":  {
-                                                                                                                        "type":  "_accordion-row",
-                                                                                                                        "settings":  {
-                                                                                                                                         "heading":  "IS THIS A BLACK-OWNED BRAND?",
-                                                                                                                                         "open_by_default":  false,
-                                                                                                                                         "icon":  "none"
-                                                                                                                                     },
-                                                                                                                        "blocks":  {
-                                                                                                                                       "text":  {
-                                                                                                                                                    "type":  "text",
-                                                                                                                                                    "settings":  {
-                                                                                                                                                                     "text":  "\u003cp\u003eYes! We\u0026#39;re proudly Black-owned, and every design is created with love, culture, and storytelling in mind.\u003c/p\u003e",
-                                                                                                                                                                     "type_preset":  "rte",
-                                                                                                                                                                     "font":  "var(--font-body--family)",
-                                                                                                                                                                     "font_size":  "",
-                                                                                                                                                                     "line_height":  "normal",
-                                                                                                                                                                     "letter_spacing":  "normal",
-                                                                                                                                                                     "case":  "none",
-                                                                                                                                                                     "wrap":  "pretty",
-                                                                                                                                                                     "width":  "100%",
-                                                                                                                                                                     "max_width":  "normal",
-                                                                                                                                                                     "alignment":  "left",
-                                                                                                                                                                     "padding-block-start":  0,
-                                                                                                                                                                     "padding-block-end":  0,
-                                                                                                                                                                     "padding-inline-start":  0,
-                                                                                                                                                                     "padding-inline-end":  0
-                                                                                                                                                                 }
-                                                                                                                                                }
-                                                                                                                                   },
-                                                                                                                        "block_order":  [
-                                                                                                                                            "text"
-                                                                                                                                        ]
-                                                                                                                    },
-                                                                                                "row_ship_from":  {
-                                                                                                                      "type":  "_accordion-row",
-                                                                                                                      "settings":  {
-                                                                                                                                       "heading":  "WHERE DO YOU SHIP FROM?",
-                                                                                                                                       "open_by_default":  false,
-                                                                                                                                       "icon":  "none"
-                                                                                                                                   },
-                                                                                                                      "blocks":  {
-                                                                                                                                     "text":  {
-                                                                                                                                                  "type":  "text",
-                                                                                                                                                  "settings":  {
-                                                                                                                                                                   "text":  "\u003cp\u003eWe ship directly from our U.S. warehouse. Most orders arrive within 4-6 business days. You\u0026#39;ll receive tracking once your order ships.\u003c/p\u003e",
-                                                                                                                                                                   "type_preset":  "rte",
-                                                                                                                                                                   "font":  "var(--font-body--family)",
-                                                                                                                                                                   "font_size":  "",
-                                                                                                                                                                   "line_height":  "normal",
-                                                                                                                                                                   "letter_spacing":  "normal",
-                                                                                                                                                                   "case":  "none",
-                                                                                                                                                                   "wrap":  "pretty",
-                                                                                                                                                                   "width":  "100%",
-                                                                                                                                                                   "max_width":  "normal",
-                                                                                                                                                                   "alignment":  "left",
-                                                                                                                                                                   "padding-block-start":  0,
-                                                                                                                                                                   "padding-block-end":  0,
-                                                                                                                                                                   "padding-inline-start":  0,
-                                                                                                                                                                   "padding-inline-end":  0
-                                                                                                                                                               }
-                                                                                                                                              }
-                                                                                                                                 },
-                                                                                                                      "block_order":  [
-                                                                                                                                          "text"
-                                                                                                                                      ]
-                                                                                                                  },
-                                                                                                "row_small_sizes":  {
-                                                                                                                        "type":  "_accordion-row",
-                                                                                                                        "settings":  {
-                                                                                                                                         "heading":  "DO YOU OFFER SMALLER SIZES?",
-                                                                                                                                         "open_by_default":  false,
-                                                                                                                                         "icon":  "none"
-                                                                                                                                     },
-                                                                                                                        "blocks":  {
-                                                                                                                                       "text":  {
-                                                                                                                                                    "type":  "text",
-                                                                                                                                                    "settings":  {
-                                                                                                                                                                     "text":  "\u003cp\u003eYes, we have the \u003ca href=\"/collections/all\"\u003eLeather Mini Satchel\u003c/a\u003e and \u003ca href=\"/collections/all\"\u003eLeather Round Crossbody Bag\u003c/a\u003e. You can click the names to check them out!\u003c/p\u003e",
-                                                                                                                                                                     "type_preset":  "rte",
-                                                                                                                                                                     "font":  "var(--font-body--family)",
-                                                                                                                                                                     "font_size":  "",
-                                                                                                                                                                     "line_height":  "normal",
-                                                                                                                                                                     "letter_spacing":  "normal",
-                                                                                                                                                                     "case":  "none",
-                                                                                                                                                                     "wrap":  "pretty",
-                                                                                                                                                                     "width":  "100%",
-                                                                                                                                                                     "max_width":  "normal",
-                                                                                                                                                                     "alignment":  "left",
-                                                                                                                                                                     "padding-block-start":  0,
-                                                                                                                                                                     "padding-block-end":  0,
-                                                                                                                                                                     "padding-inline-start":  0,
-                                                                                                                                                                     "padding-inline-end":  0
-                                                                                                                                                                 }
-                                                                                                                                                }
-                                                                                                                                   },
-                                                                                                                        "block_order":  [
-                                                                                                                                            "text"
-                                                                                                                                        ]
-                                                                                                                    },
-                                                                                                "row_personalization":  {
-                                                                                                                            "type":  "_accordion-row",
-                                                                                                                            "settings":  {
-                                                                                                                                             "heading":  "ARE YOU STILL OFFERING PERSONALIZATION?",
-                                                                                                                                             "open_by_default":  false,
-                                                                                                                                             "icon":  "none"
-                                                                                                                                         },
-                                                                                                                            "blocks":  {
-                                                                                                                                           "text":  {
-                                                                                                                                                        "type":  "text",
-                                                                                                                                                        "settings":  {
-                                                                                                                                                                         "text":  "\u003cp\u003eAt the moment, to make sure our customers can receive their handbags within 4-6 days, we\u0026#39;re not offering this service anymore.\u003c/p\u003e",
-                                                                                                                                                                         "type_preset":  "rte",
-                                                                                                                                                                         "font":  "var(--font-body--family)",
-                                                                                                                                                                         "font_size":  "",
-                                                                                                                                                                         "line_height":  "normal",
-                                                                                                                                                                         "letter_spacing":  "normal",
-                                                                                                                                                                         "case":  "none",
-                                                                                                                                                                         "wrap":  "pretty",
-                                                                                                                                                                         "width":  "100%",
-                                                                                                                                                                         "max_width":  "normal",
-                                                                                                                                                                         "alignment":  "left",
-                                                                                                                                                                         "padding-block-start":  0,
-                                                                                                                                                                         "padding-block-end":  0,
-                                                                                                                                                                         "padding-inline-start":  0,
-                                                                                                                                                                         "padding-inline-end":  0
-                                                                                                                                                                     }
-                                                                                                                                                    }
-                                                                                                                                       },
-                                                                                                                            "block_order":  [
-                                                                                                                                                "text"
-                                                                                                                                            ]
-                                                                                                                        }
-                                                                                            },
-                                                                                 "block_order":  [
-                                                                                                     "row_black_owned",
-                                                                                                     "row_ship_from",
-                                                                                                     "row_small_sizes",
-                                                                                                     "row_personalization"
-                                                                                                 ]
-                                                                             }
-                                                           },
-                                                "block_order":  [
-                                                                    "text_heading",
-                                                                    "accordion"
-                                                                ],
-                                                "name":  "Product FAQ",
-                                                "settings":  {
-                                                                 "content_direction":  "column",
-                                                                 "vertical_on_mobile":  true,
-                                                                 "horizontal_alignment":  "center",
-                                                                 "vertical_alignment":  "center",
-                                                                 "align_baseline":  false,
-                                                                 "horizontal_alignment_flex_direction_column":  "center",
-                                                                 "vertical_alignment_flex_direction_column":  "center",
-                                                                 "gap":  24,
-                                                                 "section_width":  "page-width",
-                                                                 "section_height":  "",
-                                                                 "section_height_custom":  50,
-                                                                 "color_scheme":  "scheme-1",
-                                                                 "background_media":  "none",
-                                                                 "video_position":  "cover",
-                                                                 "background_image_position":  "cover",
-                                                                 "border":  "none",
-                                                                 "border_width":  1,
-                                                                 "border_opacity":  100,
-                                                                 "border_radius":  0,
-                                                                 "toggle_overlay":  false,
-                                                                 "overlay_color":  "#00000026",
-                                                                 "overlay_style":  "solid",
-                                                                 "gradient_direction":  "to top",
-                                                                 "padding-block-start":  100,
-                                                                 "padding-block-end":  36
-                                                             }
-                                            },
-                     "product_reviews_melyla":  {
-                                                     "type":  "product-reviews-melyla",
-                                                     "settings":  {
-
-                                                                  }
-                                                 }
-                 },
-    "order":  [
-                  "main",
-                  "product_faq_melyla",
-                  "product_reviews_melyla",
-                  "product_recommendations_qggXJq"
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "grid",
+            "media_columns": "two",
+            "image_gap": 12,
+            "large_first_image": false,
+            "icons_style": "none",
+            "slideshow_controls_style": "counter",
+            "slideshow_mobile_controls_style": "hint",
+            "thumbnail_position": "right",
+            "thumbnail_width": 44,
+            "thumbnail_radius": 0,
+            "aspect_ratio": "adapt",
+            "constrain_to_viewport": true,
+            "media_fit": "cover",
+            "media_radius": 0,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 28,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 10,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h6>{{ closest.product.title }}</h6>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "1.25rem",
+                    "line_height": "tight",
+                    "letter_spacing": "normal",
+                    "case": "uppercase",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "review_iBqA9W": {
+                  "type": "custom-liquid",
+                  "name": "Product rating",
+                  "settings": {
+                    "custom_liquid": "<p class=\"melyla-static-rating\" style=\"font-size:22px;line-height:1.2;\"><strong style=\"font-size:22px;line-height:1.2;font-weight:700;\">★★★★☆</strong> <span data-random-reviews style=\"font-size:22px;line-height:1.2;\">1568 reviews</span></p><script>(function(){var el=document.querySelector('[data-testid=\"product-information\"] [data-random-reviews]');if(!el)return;var n=Math.floor(Math.random()*1001)+1000;el.textContent=n+' reviews';})();</script>"
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "review_iBqA9W",
+                "price_tVjtKg"
               ]
+            },
+            "custom_liquid_installments": {
+              "type": "custom-liquid",
+              "name": "Installments",
+              "settings": {
+                "custom_liquid": "<p class=\"melyla-pdp-installments\">Pay in 4 interest-free installments of <strong>$35.74</strong> with <span class=\"melyla-shop-pay\" aria-label=\"Shop Pay\"><span class=\"melyla-shop-pay__shop\">shop</span><span class=\"melyla-shop-pay__pay\">Pay</span></span> <u>Learn more</u></p>"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_trust_badges": {
+              "type": "custom-liquid",
+              "name": "Trust badges",
+              "settings": {
+                "custom_liquid": "<div class=\"melyla-pdp-trust\"><span>* Proudly Black-owned!</span><span>+ 30-Day Easy Returns</span></div>"
+              },
+              "blocks": {}
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "custom_liquid_offer_steps": {
+              "type": "custom-liquid",
+              "name": "Offer steps",
+              "settings": {
+                "custom_liquid": "<div class=\"melyla-pdp-offer\"><div class=\"melyla-pdp-offer__head\"><span>BOGO</span><strong>HOW THE DEAL WORKS:</strong></div><div class=\"melyla-pdp-offer__steps\"><div><em>01</em><span>Add this bag</span></div><b>-></b><div><em>02</em><span>Add any 2nd item</span></div><b>-></b><div><em>03</em><span>2nd one is FREE</span></div></div><p><span class=\"melyla-pdp-offer__gift\" aria-hidden=\"true\">&#127873;</span>One for you, one to gift - your sister, your mama, your bestie.</p></div>"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_choose_offer": {
+              "type": "custom-liquid",
+              "name": "Choose offer heading",
+              "settings": {
+                "custom_liquid": "<div class=\"melyla-pdp-offer-heading\"><h4>CHOOSE YOUR OFFER</h4><p>Select the option that is right for you</p></div>"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_offer_cards": {
+              "type": "custom-liquid",
+              "name": "Offer cards",
+              "settings": {
+                "custom_liquid": "<div class=\"melyla-offer-cards\" data-melyla-offer-cards><button type=\"button\" class=\"melyla-offer-card is-active\" data-offer-qty=\"1\" aria-pressed=\"true\"><header><div class=\"melyla-offer-card__meta\">{% if closest.product.featured_image %}<img class=\"melyla-offer-card__thumb\" src=\"{{ closest.product.featured_image | image_url: width: 88 }}\" alt=\"{{ closest.product.title | escape }}\" loading=\"lazy\">{% endif %}<div><h5>Single Product</h5><p>1 item</p></div></div><strong data-offer-price=\"single\">$0.00</strong></header><div class=\"melyla-offer-card__options\"><span data-label=\"Size\" data-offer-option=\"1\">Size</span><span data-label=\"Material\" data-offer-option=\"2\">Material</span></div></button><button type=\"button\" class=\"melyla-offer-card\" data-offer-qty=\"2\" aria-pressed=\"false\"><span class=\"badge\">BEST VALUE</span><header><div class=\"melyla-offer-card__meta\">{% if closest.product.featured_image %}<img class=\"melyla-offer-card__thumb\" src=\"{{ closest.product.featured_image | image_url: width: 88 }}\" alt=\"{{ closest.product.title | escape }}\" loading=\"lazy\">{% endif %}<div><h5>Buy 2 Get 3 FREE <em class=\"off\"></em></h5><p>2 items + 3 free gifts</p></div></div><strong data-offer-price=\"bundle\">2x $0.00</strong></header><small class=\"melyla-offer-card__compare\" data-offer-compare=\"bundle\"></small></button></div>"
+              },
+              "blocks": {}
+            },
+            "variant_picker_R3rGDr": {
+              "type": "variant-picker",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": false,
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "custom_liquid_bogo_strip": {
+              "type": "custom-liquid",
+              "name": "BOGO strip",
+              "settings": {
+                "custom_liquid": "<div class=\"melyla-pdp-bogo\"><h4><span class=\"flame\">🔥</span>BUY 1 GET 1 FREE<span class=\"flame\">🔥</span></h4><p>Simply add any 2 bags or wallets to your cart and one will automatically be free!</p><div class=\"melyla-pdp-bogo__pill\">🌟 Mix &amp; match any 2 bags or wallets on the site</div><small>Bundle deals (e.g., Buy 2 Get 3) cannot be combined with this offer.</small></div>"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_other_styles": {
+              "type": "custom-liquid",
+              "name": "Choose other styles",
+              "settings": {
+                "custom_liquid": "{% render 'melyla-other-styles', product: closest.product %}"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_delivery_eta": {
+              "type": "custom-liquid",
+              "name": "Delivery ETA",
+              "settings": {
+                "custom_liquid": "<div class=\"melyla-pdp-delivery\"><span class=\"dot\"></span>Order within <strong>04:19:55</strong> to get it delivered as soon as <strong>Sat, 07 Mar.</strong></div>"
+              },
+              "blocks": {}
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "accordion_product_info": {
+              "type": "accordion",
+              "name": "Product info accordion",
+              "settings": {
+                "icon": "plus",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_features": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Features",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<ul><li>Bold original artwork print</li><li>Top zip closure + inner pocket</li><li>Detachable shoulder strap</li><li>Daily size for essentials</li></ul>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text"
+                  ]
+                },
+                "accordion_row_material": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Material",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Premium vegan leather with reinforced stitching and a soft-touch lining.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text"
+                  ]
+                },
+                "accordion_row_shipping": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Shipping & Delivery",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Ships from USA. Standard delivery is usually 4-6 business days.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_features",
+                "accordion_row_material",
+                "accordion_row_shipping"
+              ]
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "custom_liquid_installments",
+            "custom_liquid_trust_badges",
+            "divider_VJhene",
+            "custom_liquid_offer_steps",
+            "custom_liquid_choose_offer",
+            "custom_liquid_offer_cards",
+            "variant_picker_R3rGDr",
+            "buy_buttons_eYQEYi",
+            "custom_liquid_bogo_strip",
+            "custom_liquid_other_styles",
+            "custom_liquid_delivery_eta",
+            "text_aEtTtq",
+            "accordion_product_info"
+          ]
+        }
+      },
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "product_faq_melyla": {
+      "type": "section",
+      "blocks": {
+        "text_heading": {
+          "type": "text",
+          "name": "FAQ heading",
+          "settings": {
+            "text": "<h2>YOU MAY BE WONDERING...</h2>",
+            "width": "fill",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion": {
+          "type": "accordion",
+          "name": "FAQ rows",
+          "settings": {
+            "icon": "plus",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "row_black_owned": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "IS THIS A BLACK-OWNED BRAND?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Yes! We&#39;re proudly Black-owned, and every design is created with love, culture, and storytelling in mind.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text"
+              ]
+            },
+            "row_ship_from": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "WHERE DO YOU SHIP FROM?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>We ship directly from our U.S. warehouse. Most orders arrive within 4-6 business days. You&#39;ll receive tracking once your order ships.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text"
+              ]
+            },
+            "row_small_sizes": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "DO YOU OFFER SMALLER SIZES?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Yes, we have the <a href=\"/collections/all\">Leather Mini Satchel</a> and <a href=\"/collections/all\">Leather Round Crossbody Bag</a>. You can click the names to check them out!</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text"
+              ]
+            },
+            "row_personalization": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "ARE YOU STILL OFFERING PERSONALIZATION?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>At the moment, to make sure our customers can receive their handbags within 4-6 days, we&#39;re not offering this service anymore.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text"
+              ]
+            }
+          },
+          "block_order": [
+            "row_black_owned",
+            "row_ship_from",
+            "row_small_sizes",
+            "row_personalization"
+          ]
+        }
+      },
+      "block_order": [
+        "text_heading",
+        "accordion"
+      ],
+      "name": "Product FAQ",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 100,
+        "padding-block-end": 36
+      }
+    },
+    "product_reviews_melyla": {
+      "type": "product-reviews-melyla",
+      "settings": {}
+    },
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<h3>MORE ITEMS TO CONSIDER</h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h4",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6"
+          ]
+        }
+      },
+      "block_order": [
+        "text_cbcgyb"
+      ],
+      "name": "t:names.product_recommendations",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_faq_melyla",
+    "product_reviews_melyla",
+    "product_recommendations_qggXJq"
+  ]
 }
-
