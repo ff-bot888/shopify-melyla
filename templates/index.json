@@ -872,6 +872,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "The Faithful Collection",
       "settings": {
         "collection": "the-faithful-collection",
@@ -1066,6 +1067,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "The Mama Collection",
       "settings": {
         "collection": "the-mama-collection",
