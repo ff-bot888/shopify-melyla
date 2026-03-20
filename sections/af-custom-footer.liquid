@@ -1,0 +1,258 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section.settings.section_width }} {% if section.settings.color_scheme != blank %}color-{{ section.settings.color_scheme }}{% endif %}"
+  style="{% render 'spacing-padding', settings: section.settings %}"
+>
+  <div class="af-footer">
+    {% if section.settings.brand != blank %}
+      <div class="af-footer__brand">{{ section.settings.brand | escape }}</div>
+    {% endif %}
+
+    <div class="af-footer__top">
+      <div class="af-footer__col af-footer__col--contact">
+        {% if section.settings.contact_heading != blank %}
+          <h4>{{ section.settings.contact_heading | escape }}</h4>
+        {% endif %}
+
+        {% if section.settings.contact_body != blank %}
+          <div class="af-footer__contact-body rte">
+            {{ section.settings.contact_body }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="af-footer__col">
+        {% if section.settings.support_heading != blank %}
+          <h4>{{ section.settings.support_heading | escape }}</h4>
+        {% endif %}
+
+        <ul>
+          {% for block in section.blocks %}
+            {% if block.settings.column == 'support' %}
+              {% liquid
+                assign block_page = block.settings.page
+                assign item_title = block.settings.title
+                if item_title == blank and block_page != blank
+                  assign item_title = block_page.title
+                endif
+
+                assign item_link = block.settings.link
+                if item_link == blank and block_page != blank
+                  assign item_link = block_page.url
+                endif
+              %}
+
+              <li {{ block.shopify_attributes }}>
+                {% if item_title != blank %}
+                  {% if item_link != blank %}
+                    <a href="{{ item_link }}">{{ item_title | escape }}</a>
+                  {% else %}
+                    <span>{{ item_title | escape }}</span>
+                  {% endif %}
+                {% endif %}
+
+                {% if block.settings.note != blank %}
+                  <p class="af-footer__note">{{ block.settings.note | escape }}</p>
+                {% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="af-footer__col">
+        {% if section.settings.main_menu_heading != blank %}
+          <h4>{{ section.settings.main_menu_heading | escape }}</h4>
+        {% endif %}
+
+        <ul>
+          {% for block in section.blocks %}
+            {% if block.settings.column == 'main_menu' %}
+              {% liquid
+                assign block_page = block.settings.page
+                assign item_title = block.settings.title
+                if item_title == blank and block_page != blank
+                  assign item_title = block_page.title
+                endif
+
+                assign item_link = block.settings.link
+                if item_link == blank and block_page != blank
+                  assign item_link = block_page.url
+                endif
+              %}
+
+              <li {{ block.shopify_attributes }}>
+                {% if item_title != blank %}
+                  {% if item_link != blank %}
+                    <a href="{{ item_link }}">{{ item_title | escape }}</a>
+                  {% else %}
+                    <span>{{ item_title | escape }}</span>
+                  {% endif %}
+                {% endif %}
+
+                {% if block.settings.note != blank %}
+                  <p class="af-footer__note">{{ block.settings.note | escape }}</p>
+                {% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="af-footer__bottom">
+      {% if section.settings.bottom_text != blank %}
+        {{ section.settings.bottom_text }}
+      {% else %}
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }} &nbsp;&nbsp; Powered by Shopify
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "AF Custom Footer",
+  "class": "section-wrapper",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand",
+      "label": "Brand",
+      "default": "Melyla"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Contact heading",
+      "default": "CONTACT"
+    },
+    {
+      "type": "richtext",
+      "id": "contact_body",
+      "label": "Contact content",
+      "default": "<p>Address and email details</p>"
+    },
+    {
+      "type": "text",
+      "id": "support_heading",
+      "label": "Support column heading",
+      "default": "CUSTOMER SUPPORT"
+    },
+    {
+      "type": "text",
+      "id": "main_menu_heading",
+      "label": "Main menu heading",
+      "default": "MAIN MENU"
+    },
+    {
+      "type": "liquid",
+      "id": "bottom_text",
+      "label": "Bottom text",
+      "default": "&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} &nbsp;&nbsp; Powered by Shopify"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_item",
+      "name": "Link item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "options": [
+            {
+              "value": "support",
+              "label": "Customer support"
+            },
+            {
+              "value": "main_menu",
+              "label": "Main menu"
+            }
+          ],
+          "default": "support"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Page"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "If blank, the selected page title will be used."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Use this for collections or external URLs, or leave blank to use the selected page."
+        },
+        {
+          "type": "text",
+          "id": "note",
+          "label": "Note",
+          "info": "Optional remark shown under the title."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "AF Custom Footer",
+      "category": "Footer"
+    }
+  ]
+}
+{% endschema %}

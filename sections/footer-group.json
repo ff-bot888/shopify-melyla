@@ -1,19 +1,193 @@
 {
-    "type":  "footer",
-    "name":  "Footer",
-    "sections":  {
-                     "custom_liquid_melyla_footer":  {
-                                                          "type":  "custom-liquid",
-                                                          "settings":  {
-                                                                           "custom_liquid":  "\u003cdiv class=\"af-footer\"\u003e\n  \u003cdiv class=\"af-footer__brand\"\u003eMelyla\u003c/div\u003e\n  \u003cdiv class=\"af-footer__top\"\u003e\n    \u003cdiv class=\"af-footer__col af-footer__col--contact\"\u003e\n      \u003ch4\u003eCONTACT\u003c/h4\u003e\n      \u003cp\u003e\u003cstrong\u003eAddress:\u003c/strong\u003e 1209 Mountain Road Pl Ne Ste N, Albuquerque, NM 87110, United States\u003c/p\u003e\n      \u003cp\u003e\u003cstrong\u003eEmail:\u003c/strong\u003e \u003ca href=\"mailto:cs@melyla.com\"\u003ecs@melyla.com\u003c/a\u003e\u003c/p\u003e\n    \u003c/div\u003e\n    \u003cdiv class=\"af-footer__col\"\u003e\n      \u003ch4\u003eCUSTOMER SUPPORT\u003c/h4\u003e\n      \u003cul\u003e\n        \u003cli\u003e\u003ca href=\"/pages/meet-melyla-s-founder\"\u003eMeet Melyla\u0027s Founder\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/about-us\"\u003eAbout Melyla\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/contact\"\u003eContact Us\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/track-your-order\"\u003eTrack Your Order\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/shipping-delivery\"\u003eShipping \u0026amp; Delivery\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/return-refund\"\u003eReturn \u0026amp; Refund\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/cancellation-policy\"\u003eCancellation Policy\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/privacy-policy\"\u003ePrivacy Policy\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/term-of-service\"\u003eTerm of Service\u003c/a\u003e\u003c/li\u003e\n      \u003c/ul\u003e\n    \u003c/div\u003e\n    \u003cdiv class=\"af-footer__col\"\u003e\n      \u003ch4\u003eMAIN MENU\u003c/h4\u003e\n      \u003cul\u003e\n        \u003cli\u003e\u003ca href=\"/collections/all\"\u003eShop by Product\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/collections/shop-by-style\"\u003eShop by Style\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/collections/shop-by-look\"\u003eShop by Look\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/collections/shop-by-message\"\u003eShop by Message\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/collections/todays-deal\"\u003eToday\u0027s Deal\u003c/a\u003e\u003c/li\u003e\n        \u003cli\u003e\u003ca href=\"/pages/customer-reviews\"\u003eCustomer Reviews\u003c/a\u003e\u003c/li\u003e\n      \u003c/ul\u003e\n    \u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"af-footer__bottom\"\u003e\u0026copy; {{ \u0027now\u0027 | date: \u0027%Y\u0027 }} {{ shop.name }} \u0026nbsp;\u0026nbsp; Powered by Shopify\u003c/div\u003e\n\u003c/div\u003e",
-                                                                           "color_scheme":  "scheme-1",
-                                                                           "section_width":  "full-width",
-                                                                           "padding-block-start":  0,
-                                                                           "padding-block-end":  0
-                                                                       }
-                                                      }
-                 },
-    "order":  [
-                  "custom_liquid_melyla_footer"
-              ]
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "custom_liquid_melyla_footer": {
+      "type": "af-custom-footer",
+      "blocks": {
+        "support_founder": {
+          "type": "link_item",
+          "settings": {
+            "column": "support",
+            "page": "",
+            "title": "Meet Melyla's Founder",
+            "link": "/pages/meet-melyla-s-founder",
+            "note": ""
+          }
+        },
+        "support_about": {
+          "type": "link_item",
+          "settings": {
+            "column": "support",
+            "page": "",
+            "title": "About Melyla",
+            "link": "/pages/about-us",
+            "note": ""
+          }
+        },
+        "support_contact": {
+          "type": "link_item",
+          "settings": {
+            "column": "support",
+            "page": "",
+            "title": "Contact Us",
+            "link": "/pages/contact",
+            "note": ""
+          }
+        },
+        "support_track": {
+          "type": "link_item",
+          "settings": {
+            "column": "support",
+            "page": "",
+            "title": "Track Your Order",
+            "link": "/pages/track-your-order",
+            "note": ""
+          }
+        },
+        "support_shipping": {
+          "type": "link_item",
+          "settings": {
+            "column": "support",
+            "page": "",
+            "title": "Shipping & Delivery",
+            "link": "/pages/shipping-delivery",
+            "note": ""
+          }
+        },
+        "support_return": {
+          "type": "link_item",
+          "settings": {
+            "column": "support",
+            "page": "",
+            "title": "Return & Refund",
+            "link": "/pages/return-refund",
+            "note": ""
+          }
+        },
+        "support_cancel": {
+          "type": "link_item",
+          "settings": {
+            "column": "support",
+            "page": "",
+            "title": "Cancellation Policy",
+            "link": "/pages/cancellation-policy",
+            "note": ""
+          }
+        },
+        "support_privacy": {
+          "type": "link_item",
+          "settings": {
+            "column": "support",
+            "page": "",
+            "title": "Privacy Policy",
+            "link": "/pages/privacy-policy",
+            "note": ""
+          }
+        },
+        "support_terms": {
+          "type": "link_item",
+          "settings": {
+            "column": "support",
+            "page": "",
+            "title": "Term of Service",
+            "link": "/pages/term-of-service",
+            "note": ""
+          }
+        },
+        "main_product": {
+          "type": "link_item",
+          "settings": {
+            "column": "main_menu",
+            "page": "",
+            "title": "Shop by Product",
+            "link": "/collections/all",
+            "note": ""
+          }
+        },
+        "main_style": {
+          "type": "link_item",
+          "settings": {
+            "column": "main_menu",
+            "page": "",
+            "title": "Shop by Style",
+            "link": "/collections/shop-by-style",
+            "note": ""
+          }
+        },
+        "main_look": {
+          "type": "link_item",
+          "settings": {
+            "column": "main_menu",
+            "page": "",
+            "title": "Shop by Look",
+            "link": "/collections/shop-by-look",
+            "note": ""
+          }
+        },
+        "main_message": {
+          "type": "link_item",
+          "settings": {
+            "column": "main_menu",
+            "page": "",
+            "title": "Shop by Message",
+            "link": "/collections/shop-by-message",
+            "note": ""
+          }
+        },
+        "main_deal": {
+          "type": "link_item",
+          "settings": {
+            "column": "main_menu",
+            "page": "",
+            "title": "Today's Deal",
+            "link": "/collections/todays-deal",
+            "note": ""
+          }
+        },
+        "main_reviews": {
+          "type": "link_item",
+          "settings": {
+            "column": "main_menu",
+            "page": "",
+            "title": "Customer Reviews",
+            "link": "/pages/customer-reviews",
+            "note": ""
+          }
+        }
+      },
+      "block_order": [
+        "support_founder",
+        "support_about",
+        "support_contact",
+        "support_track",
+        "support_shipping",
+        "support_return",
+        "support_cancel",
+        "support_privacy",
+        "support_terms",
+        "main_product",
+        "main_style",
+        "main_look",
+        "main_message",
+        "main_deal",
+        "main_reviews"
+      ],
+      "settings": {
+        "brand": "Melyla",
+        "contact_heading": "CONTACT",
+        "contact_body": "<p><strong>Address:</strong> 1209 Mountain Road Pl Ne Ste N, Albuquerque, NM 87110, United States</p><p><strong>Email:</strong> <a href=\"mailto:cs@melyla.com\">cs@melyla.com</a></p>",
+        "support_heading": "CUSTOMER SUPPORT",
+        "main_menu_heading": "MAIN MENU",
+        "bottom_text": "&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} &nbsp;&nbsp; Powered by Shopify",
+        "color_scheme": "scheme-1",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_melyla_footer"
+  ]
 }

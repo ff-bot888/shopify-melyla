@@ -720,6 +720,13 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   margin: 0 0 14px;
 }
 
+.af-footer__note {
+  margin: 4px 0 0;
+  color: #5b5b5b;
+  font-size: 0.82em;
+  line-height: 1.4;
+}
+
 .af-footer__bottom {
   margin-top: 34px;
   text-align: center;
