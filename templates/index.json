@@ -935,7 +935,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>THE MAMA COLLECTION</h3>",
+                "text": "<h3>DOPE BLACK MOM COLLECTION</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1067,7 +1067,6 @@
           ]
         }
       },
-      "disabled": true,
       "name": "The Mama Collection",
       "settings": {
         "collection": "the-mama-collection",
