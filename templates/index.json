@@ -35,7 +35,7 @@
         "section_height_custom": 50,
         "color_scheme": "scheme-6",
         "toggle_overlay": false,
-        "overlay_color": "#00000022",
+        "overlay_color": "#00000021",
         "overlay_style": "solid",
         "gradient_direction": "to bottom",
         "blurred_reflection": false,
@@ -426,7 +426,7 @@
           "type": "card",
           "settings": {
             "collection": "",
-            "image": "",
+            "image": "shopify://shop_images/4_937e582a-3141-4201-8792-951d153e1a7b.png",
             "image_url": "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/6.png?v=1772508325",
             "title": "Leather Handbags",
             "alt_text": "Leather Handbags",
@@ -437,7 +437,7 @@
           "type": "card",
           "settings": {
             "collection": "",
-            "image": "",
+            "image": "shopify://shop_images/2_4024d7fa-529f-416f-adfb-bb21d05dfecc.png",
             "image_url": "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/4.png?v=1772508321",
             "title": "Leather Mini Satchels",
             "alt_text": "Leather Mini Satchels",
@@ -448,18 +448,54 @@
           "type": "card",
           "settings": {
             "collection": "",
-            "image": "",
+            "image": "shopify://shop_images/1_c6cd5bdd-7b7f-42af-8ae5-c28cccb3a71c.png",
             "image_url": "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/5.png?v=1772508321",
             "title": "Leather Round Bag",
             "alt_text": "Leather Round Bag",
             "link": "/collections/all"
+          }
+        },
+        "card_jJA3jt": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/5_86e73856-f358-4dca-b5ba-1b68580adfd6.png",
+            "image_url": "",
+            "title": "Leather Tote Bags",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "card_wdAqVX": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/6_d5ed21f2-4295-44ee-87f3-84c3882243bf.png",
+            "image_url": "",
+            "title": "Leather Wallets",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "card_eWJzjJ": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/3_f1655c4f-b32d-45bc-841c-225455042c33.png",
+            "image_url": "",
+            "title": "Leather Makeup Bags",
+            "alt_text": "",
+            "link": ""
           }
         }
       },
       "block_order": [
         "card_1",
         "card_2",
-        "card_3"
+        "card_3",
+        "card_jJA3jt",
+        "card_wdAqVX",
+        "card_eWJzjJ"
       ],
       "settings": {
         "heading": "SHOP BY COLLECTION",
