@@ -2218,6 +2218,11 @@ results-list[data-collection-handle] .melyla-collection-promo p {
   line-height: 1.35;
 }
 
+results-list[data-collection-handle] .melyla-collection-promo p strong {
+  color: #000;
+  text-decoration: underline;
+}
+
 results-list[data-collection-handle] .facets.facets--horizontal.facets-controls-wrapper {
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;

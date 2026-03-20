@@ -439,9 +439,49 @@
                                                               }
                                              },
                      "collection_list_shop_by_collection":  {
-                                                                "type":  "custom-liquid",
+                                                                "type":  "af-collection-showcase",
+                                                                "blocks":  {
+                                                                               "card_1":  {
+                                                                                              "type":  "card",
+                                                                                              "settings":  {
+                                                                                                               "collection":  "",
+                                                                                                               "image":  "",
+                                                                                                               "image_url":  "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/6.png?v=1772508325",
+                                                                                                               "title":  "Leather Handbags",
+                                                                                                               "alt_text":  "Leather Handbags",
+                                                                                                               "link":  "/collections/all"
+                                                                                                           }
+                                                                                          },
+                                                                               "card_2":  {
+                                                                                              "type":  "card",
+                                                                                              "settings":  {
+                                                                                                               "collection":  "",
+                                                                                                               "image":  "",
+                                                                                                               "image_url":  "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/4.png?v=1772508321",
+                                                                                                               "title":  "Leather Mini Satchels",
+                                                                                                               "alt_text":  "Leather Mini Satchels",
+                                                                                                               "link":  "/collections/all"
+                                                                                                           }
+                                                                                          },
+                                                                               "card_3":  {
+                                                                                              "type":  "card",
+                                                                                              "settings":  {
+                                                                                                               "collection":  "",
+                                                                                                               "image":  "",
+                                                                                                               "image_url":  "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/5.png?v=1772508321",
+                                                                                                               "title":  "Leather Round Bag",
+                                                                                                               "alt_text":  "Leather Round Bag",
+                                                                                                               "link":  "/collections/all"
+                                                                                                           }
+                                                                                          }
+                                                                           },
+                                                                "block_order":  [
+                                                                                    "card_1",
+                                                                                    "card_2",
+                                                                                    "card_3"
+                                                                                ],
                                                                 "settings":  {
-                                                                                 "custom_liquid":  "\u003cdiv class=\"af-collection-showcase\"\u003e\u003ch2\u003eSHOP BY COLLECTION\u003c/h2\u003e\u003cdiv class=\"af-collection-showcase__grid\"\u003e\u003ca class=\"af-collection-showcase__card\" href=\"/collections/all\"\u003e\u003cimg src=\"https://cdn.shopify.com/s/files/1/0593/6339/3616/files/6.png?v=1772508325\" alt=\"Leather Handbags\"\u003e\u003cspan\u003eLeather Handbags\u003c/span\u003e\u003c/a\u003e\u003ca class=\"af-collection-showcase__card\" href=\"/collections/all\"\u003e\u003cimg src=\"https://cdn.shopify.com/s/files/1/0593/6339/3616/files/4.png?v=1772508321\" alt=\"Leather Mini Satchels\"\u003e\u003cspan\u003eLeather Mini Satchels\u003c/span\u003e\u003c/a\u003e\u003ca class=\"af-collection-showcase__card\" href=\"/collections/all\"\u003e\u003cimg src=\"https://cdn.shopify.com/s/files/1/0593/6339/3616/files/5.png?v=1772508321\" alt=\"Leather Round Bag\"\u003e\u003cspan\u003eLeather Round Bag\u003c/span\u003e\u003c/a\u003e\u003ca class=\"af-collection-showcase__card\" href=\"/collections/all\"\u003e\u003cimg src=\"https://cdn.shopify.com/s/files/1/0593/6339/3616/files/6.png?v=1772508325\" alt=\"Leather Handbags\"\u003e\u003cspan\u003eLeather Handbags\u003c/span\u003e\u003c/a\u003e\u003ca class=\"af-collection-showcase__card\" href=\"/collections/all\"\u003e\u003cimg src=\"https://cdn.shopify.com/s/files/1/0593/6339/3616/files/4.png?v=1772508321\" alt=\"Leather Mini Satchels\"\u003e\u003cspan\u003eLeather Mini Satchels\u003c/span\u003e\u003c/a\u003e\u003ca class=\"af-collection-showcase__card\" href=\"/collections/all\"\u003e\u003cimg src=\"https://cdn.shopify.com/s/files/1/0593/6339/3616/files/5.png?v=1772508321\" alt=\"Leather Round Bag\"\u003e\u003cspan\u003eLeather Round Bag\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\u003c/div\u003e",
+                                                                                 "heading":  "SHOP BY COLLECTION",
                                                                                  "color_scheme":  "scheme-1",
                                                                                  "section_width":  "full-width",
                                                                                  "padding-block-start":  16,
