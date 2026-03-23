@@ -1,1136 +1,1124 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections":  {
-                     "hero_jVaWmY":  {
-                                         "type":  "hero",
-                                         "blocks":  {
-
-                                                    },
-                                         "block_order":  [
-
-                                                         ],
-                                         "name":  "t:names.hero",
-                                         "settings":  {
-                                                          "media_type_1":  "image",
-                                                          "media_type_2":  "image",
-                                                          "stack_media_on_mobile":  false,
-                                                          "custom_mobile_media":  true,
-                                                          "media_type_1_mobile":  "image",
-                                                          "image_1_mobile":  "shopify://shop_images/e305402b-4b2c-44a1-aea1-c2fa9d0f792b.jpg",
-                                                          "media_type_2_mobile":  "image",
-                                                          "link":  "",
-                                                          "open_in_new_tab":  false,
-                                                          "content_direction":  "column",
-                                                          "vertical_on_mobile":  true,
-                                                          "horizontal_alignment":  "space-between",
-                                                          "vertical_alignment":  "flex-end",
-                                                          "align_baseline":  true,
-                                                          "horizontal_alignment_flex_direction_column":  "center",
-                                                          "vertical_alignment_flex_direction_column":  "flex-end",
-                                                          "gap":  20,
-                                                          "section_width":  "full-width",
-                                                          "section_height":  "large",
-                                                          "section_height_custom":  50,
-                                                          "color_scheme":  "scheme-6",
-                                                          "toggle_overlay":  false,
-                                                          "overlay_color":  "#00000022",
-                                                          "overlay_style":  "solid",
-                                                          "gradient_direction":  "to bottom",
-                                                          "blurred_reflection":  false,
-                                                          "reflection_opacity":  75,
-                                                          "padding-block-start":  0,
-                                                          "padding-block-end":  0
-                                                      }
-                                     },
-                     "custom_liquid_statement":  {
-                                                     "type":  "custom-liquid",
-                                                     "settings":  {
-                                                                      "custom_liquid":  "\u003cdiv class=\"afroyla-message\"\u003e\u003ch2\u003eBOLD HANDBAGS FOR BOLD BLACK WOMEN!\u003c/h2\u003e\u003cp\u003eToo many people play it safe with boring handbags, afraid to show who they are.\u003c/p\u003e\u003cp\u003eBut we at Melyla refuse to be quiet.\u003c/p\u003e\u003cp\u003eWe are bold, we are beautiful, and we wear it with pride.\u003c/p\u003e\u003cp\u003eThese handbags don\u0027t just carry things-they carry our strength, our power, and our story.\u003c/p\u003e\u003cp\u003eAnd we do it in the most fashionable way.\u003c/p\u003e\u003c/div\u003e",
-                                                                      "color_scheme":  "scheme-1",
-                                                                      "section_width":  "full-width",
-                                                                      "padding-block-start":  48,
-                                                                      "padding-block-end":  30
-                                                                  }
-                                                 },
-                     "marquee_Yfgagr":  {
-                                            "type":  "marquee",
-                                            "blocks":  {
-                                                           "text_ship_1":  {
-                                                                               "type":  "text",
-                                                                               "settings":  {
-                                                                                                "text":  "\u003cp\u003e\u003cstrong\u003eShips from USA\u003c/strong\u003e\u003c/p\u003e",
-                                                                                                "width":  "fit-content",
-                                                                                                "max_width":  "normal",
-                                                                                                "alignment":  "left",
-                                                                                                "type_preset":  "custom",
-                                                                                                "font":  "var(--font-body--family)",
-                                                                                                "font_size":  "1rem",
-                                                                                                "line_height":  "tight",
-                                                                                                "letter_spacing":  "tight",
-                                                                                                "case":  "none",
-                                                                                                "wrap":  "nowrap",
-                                                                                                "color":  "var(--color-foreground)",
-                                                                                                "background":  false,
-                                                                                                "background_color":  "#00000026",
-                                                                                                "corner_radius":  0,
-                                                                                                "padding-block-start":  0,
-                                                                                                "padding-block-end":  0,
-                                                                                                "padding-inline-start":  0,
-                                                                                                "padding-inline-end":  0
-                                                                                            },
-                                                                               "blocks":  {
-
-                                                                                          }
-                                                                           },
-                                                           "text_dot_1":  {
-                                                                              "type":  "text",
-                                                                              "settings":  {
-                                                                                               "text":  "\u003cp\u003e\u0026bull;\u003c/p\u003e",
-                                                                                               "width":  "fit-content",
-                                                                                               "max_width":  "normal",
-                                                                                               "alignment":  "left",
-                                                                                               "type_preset":  "custom",
-                                                                                               "font":  "var(--font-body--family)",
-                                                                                               "font_size":  "1rem",
-                                                                                               "line_height":  "tight",
-                                                                                               "letter_spacing":  "tight",
-                                                                                               "case":  "none",
-                                                                                               "wrap":  "nowrap",
-                                                                                               "color":  "var(--color-foreground)",
-                                                                                               "background":  false,
-                                                                                               "background_color":  "#00000026",
-                                                                                               "corner_radius":  0,
-                                                                                               "padding-block-start":  0,
-                                                                                               "padding-block-end":  0,
-                                                                                               "padding-inline-start":  0,
-                                                                                               "padding-inline-end":  0
-                                                                                           },
-                                                                              "blocks":  {
-
-                                                                                         }
-                                                                          },
-                                                           "text_delivery_1":  {
-                                                                                   "type":  "text",
-                                                                                   "settings":  {
-                                                                                                    "text":  "\u003cp\u003e\u003cstrong\u003e4 - 6 Days Delivery\u003c/strong\u003e\u003c/p\u003e",
-                                                                                                    "width":  "fit-content",
-                                                                                                    "max_width":  "normal",
-                                                                                                    "alignment":  "left",
-                                                                                                    "type_preset":  "custom",
-                                                                                                    "font":  "var(--font-body--family)",
-                                                                                                    "font_size":  "1rem",
-                                                                                                    "line_height":  "tight",
-                                                                                                    "letter_spacing":  "tight",
-                                                                                                    "case":  "none",
-                                                                                                    "wrap":  "nowrap",
-                                                                                                    "color":  "var(--color-foreground)",
-                                                                                                    "background":  false,
-                                                                                                    "background_color":  "#00000026",
-                                                                                                    "corner_radius":  0,
-                                                                                                    "padding-block-start":  0,
-                                                                                                    "padding-block-end":  0,
-                                                                                                    "padding-inline-start":  0,
-                                                                                                    "padding-inline-end":  0
-                                                                                                },
-                                                                                   "blocks":  {
-
-                                                                                              }
-                                                                               },
-                                                           "text_dot_2":  {
-                                                                              "type":  "text",
-                                                                              "settings":  {
-                                                                                               "text":  "\u003cp\u003e\u0026bull;\u003c/p\u003e",
-                                                                                               "width":  "fit-content",
-                                                                                               "max_width":  "normal",
-                                                                                               "alignment":  "left",
-                                                                                               "type_preset":  "custom",
-                                                                                               "font":  "var(--font-body--family)",
-                                                                                               "font_size":  "1rem",
-                                                                                               "line_height":  "tight",
-                                                                                               "letter_spacing":  "tight",
-                                                                                               "case":  "none",
-                                                                                               "wrap":  "nowrap",
-                                                                                               "color":  "var(--color-foreground)",
-                                                                                               "background":  false,
-                                                                                               "background_color":  "#00000026",
-                                                                                               "corner_radius":  0,
-                                                                                               "padding-block-start":  0,
-                                                                                               "padding-block-end":  0,
-                                                                                               "padding-inline-start":  0,
-                                                                                               "padding-inline-end":  0
-                                                                                           },
-                                                                              "blocks":  {
-
-                                                                                         }
-                                                                          },
-                                                           "text_return_1":  {
-                                                                                 "type":  "text",
-                                                                                 "settings":  {
-                                                                                                  "text":  "\u003cp\u003e\u003cstrong\u003e30-Day Easy Returns\u003c/strong\u003e\u003c/p\u003e",
-                                                                                                  "width":  "100%",
-                                                                                                  "max_width":  "normal",
-                                                                                                  "alignment":  "left",
-                                                                                                  "type_preset":  "custom",
-                                                                                                  "font":  "var(--font-body--family)",
-                                                                                                  "font_size":  "1rem",
-                                                                                                  "line_height":  "tight",
-                                                                                                  "letter_spacing":  "tight",
-                                                                                                  "case":  "none",
-                                                                                                  "wrap":  "nowrap",
-                                                                                                  "color":  "var(--color-foreground)",
-                                                                                                  "background":  false,
-                                                                                                  "background_color":  "#00000026",
-                                                                                                  "corner_radius":  0,
-                                                                                                  "padding-block-start":  0,
-                                                                                                  "padding-block-end":  0,
-                                                                                                  "padding-inline-start":  0,
-                                                                                                  "padding-inline-end":  0
-                                                                                              },
-                                                                                 "blocks":  {
-
-                                                                                            }
-                                                                             },
-                                                           "text_dot_3":  {
-                                                                              "type":  "text",
-                                                                              "settings":  {
-                                                                                               "text":  "\u003cp\u003e\u0026bull;\u003c/p\u003e",
-                                                                                               "width":  "fit-content",
-                                                                                               "max_width":  "normal",
-                                                                                               "alignment":  "left",
-                                                                                               "type_preset":  "custom",
-                                                                                               "font":  "var(--font-body--family)",
-                                                                                               "font_size":  "1rem",
-                                                                                               "line_height":  "tight",
-                                                                                               "letter_spacing":  "tight",
-                                                                                               "case":  "none",
-                                                                                               "wrap":  "nowrap",
-                                                                                               "color":  "var(--color-foreground)",
-                                                                                               "background":  false,
-                                                                                               "background_color":  "#00000026",
-                                                                                               "corner_radius":  0,
-                                                                                               "padding-block-start":  0,
-                                                                                               "padding-block-end":  0,
-                                                                                               "padding-inline-start":  0,
-                                                                                               "padding-inline-end":  0
-                                                                                           },
-                                                                              "blocks":  {
-
-                                                                                         }
-                                                                          }
-                                                       },
-                                            "block_order":  [
-                                                                "text_ship_1",
-                                                                "text_dot_1",
-                                                                "text_delivery_1",
-                                                                "text_dot_2",
-                                                                "text_return_1",
-                                                                "text_dot_3"
-                                                            ],
-                                            "name":  "t:names.marquee_section",
-                                            "settings":  {
-                                                             "movement_direction":  "normal",
-                                                             "color_scheme":  "scheme-5",
-                                                             "padding-block-start":  14,
-                                                             "padding-block-end":  14,
-                                                             "gap_between_elements":  24
-                                                         }
-                                        },
-                     "product_list_fa6P9H":  {
-                                                 "type":  "product-list",
-                                                 "blocks":  {
-                                                                "static-header":  {
-                                                                                      "type":  "_product-list-content",
-                                                                                      "name":  "t:names.header",
-                                                                                      "static":  true,
-                                                                                      "settings":  {
-                                                                                                       "content_direction":  "row",
-                                                                                                       "vertical_on_mobile":  false,
-                                                                                                       "horizontal_alignment":  "space-between",
-                                                                                                       "vertical_alignment":  "flex-end",
-                                                                                                       "align_baseline":  true,
-                                                                                                       "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                                                                       "vertical_alignment_flex_direction_column":  "center",
-                                                                                                       "gap":  12,
-                                                                                                       "width":  "fill",
-                                                                                                       "custom_width":  100,
-                                                                                                       "width_mobile":  "fill",
-                                                                                                       "custom_width_mobile":  100,
-                                                                                                       "height":  "fit",
-                                                                                                       "custom_height":  100,
-                                                                                                       "inherit_color_scheme":  true,
-                                                                                                       "color_scheme":  "",
-                                                                                                       "background_media":  "none",
-                                                                                                       "video_position":  "cover",
-                                                                                                       "background_image_position":  "cover",
-                                                                                                       "border":  "none",
-                                                                                                       "border_width":  1,
-                                                                                                       "border_opacity":  100,
-                                                                                                       "border_radius":  0,
-                                                                                                       "padding-block-start":  0,
-                                                                                                       "padding-block-end":  0,
-                                                                                                       "padding-inline-start":  0,
-                                                                                                       "padding-inline-end":  0
-                                                                                                   },
-                                                                                      "blocks":  {
-                                                                                                     "product_list_text_YFtzcL":  {
-                                                                                                                                      "type":  "_product-list-text",
-                                                                                                                                      "name":  "t:names.collection_title",
-                                                                                                                                      "settings":  {
-                                                                                                                                                       "text":  "\u003ch3\u003eSPRING SALE\u003c/h3\u003e",
-                                                                                                                                                       "width":  "fit-content",
-                                                                                                                                                       "max_width":  "normal",
-                                                                                                                                                       "alignment":  "left",
-                                                                                                                                                       "type_preset":  "h4",
-                                                                                                                                                       "font":  "var(--font-body--family)",
-                                                                                                                                                       "font_size":  "",
-                                                                                                                                                       "line_height":  "normal",
-                                                                                                                                                       "letter_spacing":  "normal",
-                                                                                                                                                       "case":  "none",
-                                                                                                                                                       "wrap":  "pretty",
-                                                                                                                                                       "color":  "var(--color-foreground)",
-                                                                                                                                                       "background":  false,
-                                                                                                                                                       "background_color":  "#00000026",
-                                                                                                                                                       "corner_radius":  0,
-                                                                                                                                                       "padding-block-start":  0,
-                                                                                                                                                       "padding-block-end":  0,
-                                                                                                                                                       "padding-inline-start":  0,
-                                                                                                                                                       "padding-inline-end":  0
-                                                                                                                                                   },
-                                                                                                                                      "blocks":  {
-
-                                                                                                                                                 }
-                                                                                                                                  },
-                                                                                                     "product_list_button_MWeP9V":  {
-                                                                                                                                        "type":  "_product-list-button",
-                                                                                                                                        "name":  "t:names.product_list_button",
-                                                                                                                                        "settings":  {
-                                                                                                                                                         "label":  "SHOP NOW",
-                                                                                                                                                         "open_in_new_tab":  false,
-                                                                                                                                                         "style_class":  "button-secondary",
-                                                                                                                                                         "width":  "fit-content",
-                                                                                                                                                         "custom_width":  100,
-                                                                                                                                                         "width_mobile":  "fit-content",
-                                                                                                                                                         "custom_width_mobile":  100
-                                                                                                                                                     },
-                                                                                                                                        "blocks":  {
-
-                                                                                                                                                   }
-                                                                                                                                    }
-                                                                                                 },
-                                                                                      "block_order":  [
-                                                                                                          "product_list_text_YFtzcL",
-                                                                                                          "product_list_button_MWeP9V"
-                                                                                                      ]
-                                                                                  },
-                                                                "static-product-card":  {
-                                                                                            "type":  "_product-card",
-                                                                                            "name":  "t:names.product_card",
-                                                                                            "static":  true,
-                                                                                            "settings":  {
-                                                                                                             "product_card_gap":  4,
-                                                                                                             "inherit_color_scheme":  true,
-                                                                                                             "color_scheme":  "",
-                                                                                                             "border":  "none",
-                                                                                                             "border_width":  1,
-                                                                                                             "border_opacity":  100,
-                                                                                                             "border_radius":  0,
-                                                                                                             "padding-block-start":  0,
-                                                                                                             "padding-block-end":  0,
-                                                                                                             "padding-inline-start":  0,
-                                                                                                             "padding-inline-end":  0
-                                                                                                         },
-                                                                                            "blocks":  {
-                                                                                                           "product_card_gallery_677WP3":  {
-                                                                                                                                               "type":  "_product-card-gallery",
-                                                                                                                                               "name":  "t:names.product_card_media",
-                                                                                                                                               "settings":  {
-                                                                                                                                                                "image_ratio":  "adapt",
-                                                                                                                                                                "border":  "none",
-                                                                                                                                                                "border_width":  1,
-                                                                                                                                                                "border_opacity":  100,
-                                                                                                                                                                "border_radius":  0,
-                                                                                                                                                                "padding-block-start":  0,
-                                                                                                                                                                "padding-block-end":  0,
-                                                                                                                                                                "padding-inline-start":  0,
-                                                                                                                                                                "padding-inline-end":  0
-                                                                                                                                                            },
-                                                                                                                                               "blocks":  {
-
-                                                                                                                                                          }
-                                                                                                                                           },
-                                                                                                           "product_title_YXxMTj":  {
-                                                                                                                                        "type":  "product-title",
-                                                                                                                                        "name":  "t:names.product_title",
-                                                                                                                                        "settings":  {
-                                                                                                                                                         "width":  "100%",
-                                                                                                                                                         "max_width":  "normal",
-                                                                                                                                                         "alignment":  "center",
-                                                                                                                                                         "type_preset":  "rte",
-                                                                                                                                                         "font":  "var(--font-body--family)",
-                                                                                                                                                         "font_size":  "1rem",
-                                                                                                                                                         "line_height":  "normal",
-                                                                                                                                                         "letter_spacing":  "normal",
-                                                                                                                                                         "case":  "none",
-                                                                                                                                                         "wrap":  "pretty",
-                                                                                                                                                         "color":  "var(--color-foreground)",
-                                                                                                                                                         "background":  false,
-                                                                                                                                                         "background_color":  "#00000026",
-                                                                                                                                                         "corner_radius":  0,
-                                                                                                                                                         "padding-block-start":  4,
-                                                                                                                                                         "padding-block-end":  0,
-                                                                                                                                                         "padding-inline-start":  0,
-                                                                                                                                                         "padding-inline-end":  0
-                                                                                                                                                     },
-                                                                                                                                        "blocks":  {
-
-                                                                                                                                                   }
-                                                                                                                                    },
-                                                                                                           "price_JQzVV4":  {
-                                                                                                                                "type":  "price",
-                                                                                                                                "name":  "t:names.product_price",
-                                                                                                                                "settings":  {
-                                                                                                                                                 "show_sale_price_first":  true,
-                                                                                                                                                 "show_installments":  false,
-                                                                                                                                                 "show_tax_info":  false,
-                                                                                                                                                 "type_preset":  "h6",
-                                                                                                                                                 "width":  "100%",
-                                                                                                                                                 "alignment":  "center",
-                                                                                                                                                 "font":  "var(--font-body--family)",
-                                                                                                                                                 "font_size":  "1rem",
-                                                                                                                                                 "line_height":  "normal",
-                                                                                                                                                 "letter_spacing":  "normal",
-                                                                                                                                                 "case":  "none",
-                                                                                                                                                 "color":  "var(--color-foreground)",
-                                                                                                                                                 "padding-block-start":  0,
-                                                                                                                                                 "padding-block-end":  0,
-                                                                                                                                                 "padding-inline-start":  0,
-                                                                                                                                                 "padding-inline-end":  0
-                                                                                                                                             },
-                                                                                                                                "blocks":  {
-
-                                                                                                                                           }
-                                                                                                                            }
-                                                                                                       },
-                                                                                            "block_order":  [
-                                                                                                                "product_card_gallery_677WP3",
-                                                                                                                "product_title_YXxMTj",
-                                                                                                                "price_JQzVV4"
-                                                                                                            ]
-                                                                                        }
-                                                            },
-                                                                 "name":  "Spring Sale",
-                                                                  "settings":  {
-                                                                  "collection":  "spring-sale",
-                                                                  "layout_type":  "carousel",
-                                                                  "carousel_on_mobile":  false,
-                                                                  "max_products":  8,
-                                                                  "columns":  4,
-                                                                  "mobile_columns":  "2",
-                                                                  "mobile_card_size":  "60cqw",
-                                                                  "columns_gap":  30,
-                                                                  "rows_gap":  32,
-                                                                  "icons_style":  "none",
-                                                                  "icons_shape":  "none",
-                                                                  "section_width":  "page-width",
-                                                                  "horizontal_alignment":  "flex-start",
-                                                                  "gap":  20,
-                                                                  "color_scheme":  "scheme-1",
-                                                                  "padding-block-start":  40,
-                                                                  "padding-block-end":  56
-                                                              }
-                                             },
-                     "collection_list_shop_by_collection":  {
-                                                                "type":  "af-collection-showcase",
-                                                                "blocks":  {
-                                                                               "card_1":  {
-                                                                                              "type":  "card",
-                                                                                              "settings":  {
-                                                                                                               "collection":  "",
-                                                                                                               "image":  "",
-                                                                                                               "image_url":  "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/6.png?v=1772508325",
-                                                                                                               "title":  "Leather Handbags",
-                                                                                                               "alt_text":  "Leather Handbags",
-                                                                                                               "link":  "/collections/all"
-                                                                                                           }
-                                                                                          },
-                                                                               "card_2":  {
-                                                                                              "type":  "card",
-                                                                                              "settings":  {
-                                                                                                               "collection":  "",
-                                                                                                               "image":  "",
-                                                                                                               "image_url":  "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/4.png?v=1772508321",
-                                                                                                               "title":  "Leather Mini Satchels",
-                                                                                                               "alt_text":  "Leather Mini Satchels",
-                                                                                                               "link":  "/collections/all"
-                                                                                                           }
-                                                                                          },
-                                                                               "card_3":  {
-                                                                                              "type":  "card",
-                                                                                              "settings":  {
-                                                                                                               "collection":  "",
-                                                                                                               "image":  "",
-                                                                                                               "image_url":  "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/5.png?v=1772508321",
-                                                                                                               "title":  "Leather Round Bag",
-                                                                                                               "alt_text":  "Leather Round Bag",
-                                                                                                               "link":  "/collections/all"
-                                                                                                           }
-                                                                                          }
-                                                                           },
-                                                                "block_order":  [
-                                                                                    "card_1",
-                                                                                    "card_2",
-                                                                                    "card_3"
-                                                                                ],
-                                                                "settings":  {
-                                                                                 "heading":  "SHOP BY COLLECTION",
-                                                                                 "color_scheme":  "scheme-1",
-                                                                                 "section_width":  "full-width",
-                                                                                 "padding-block-start":  16,
-                                                                                 "padding-block-end":  56
-                                                                             }
-                                                            },
-                     "product_list_black_bold_collection":  {
-                                                                "type":  "product-list",
-                                                                "blocks":  {
-                                                                               "static-header":  {
-                                                                                                     "type":  "_product-list-content",
-                                                                                                     "name":  "t:names.header",
-                                                                                                     "static":  true,
-                                                                                                     "settings":  {
-                                                                                                                      "content_direction":  "row",
-                                                                                                                      "vertical_on_mobile":  false,
-                                                                                                                      "horizontal_alignment":  "space-between",
-                                                                                                                      "vertical_alignment":  "flex-end",
-                                                                                                                      "align_baseline":  true,
-                                                                                                                      "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                                                                                      "vertical_alignment_flex_direction_column":  "center",
-                                                                                                                      "gap":  12,
-                                                                                                                      "width":  "fill",
-                                                                                                                      "custom_width":  100,
-                                                                                                                      "width_mobile":  "fill",
-                                                                                                                      "custom_width_mobile":  100,
-                                                                                                                      "height":  "fit",
-                                                                                                                      "custom_height":  100,
-                                                                                                                      "inherit_color_scheme":  true,
-                                                                                                                      "color_scheme":  "",
-                                                                                                                      "background_media":  "none",
-                                                                                                                      "video_position":  "cover",
-                                                                                                                      "background_image_position":  "cover",
-                                                                                                                      "border":  "none",
-                                                                                                                      "border_width":  1,
-                                                                                                                      "border_opacity":  100,
-                                                                                                                      "border_radius":  0,
-                                                                                                                      "padding-block-start":  0,
-                                                                                                                      "padding-block-end":  0,
-                                                                                                                      "padding-inline-start":  0,
-                                                                                                                      "padding-inline-end":  0
-                                                                                                                  },
-                                                                                                     "blocks":  {
-                                                                                                                    "product_list_text_YFtzcL":  {
-                                                                                                                                                     "type":  "_product-list-text",
-                                                                                                                                                     "name":  "t:names.collection_title",
-                                                                                                                                                     "settings":  {
-                                                                                                                                                                      "text":  "\u003ch3\u003eBLACK \u0026 BOLD COLLECTION\u003c/h3\u003e",
-                                                                                                                                                                      "width":  "fit-content",
-                                                                                                                                                                      "max_width":  "normal",
-                                                                                                                                                                      "alignment":  "left",
-                                                                                                                                                                      "type_preset":  "h4",
-                                                                                                                                                                      "font":  "var(--font-body--family)",
-                                                                                                                                                                      "font_size":  "",
-                                                                                                                                                                      "line_height":  "normal",
-                                                                                                                                                                      "letter_spacing":  "normal",
-                                                                                                                                                                      "case":  "none",
-                                                                                                                                                                      "wrap":  "pretty",
-                                                                                                                                                                      "color":  "var(--color-foreground)",
-                                                                                                                                                                      "background":  false,
-                                                                                                                                                                      "background_color":  "#00000026",
-                                                                                                                                                                      "corner_radius":  0,
-                                                                                                                                                                      "padding-block-start":  0,
-                                                                                                                                                                      "padding-block-end":  0,
-                                                                                                                                                                      "padding-inline-start":  0,
-                                                                                                                                                                      "padding-inline-end":  0
-                                                                                                                                                                  },
-                                                                                                                                                     "blocks":  {
-
-                                                                                                                                                                }
-                                                                                                                                                 },
-                                                                                                                    "product_list_button_MWeP9V":  {
-                                                                                                                                                       "type":  "_product-list-button",
-                                                                                                                                                       "name":  "t:names.product_list_button",
-                                                                                                                                                       "settings":  {
-                                                                                                                                                                        "label":  "SHOP NOW",
-                                                                                                                                                                        "open_in_new_tab":  false,
-                                                                                                                                                                        "style_class":  "button",
-                                                                                                                                                                        "width":  "fit-content",
-                                                                                                                                                                        "custom_width":  100,
-                                                                                                                                                                        "width_mobile":  "fit-content",
-                                                                                                                                                                        "custom_width_mobile":  100
-                                                                                                                                                                    },
-                                                                                                                                                       "blocks":  {
-
-                                                                                                                                                                  }
-                                                                                                                                                   }
-                                                                                                                },
-                                                                                                     "block_order":  [
-                                                                                                                         "product_list_text_YFtzcL",
-                                                                                                                         "product_list_button_MWeP9V"
-                                                                                                                     ]
-                                                                                                 },
-                                                                               "static-product-card":  {
-                                                                                                           "type":  "_product-card",
-                                                                                                           "name":  "t:names.product_card",
-                                                                                                           "static":  true,
-                                                                                                           "settings":  {
-                                                                                                                            "product_card_gap":  4,
-                                                                                                                            "inherit_color_scheme":  true,
-                                                                                                                            "color_scheme":  "",
-                                                                                                                            "border":  "none",
-                                                                                                                            "border_width":  1,
-                                                                                                                            "border_opacity":  100,
-                                                                                                                            "border_radius":  0,
-                                                                                                                            "padding-block-start":  0,
-                                                                                                                            "padding-block-end":  0,
-                                                                                                                            "padding-inline-start":  0,
-                                                                                                                            "padding-inline-end":  0
-                                                                                                                        },
-                                                                                                           "blocks":  {
-                                                                                                                          "product_card_gallery_677WP3":  {
-                                                                                                                                                              "type":  "_product-card-gallery",
-                                                                                                                                                              "name":  "t:names.product_card_media",
-                                                                                                                                                              "settings":  {
-                                                                                                                                                                               "image_ratio":  "adapt",
-                                                                                                                                                                               "border":  "none",
-                                                                                                                                                                               "border_width":  1,
-                                                                                                                                                                               "border_opacity":  100,
-                                                                                                                                                                               "border_radius":  0,
-                                                                                                                                                                               "padding-block-start":  0,
-                                                                                                                                                                               "padding-block-end":  0,
-                                                                                                                                                                               "padding-inline-start":  0,
-                                                                                                                                                                               "padding-inline-end":  0
-                                                                                                                                                                           },
-                                                                                                                                                              "blocks":  {
-
-                                                                                                                                                                         }
-                                                                                                                                                          },
-                                                                                                                          "product_title_YXxMTj":  {
-                                                                                                                                                       "type":  "product-title",
-                                                                                                                                                       "name":  "t:names.product_title",
-                                                                                                                                                       "settings":  {
-                                                                                                                                                                        "width":  "100%",
-                                                                                                                                                                        "max_width":  "normal",
-                                                                                                                                                                        "alignment":  "center",
-                                                                                                                                                                        "type_preset":  "rte",
-                                                                                                                                                                        "font":  "var(--font-body--family)",
-                                                                                                                                                                        "font_size":  "1rem",
-                                                                                                                                                                        "line_height":  "normal",
-                                                                                                                                                                        "letter_spacing":  "normal",
-                                                                                                                                                                        "case":  "none",
-                                                                                                                                                                        "wrap":  "pretty",
-                                                                                                                                                                        "color":  "var(--color-foreground)",
-                                                                                                                                                                        "background":  false,
-                                                                                                                                                                        "background_color":  "#00000026",
-                                                                                                                                                                        "corner_radius":  0,
-                                                                                                                                                                        "padding-block-start":  4,
-                                                                                                                                                                        "padding-block-end":  0,
-                                                                                                                                                                        "padding-inline-start":  0,
-                                                                                                                                                                        "padding-inline-end":  0
-                                                                                                                                                                    },
-                                                                                                                                                       "blocks":  {
-
-                                                                                                                                                                  }
-                                                                                                                                                   },
-                                                                                                                          "price_JQzVV4":  {
-                                                                                                                                               "type":  "price",
-                                                                                                                                               "name":  "t:names.product_price",
-                                                                                                                                               "settings":  {
-                                                                                                                                                                "show_sale_price_first":  true,
-                                                                                                                                                                "show_installments":  false,
-                                                                                                                                                                "show_tax_info":  false,
-                                                                                                                                                                "type_preset":  "h6",
-                                                                                                                                                                "width":  "100%",
-                                                                                                                                                                "alignment":  "center",
-                                                                                                                                                                "font":  "var(--font-body--family)",
-                                                                                                                                                                "font_size":  "1rem",
-                                                                                                                                                                "line_height":  "normal",
-                                                                                                                                                                "letter_spacing":  "normal",
-                                                                                                                                                                "case":  "none",
-                                                                                                                                                                "color":  "var(--color-foreground)",
-                                                                                                                                                                "padding-block-start":  0,
-                                                                                                                                                                "padding-block-end":  0,
-                                                                                                                                                                "padding-inline-start":  0,
-                                                                                                                                                                "padding-inline-end":  0
-                                                                                                                                                            },
-                                                                                                                                               "blocks":  {
-
-                                                                                                                                                          }
-                                                                                                                                           }
-                                                                                                                      },
-                                                                                                           "block_order":  [
-                                                                                                                               "product_card_gallery_677WP3",
-                                                                                                                               "product_title_YXxMTj",
-                                                                                                                               "price_JQzVV4"
-                                                                                                                           ]
-                                                                                                       }
-                                                                           },
-                                                                "name":  "Black \u0026 Bold Collection",
-                                                                 "settings":  {
-                                                                                 "collection":  "black-bold-collection",
-                                                                                 "layout_type":  "carousel",
-                                                                                 "carousel_on_mobile":  false,
-                                                                                 "max_products":  8,
-                                                                                 "columns":  4,
-                                                                                 "mobile_columns":  "2",
-                                                                                 "mobile_card_size":  "60cqw",
-                                                                                 "columns_gap":  30,
-                                                                                 "rows_gap":  32,
-                                                                                 "icons_style":  "none",
-                                                                                 "icons_shape":  "none",
-                                                                                 "section_width":  "page-width",
-                                                                                 "horizontal_alignment":  "flex-start",
-                                                                                 "gap":  20,
-                                                                                 "color_scheme":  "scheme-1",
-                                                                                 "padding-block-start":  40,
-                                                                                 "padding-block-end":  56
-                                                                             }
-                                                            },
-                     "product_list_faithful_collection":  {
-                                                              "type":  "product-list",
-                                                              "blocks":  {
-                                                                             "static-header":  {
-                                                                                                   "type":  "_product-list-content",
-                                                                                                   "name":  "t:names.header",
-                                                                                                   "static":  true,
-                                                                                                   "settings":  {
-                                                                                                                    "content_direction":  "row",
-                                                                                                                    "vertical_on_mobile":  false,
-                                                                                                                    "horizontal_alignment":  "space-between",
-                                                                                                                    "vertical_alignment":  "flex-end",
-                                                                                                                    "align_baseline":  true,
-                                                                                                                    "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                                                                                    "vertical_alignment_flex_direction_column":  "center",
-                                                                                                                    "gap":  12,
-                                                                                                                    "width":  "fill",
-                                                                                                                    "custom_width":  100,
-                                                                                                                    "width_mobile":  "fill",
-                                                                                                                    "custom_width_mobile":  100,
-                                                                                                                    "height":  "fit",
-                                                                                                                    "custom_height":  100,
-                                                                                                                    "inherit_color_scheme":  true,
-                                                                                                                    "color_scheme":  "",
-                                                                                                                    "background_media":  "none",
-                                                                                                                    "video_position":  "cover",
-                                                                                                                    "background_image_position":  "cover",
-                                                                                                                    "border":  "none",
-                                                                                                                    "border_width":  1,
-                                                                                                                    "border_opacity":  100,
-                                                                                                                    "border_radius":  0,
-                                                                                                                    "padding-block-start":  0,
-                                                                                                                    "padding-block-end":  0,
-                                                                                                                    "padding-inline-start":  0,
-                                                                                                                    "padding-inline-end":  0
-                                                                                                                },
-                                                                                                   "blocks":  {
-                                                                                                                  "product_list_text_YFtzcL":  {
-                                                                                                                                                   "type":  "_product-list-text",
-                                                                                                                                                   "name":  "t:names.collection_title",
-                                                                                                                                                   "settings":  {
-                                                                                                                                                                    "text":  "\u003ch3\u003eTHE FAITHFUL COLLECTION\u003c/h3\u003e",
-                                                                                                                                                                    "width":  "fit-content",
-                                                                                                                                                                    "max_width":  "normal",
-                                                                                                                                                                    "alignment":  "left",
-                                                                                                                                                                    "type_preset":  "h4",
-                                                                                                                                                                    "font":  "var(--font-body--family)",
-                                                                                                                                                                    "font_size":  "",
-                                                                                                                                                                    "line_height":  "normal",
-                                                                                                                                                                    "letter_spacing":  "normal",
-                                                                                                                                                                    "case":  "none",
-                                                                                                                                                                    "wrap":  "pretty",
-                                                                                                                                                                    "color":  "var(--color-foreground)",
-                                                                                                                                                                    "background":  false,
-                                                                                                                                                                    "background_color":  "#00000026",
-                                                                                                                                                                    "corner_radius":  0,
-                                                                                                                                                                    "padding-block-start":  0,
-                                                                                                                                                                    "padding-block-end":  0,
-                                                                                                                                                                    "padding-inline-start":  0,
-                                                                                                                                                                    "padding-inline-end":  0
-                                                                                                                                                                },
-                                                                                                                                                   "blocks":  {
-
-                                                                                                                                                              }
-                                                                                                                                               },
-                                                                                                                  "product_list_button_MWeP9V":  {
-                                                                                                                                                     "type":  "_product-list-button",
-                                                                                                                                                     "name":  "t:names.product_list_button",
-                                                                                                                                                     "settings":  {
-                                                                                                                                                                      "label":  "SHOP NOW",
-                                                                                                                                                                      "open_in_new_tab":  false,
-                                                                                                                                                                      "style_class":  "button",
-                                                                                                                                                                      "width":  "fit-content",
-                                                                                                                                                                      "custom_width":  100,
-                                                                                                                                                                      "width_mobile":  "fit-content",
-                                                                                                                                                                      "custom_width_mobile":  100
-                                                                                                                                                                  },
-                                                                                                                                                     "blocks":  {
-
-                                                                                                                                                                }
-                                                                                                                                                 }
-                                                                                                              },
-                                                                                                   "block_order":  [
-                                                                                                                       "product_list_text_YFtzcL",
-                                                                                                                       "product_list_button_MWeP9V"
-                                                                                                                   ]
-                                                                                               },
-                                                                             "static-product-card":  {
-                                                                                                         "type":  "_product-card",
-                                                                                                         "name":  "t:names.product_card",
-                                                                                                         "static":  true,
-                                                                                                         "settings":  {
-                                                                                                                          "product_card_gap":  4,
-                                                                                                                          "inherit_color_scheme":  true,
-                                                                                                                          "color_scheme":  "",
-                                                                                                                          "border":  "none",
-                                                                                                                          "border_width":  1,
-                                                                                                                          "border_opacity":  100,
-                                                                                                                          "border_radius":  0,
-                                                                                                                          "padding-block-start":  0,
-                                                                                                                          "padding-block-end":  0,
-                                                                                                                          "padding-inline-start":  0,
-                                                                                                                          "padding-inline-end":  0
-                                                                                                                      },
-                                                                                                         "blocks":  {
-                                                                                                                        "product_card_gallery_677WP3":  {
-                                                                                                                                                            "type":  "_product-card-gallery",
-                                                                                                                                                            "name":  "t:names.product_card_media",
-                                                                                                                                                            "settings":  {
-                                                                                                                                                                             "image_ratio":  "adapt",
-                                                                                                                                                                             "border":  "none",
-                                                                                                                                                                             "border_width":  1,
-                                                                                                                                                                             "border_opacity":  100,
-                                                                                                                                                                             "border_radius":  0,
-                                                                                                                                                                             "padding-block-start":  0,
-                                                                                                                                                                             "padding-block-end":  0,
-                                                                                                                                                                             "padding-inline-start":  0,
-                                                                                                                                                                             "padding-inline-end":  0
-                                                                                                                                                                         },
-                                                                                                                                                            "blocks":  {
-
-                                                                                                                                                                       }
-                                                                                                                                                        },
-                                                                                                                        "product_title_YXxMTj":  {
-                                                                                                                                                     "type":  "product-title",
-                                                                                                                                                     "name":  "t:names.product_title",
-                                                                                                                                                     "settings":  {
-                                                                                                                                                                      "width":  "100%",
-                                                                                                                                                                      "max_width":  "normal",
-                                                                                                                                                                      "alignment":  "center",
-                                                                                                                                                                      "type_preset":  "rte",
-                                                                                                                                                                      "font":  "var(--font-body--family)",
-                                                                                                                                                                      "font_size":  "1rem",
-                                                                                                                                                                      "line_height":  "normal",
-                                                                                                                                                                      "letter_spacing":  "normal",
-                                                                                                                                                                      "case":  "none",
-                                                                                                                                                                      "wrap":  "pretty",
-                                                                                                                                                                      "color":  "var(--color-foreground)",
-                                                                                                                                                                      "background":  false,
-                                                                                                                                                                      "background_color":  "#00000026",
-                                                                                                                                                                      "corner_radius":  0,
-                                                                                                                                                                      "padding-block-start":  4,
-                                                                                                                                                                      "padding-block-end":  0,
-                                                                                                                                                                      "padding-inline-start":  0,
-                                                                                                                                                                      "padding-inline-end":  0
-                                                                                                                                                                  },
-                                                                                                                                                     "blocks":  {
-
-                                                                                                                                                                }
-                                                                                                                                                 },
-                                                                                                                        "price_JQzVV4":  {
-                                                                                                                                             "type":  "price",
-                                                                                                                                             "name":  "t:names.product_price",
-                                                                                                                                             "settings":  {
-                                                                                                                                                              "show_sale_price_first":  true,
-                                                                                                                                                              "show_installments":  false,
-                                                                                                                                                              "show_tax_info":  false,
-                                                                                                                                                              "type_preset":  "h6",
-                                                                                                                                                              "width":  "100%",
-                                                                                                                                                              "alignment":  "center",
-                                                                                                                                                              "font":  "var(--font-body--family)",
-                                                                                                                                                              "font_size":  "1rem",
-                                                                                                                                                              "line_height":  "normal",
-                                                                                                                                                              "letter_spacing":  "normal",
-                                                                                                                                                              "case":  "none",
-                                                                                                                                                              "color":  "var(--color-foreground)",
-                                                                                                                                                              "padding-block-start":  0,
-                                                                                                                                                              "padding-block-end":  0,
-                                                                                                                                                              "padding-inline-start":  0,
-                                                                                                                                                              "padding-inline-end":  0
-                                                                                                                                                          },
-                                                                                                                                             "blocks":  {
-
-                                                                                                                                                        }
-                                                                                                                                         }
-                                                                                                                    },
-                                                                                                         "block_order":  [
-                                                                                                                             "product_card_gallery_677WP3",
-                                                                                                                             "product_title_YXxMTj",
-                                                                                                                             "price_JQzVV4"
-                                                                                                                         ]
-                                                                                                     }
-                                                                         },
-                                                              "name":  "The Faithful Collection",
-                                                               "settings":  {
-                                                                 "collection":  "the-faithful-collection",
-                                                                               "layout_type":  "carousel",
-                                                                               "carousel_on_mobile":  false,
-                                                                               "max_products":  8,
-                                                                               "columns":  4,
-                                                                               "mobile_columns":  "2",
-                                                                               "mobile_card_size":  "60cqw",
-                                                                               "columns_gap":  30,
-                                                                               "rows_gap":  32,
-                                                                               "icons_style":  "none",
-                                                                               "icons_shape":  "none",
-                                                                               "section_width":  "page-width",
-                                                                               "horizontal_alignment":  "flex-start",
-                                                                               "gap":  20,
-                                                                               "color_scheme":  "scheme-1",
-                                                                               "padding-block-start":  40,
-                                                                               "padding-block-end":  56
-                                                                           }
-                                                          },
-                     "product_list_mama_collection":  {
-                                                          "type":  "product-list",
-                                                          "blocks":  {
-                                                                         "static-header":  {
-                                                                                               "type":  "_product-list-content",
-                                                                                               "name":  "t:names.header",
-                                                                                               "static":  true,
-                                                                                               "settings":  {
-                                                                                                                "content_direction":  "row",
-                                                                                                                "vertical_on_mobile":  false,
-                                                                                                                "horizontal_alignment":  "space-between",
-                                                                                                                "vertical_alignment":  "flex-end",
-                                                                                                                "align_baseline":  true,
-                                                                                                                "horizontal_alignment_flex_direction_column":  "flex-start",
-                                                                                                                "vertical_alignment_flex_direction_column":  "center",
-                                                                                                                "gap":  12,
-                                                                                                                "width":  "fill",
-                                                                                                                "custom_width":  100,
-                                                                                                                "width_mobile":  "fill",
-                                                                                                                "custom_width_mobile":  100,
-                                                                                                                "height":  "fit",
-                                                                                                                "custom_height":  100,
-                                                                                                                "inherit_color_scheme":  true,
-                                                                                                                "color_scheme":  "",
-                                                                                                                "background_media":  "none",
-                                                                                                                "video_position":  "cover",
-                                                                                                                "background_image_position":  "cover",
-                                                                                                                "border":  "none",
-                                                                                                                "border_width":  1,
-                                                                                                                "border_opacity":  100,
-                                                                                                                "border_radius":  0,
-                                                                                                                "padding-block-start":  0,
-                                                                                                                "padding-block-end":  0,
-                                                                                                                "padding-inline-start":  0,
-                                                                                                                "padding-inline-end":  0
-                                                                                                            },
-                                                                                               "blocks":  {
-                                                                                                              "product_list_text_YFtzcL":  {
-                                                                                                                                               "type":  "_product-list-text",
-                                                                                                                                               "name":  "t:names.collection_title",
-                                                                                                                                               "settings":  {
-                                                                                                                                                                "text":  "\u003ch3\u003eTHE MAMA COLLECTION\u003c/h3\u003e",
-                                                                                                                                                                "width":  "fit-content",
-                                                                                                                                                                "max_width":  "normal",
-                                                                                                                                                                "alignment":  "left",
-                                                                                                                                                                "type_preset":  "h4",
-                                                                                                                                                                "font":  "var(--font-body--family)",
-                                                                                                                                                                "font_size":  "",
-                                                                                                                                                                "line_height":  "normal",
-                                                                                                                                                                "letter_spacing":  "normal",
-                                                                                                                                                                "case":  "none",
-                                                                                                                                                                "wrap":  "pretty",
-                                                                                                                                                                "color":  "var(--color-foreground)",
-                                                                                                                                                                "background":  false,
-                                                                                                                                                                "background_color":  "#00000026",
-                                                                                                                                                                "corner_radius":  0,
-                                                                                                                                                                "padding-block-start":  0,
-                                                                                                                                                                "padding-block-end":  0,
-                                                                                                                                                                "padding-inline-start":  0,
-                                                                                                                                                                "padding-inline-end":  0
-                                                                                                                                                            },
-                                                                                                                                               "blocks":  {
-
-                                                                                                                                                          }
-                                                                                                                                           },
-                                                                                                              "product_list_button_MWeP9V":  {
-                                                                                                                                                 "type":  "_product-list-button",
-                                                                                                                                                 "name":  "t:names.product_list_button",
-                                                                                                                                                 "settings":  {
-                                                                                                                                                                  "label":  "SHOP NOW",
-                                                                                                                                                                  "open_in_new_tab":  false,
-                                                                                                                                                                  "style_class":  "button",
-                                                                                                                                                                  "width":  "fit-content",
-                                                                                                                                                                  "custom_width":  100,
-                                                                                                                                                                  "width_mobile":  "fit-content",
-                                                                                                                                                                  "custom_width_mobile":  100
-                                                                                                                                                              },
-                                                                                                                                                 "blocks":  {
-
-                                                                                                                                                            }
-                                                                                                                                             }
-                                                                                                          },
-                                                                                               "block_order":  [
-                                                                                                                   "product_list_text_YFtzcL",
-                                                                                                                   "product_list_button_MWeP9V"
-                                                                                                               ]
-                                                                                           },
-                                                                         "static-product-card":  {
-                                                                                                     "type":  "_product-card",
-                                                                                                     "name":  "t:names.product_card",
-                                                                                                     "static":  true,
-                                                                                                     "settings":  {
-                                                                                                                      "product_card_gap":  4,
-                                                                                                                      "inherit_color_scheme":  true,
-                                                                                                                      "color_scheme":  "",
-                                                                                                                      "border":  "none",
-                                                                                                                      "border_width":  1,
-                                                                                                                      "border_opacity":  100,
-                                                                                                                      "border_radius":  0,
-                                                                                                                      "padding-block-start":  0,
-                                                                                                                      "padding-block-end":  0,
-                                                                                                                      "padding-inline-start":  0,
-                                                                                                                      "padding-inline-end":  0
-                                                                                                                  },
-                                                                                                     "blocks":  {
-                                                                                                                    "product_card_gallery_677WP3":  {
-                                                                                                                                                        "type":  "_product-card-gallery",
-                                                                                                                                                        "name":  "t:names.product_card_media",
-                                                                                                                                                        "settings":  {
-                                                                                                                                                                         "image_ratio":  "adapt",
-                                                                                                                                                                         "border":  "none",
-                                                                                                                                                                         "border_width":  1,
-                                                                                                                                                                         "border_opacity":  100,
-                                                                                                                                                                         "border_radius":  0,
-                                                                                                                                                                         "padding-block-start":  0,
-                                                                                                                                                                         "padding-block-end":  0,
-                                                                                                                                                                         "padding-inline-start":  0,
-                                                                                                                                                                         "padding-inline-end":  0
-                                                                                                                                                                     },
-                                                                                                                                                        "blocks":  {
-
-                                                                                                                                                                   }
-                                                                                                                                                    },
-                                                                                                                    "product_title_YXxMTj":  {
-                                                                                                                                                 "type":  "product-title",
-                                                                                                                                                 "name":  "t:names.product_title",
-                                                                                                                                                 "settings":  {
-                                                                                                                                                                  "width":  "100%",
-                                                                                                                                                                  "max_width":  "normal",
-                                                                                                                                                                  "alignment":  "center",
-                                                                                                                                                                  "type_preset":  "rte",
-                                                                                                                                                                  "font":  "var(--font-body--family)",
-                                                                                                                                                                  "font_size":  "1rem",
-                                                                                                                                                                  "line_height":  "normal",
-                                                                                                                                                                  "letter_spacing":  "normal",
-                                                                                                                                                                  "case":  "none",
-                                                                                                                                                                  "wrap":  "pretty",
-                                                                                                                                                                  "color":  "var(--color-foreground)",
-                                                                                                                                                                  "background":  false,
-                                                                                                                                                                  "background_color":  "#00000026",
-                                                                                                                                                                  "corner_radius":  0,
-                                                                                                                                                                  "padding-block-start":  4,
-                                                                                                                                                                  "padding-block-end":  0,
-                                                                                                                                                                  "padding-inline-start":  0,
-                                                                                                                                                                  "padding-inline-end":  0
-                                                                                                                                                              },
-                                                                                                                                                 "blocks":  {
-
-                                                                                                                                                            }
-                                                                                                                                             },
-                                                                                                                    "price_JQzVV4":  {
-                                                                                                                                         "type":  "price",
-                                                                                                                                         "name":  "t:names.product_price",
-                                                                                                                                         "settings":  {
-                                                                                                                                                          "show_sale_price_first":  true,
-                                                                                                                                                          "show_installments":  false,
-                                                                                                                                                          "show_tax_info":  false,
-                                                                                                                                                          "type_preset":  "h6",
-                                                                                                                                                          "width":  "100%",
-                                                                                                                                                          "alignment":  "center",
-                                                                                                                                                          "font":  "var(--font-body--family)",
-                                                                                                                                                          "font_size":  "1rem",
-                                                                                                                                                          "line_height":  "normal",
-                                                                                                                                                          "letter_spacing":  "normal",
-                                                                                                                                                          "case":  "none",
-                                                                                                                                                          "color":  "var(--color-foreground)",
-                                                                                                                                                          "padding-block-start":  0,
-                                                                                                                                                          "padding-block-end":  0,
-                                                                                                                                                          "padding-inline-start":  0,
-                                                                                                                                                          "padding-inline-end":  0
-                                                                                                                                                      },
-                                                                                                                                         "blocks":  {
-
-                                                                                                                                                    }
-                                                                                                                                     }
-                                                                                                                },
-                                                                                                     "block_order":  [
-                                                                                                                         "product_card_gallery_677WP3",
-                                                                                                                         "product_title_YXxMTj",
-                                                                                                                         "price_JQzVV4"
-                                                                                                                     ]
-                                                                                                 }
-                                                                     },
-                                                          "name":  "The Mama Collection",
-                                                          "settings":  {
-                                                                 "collection":  "the-mama-collection",
-                                                                           "layout_type":  "carousel",
-                                                                           "carousel_on_mobile":  false,
-                                                                           "max_products":  8,
-                                                                           "columns":  4,
-                                                                           "mobile_columns":  "2",
-                                                                           "mobile_card_size":  "60cqw",
-                                                                           "columns_gap":  30,
-                                                                           "rows_gap":  32,
-                                                                           "icons_style":  "none",
-                                                                           "icons_shape":  "none",
-                                                                           "section_width":  "page-width",
-                                                                           "horizontal_alignment":  "flex-start",
-                                                                           "gap":  20,
-                                                                           "color_scheme":  "scheme-1",
-                                                                           "padding-block-start":  40,
-                                                                           "padding-block-end":  56
-                                                                       }
-                                                      },
-                     "custom_liquid_service_strip":  {
-                                                         "type":  "custom-liquid",
-                                                         "settings":  {
-                                                                          "custom_liquid":  "\u003cdiv class=\"af-service-strip\"\u003e\n  \u003cdiv class=\"af-service-strip__item\"\u003e\n    \u003cimg src=\"https://cdn.shopify.com/s/files/1/0593/6339/3616/files/c2011e1e-6be8-430d-8000-be0b1b6b6825.png?v=1772520859\" alt=\"Ships from USA\" aria-hidden=\"true\"\u003e\n    \u003cdiv\u003e\n      \u003ch3\u003eSHIPS FROM USA\u003c/h3\u003e\n      \u003cp\u003eOur warehouse is located in Goodyear, Arizona.\u003c/p\u003e\n    \u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"af-service-strip__item\"\u003e\n    \u003csvg viewBox=\"0 0 24 24\" aria-hidden=\"true\"\u003e\u003cpath d=\"M2 7h11v8H2zM13 10h4l3 3v2h-7z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"/\u003e\u003ccircle cx=\"7\" cy=\"17\" r=\"1.7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"/\u003e\u003ccircle cx=\"17\" cy=\"17\" r=\"1.7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"/\u003e\u003c/svg\u003e\n    \u003cdiv\u003e\n      \u003ch3\u003eFAST SHIPPING\u003c/h3\u003e\n      \u003cp\u003e4-6 days delivery\u003c/p\u003e\n    \u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"af-service-strip__item\"\u003e\n    \u003csvg viewBox=\"0 0 24 24\" aria-hidden=\"true\"\u003e\u003cpath d=\"M4 11a8 8 0 0 1 14-4M20 13a8 8 0 0 1-14 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/\u003e\u003cpath d=\"M17 3v4h-4M7 21v-4h4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/\u003e\u003c/svg\u003e\n    \u003cdiv\u003e\n      \u003ch3\u003e30-DAY EASY RETURNS\u003c/h3\u003e\n      \u003cp\u003eLove it or return it\u003c/p\u003e\n    \u003c/div\u003e\n  \u003c/div\u003e\n\u003c/div\u003e",
-                                                                          "color_scheme":  "scheme-1",
-                                                                          "section_width":  "full-width",
-                                                                          "padding-block-start":  24,
-                                                                          "padding-block-end":  56
-                                                                      }
-                                                    },
-                     "custom_liquid_melyla_strip":  {
-                                                         "type":  "custom-liquid",
-                                                         "settings":  {
-                                                                          "custom_liquid":  "{% render 'af-melyla-strip' %}",
-                                                                          "color_scheme":  "scheme-1",
-                                                                          "section_width":  "full-width",
-                                                                          "padding-block-start":  0,
-                                                                          "padding-block-end":  56
-                                                                      }
-                                                     }
-                 },
-    "order":  [
-                  "hero_jVaWmY",
-                  "custom_liquid_statement",
-                  "marquee_Yfgagr",
-                  "product_list_fa6P9H",
-                  "collection_list_shop_by_collection",
-                  "product_list_black_bold_collection",
-                  "product_list_faithful_collection",
-                  "product_list_mama_collection",
-                  "custom_liquid_service_strip",
-                  "custom_liquid_melyla_strip"
-              ]
+  "sections": {
+    "hero_jVaWmY": {
+      "type": "hero",
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": true,
+        "media_type_1_mobile": "image",
+        "image_1_mobile": "shopify://shop_images/e305402b-4b2c-44a1-aea1-c2fa9d0f792b.jpg",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-end",
+        "align_baseline": true,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 20,
+        "section_width": "full-width",
+        "section_height": "large",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-6",
+        "toggle_overlay": false,
+        "overlay_color": "#00000021",
+        "overlay_style": "solid",
+        "gradient_direction": "to bottom",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "custom_liquid_statement": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"afroyla-message\"><h2>BOLD HANDBAGS FOR BOLD BLACK WOMEN!</h2><p>Too many people play it safe with boring handbags, afraid to show who they are.</p><p>But we at Melyla refuse to be quiet.</p><p>We are bold, we are beautiful, and we wear it with pride.</p><p>These handbags don't just carry things-they carry our strength, our power, and our story.</p><p>And we do it in the most fashionable way.</p></div>",
+        "color_scheme": "scheme-1",
+        "section_width": "full-width",
+        "padding-block-start": 48,
+        "padding-block-end": 30
+      }
+    },
+    "marquee_Yfgagr": {
+      "type": "marquee",
+      "blocks": {
+        "text_ship_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Ships from USA</strong></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_dot_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>&bull;</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_delivery_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>4 - 6 Days Delivery</strong></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_dot_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>&bull;</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_return_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>30-Day Easy Returns</strong></p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_dot_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>&bull;</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_ship_1",
+        "text_dot_1",
+        "text_delivery_1",
+        "text_dot_2",
+        "text_return_1",
+        "text_dot_3"
+      ],
+      "name": "t:names.marquee_section",
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "scheme-5",
+        "padding-block-start": 14,
+        "padding-block-end": 14,
+        "gap_between_elements": 24
+      }
+    },
+    "product_list_fa6P9H": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h3>SPRING SALE</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "SHOP NOW",
+                "open_in_new_tab": false,
+                "style_class": "button-secondary",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "center",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "name": "Spring Sale",
+      "settings": {
+        "collection": "spring-sale",
+        "layout_type": "carousel",
+        "carousel_on_mobile": false,
+        "max_products": 8,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 30,
+        "rows_gap": 32,
+        "icons_style": "none",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 20,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 40,
+        "padding-block-end": 56
+      }
+    },
+    "collection_list_shop_by_collection": {
+      "type": "af-collection-showcase",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/4_937e582a-3141-4201-8792-951d153e1a7b.png",
+            "image_url": "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/6.png?v=1772508325",
+            "title": "Leather Handbags",
+            "alt_text": "Leather Handbags",
+            "link": "/collections/all"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/2_4024d7fa-529f-416f-adfb-bb21d05dfecc.png",
+            "image_url": "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/4.png?v=1772508321",
+            "title": "Leather Mini Satchels",
+            "alt_text": "Leather Mini Satchels",
+            "link": "/collections/all"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/1_c6cd5bdd-7b7f-42af-8ae5-c28cccb3a71c.png",
+            "image_url": "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/5.png?v=1772508321",
+            "title": "Leather Round Bag",
+            "alt_text": "Leather Round Bag",
+            "link": "/collections/all"
+          }
+        },
+        "card_jJA3jt": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/5_86e73856-f358-4dca-b5ba-1b68580adfd6.png",
+            "image_url": "",
+            "title": "Leather Tote Bags",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "card_wdAqVX": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/6_d5ed21f2-4295-44ee-87f3-84c3882243bf.png",
+            "image_url": "",
+            "title": "Leather Wallets",
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "card_eWJzjJ": {
+          "type": "card",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/3_f1655c4f-b32d-45bc-841c-225455042c33.png",
+            "image_url": "",
+            "title": "Leather Makeup Bags",
+            "alt_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_jJA3jt",
+        "card_wdAqVX",
+        "card_eWJzjJ"
+      ],
+      "settings": {
+        "heading": "SHOP BY COLLECTION",
+        "color_scheme": "scheme-1",
+        "section_width": "full-width",
+        "padding-block-start": 16,
+        "padding-block-end": 56
+      }
+    },
+    "product_list_black_bold_collection": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h3>BLACK & BOLD COLLECTION</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "SHOP NOW",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "center",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "name": "Black & Bold Collection",
+      "settings": {
+        "collection": "black-bold-collection",
+        "layout_type": "carousel",
+        "carousel_on_mobile": false,
+        "max_products": 8,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 30,
+        "rows_gap": 32,
+        "icons_style": "none",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 20,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 40,
+        "padding-block-end": 56
+      }
+    },
+    "product_list_faithful_collection": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h3>THE FAITHFUL COLLECTION</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "SHOP NOW",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "center",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "disabled": true,
+      "name": "The Faithful Collection",
+      "settings": {
+        "collection": "the-faithful-collection",
+        "layout_type": "carousel",
+        "carousel_on_mobile": false,
+        "max_products": 8,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 30,
+        "rows_gap": 32,
+        "icons_style": "none",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 20,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 40,
+        "padding-block-end": 56
+      }
+    },
+    "product_list_mama_collection": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h3>DOPE BLACK MOM COLLECTION</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "SHOP NOW",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "center",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "name": "The Mama Collection",
+      "settings": {
+        "collection": "the-mama-collection",
+        "layout_type": "carousel",
+        "carousel_on_mobile": false,
+        "max_products": 8,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 30,
+        "rows_gap": 32,
+        "icons_style": "none",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 20,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 40,
+        "padding-block-end": 56
+      }
+    },
+    "custom_liquid_service_strip": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"af-service-strip\">\n  <div class=\"af-service-strip__item\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0593/6339/3616/files/c2011e1e-6be8-430d-8000-be0b1b6b6825.png?v=1772520859\" alt=\"Ships from USA\" aria-hidden=\"true\">\n    <div>\n      <h3>SHIPS FROM USA</h3>\n      <p>Our warehouse is located in Goodyear, Arizona.</p>\n    </div>\n  </div>\n  <div class=\"af-service-strip__item\">\n    <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M2 7h11v8H2zM13 10h4l3 3v2h-7z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"/><circle cx=\"7\" cy=\"17\" r=\"1.7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"/><circle cx=\"17\" cy=\"17\" r=\"1.7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"/></svg>\n    <div>\n      <h3>FAST SHIPPING</h3>\n      <p>4-6 days delivery</p>\n    </div>\n  </div>\n  <div class=\"af-service-strip__item\">\n    <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 11a8 8 0 0 1 14-4M20 13a8 8 0 0 1-14 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M17 3v4h-4M7 21v-4h4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg>\n    <div>\n      <h3>30-DAY EASY RETURNS</h3>\n      <p>Love it or return it</p>\n    </div>\n  </div>\n</div>",
+        "color_scheme": "scheme-1",
+        "section_width": "full-width",
+        "padding-block-start": 24,
+        "padding-block-end": 56
+      }
+    },
+    "custom_liquid_melyla_strip": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'af-melyla-strip' %}",
+        "color_scheme": "scheme-1",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 56
+      }
+    }
+  },
+  "order": [
+    "hero_jVaWmY",
+    "custom_liquid_statement",
+    "marquee_Yfgagr",
+    "product_list_fa6P9H",
+    "collection_list_shop_by_collection",
+    "product_list_black_bold_collection",
+    "product_list_faithful_collection",
+    "product_list_mama_collection",
+    "custom_liquid_service_strip",
+    "custom_liquid_melyla_strip"
+  ]
 }
