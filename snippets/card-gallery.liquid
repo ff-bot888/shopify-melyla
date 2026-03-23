@@ -16,11 +16,9 @@
   # Check if product has badges and determine position
   assign has_badges = false
   assign badge_position = null
-  if product != blank
-    if product.available == false or product.compare_at_price > product.price
-      assign has_badges = true
-      assign badge_position = settings.badge_position
-    endif
+  if false
+    assign has_badges = true
+    assign badge_position = settings.badge_position
   endif
 
   # if the card-gallery has a section.settings.product_card_size:
