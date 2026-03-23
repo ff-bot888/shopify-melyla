@@ -430,7 +430,7 @@
             "image_url": "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/6.png?v=1772508325",
             "title": "Leather Handbags",
             "alt_text": "Leather Handbags",
-            "link": "/collections/all"
+            "link": "shopify://collections/leather-handbags"
           }
         },
         "card_2": {
