@@ -1069,7 +1069,7 @@
       },
       "name": "RELIGIOUS BELIDFS ",
       "settings": {
-        "collection": "",
+        "collection": "religious-beliefs-collection-1",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 6,
