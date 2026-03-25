@@ -12,10 +12,7 @@
     %}
 
     {% if footer_logo_url != blank %}
-      <div
-        class="af-footer__brand af-footer__brand--image"
-        style="--af-footer-logo-max-width: {{ settings.footer_logo_width | default: 130 }}px; --af-footer-logo-max-height: {{ settings.footer_logo_height | default: 52 }}px;"
-      >
+      <div class="af-footer__brand af-footer__brand--image">
         <img
           src="{{ footer_logo_url }}"
           alt="{{ section.settings.brand | default: shop.name | escape }}"
@@ -23,10 +20,7 @@
         >
       </div>
     {% elsif footer_logo != blank %}
-      <div
-        class="af-footer__brand af-footer__brand--image"
-        style="--af-footer-logo-max-width: {{ settings.footer_logo_width | default: 130 }}px; --af-footer-logo-max-height: {{ settings.footer_logo_height | default: 52 }}px;"
-      >
+      <div class="af-footer__brand af-footer__brand--image">
         <img
           src="{{ footer_logo | image_url: width: 400 }}"
           alt="{{ footer_logo.alt | default: section.settings.brand | default: shop.name | escape }}"

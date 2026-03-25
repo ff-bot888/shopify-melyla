@@ -477,6 +477,8 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
 
 /* Melyla-style footer */
 .af-footer {
+  --af-footer-logo-max-width: 130px;
+  --af-footer-logo-max-height: 52px;
   background: #fff;
   border-top: 0;
   padding: 50px 30px 22px;
