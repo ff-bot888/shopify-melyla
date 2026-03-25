@@ -11,7 +11,7 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
-    "custom_liquid_melyla_footer": {
+    "custom_liquid_melyla_footer_v3": {
       "type": "af-custom-footer-v2",
       "blocks": {
         "support_founder": {
@@ -198,6 +198,6 @@
     }
   },
   "order": [
-    "custom_liquid_melyla_footer"
+    "custom_liquid_melyla_footer_v3"
   ]
 }
