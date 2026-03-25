@@ -12,7 +12,7 @@
   "name": "Footer",
   "sections": {
     "custom_liquid_melyla_footer": {
-      "type": "af-custom-footer",
+      "type": "af-custom-footer-v2",
       "blocks": {
         "support_founder": {
           "type": "link_item",
