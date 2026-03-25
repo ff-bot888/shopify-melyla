@@ -13,7 +13,10 @@
     %}
 
     {% if footer_logo_url != blank %}
-      <div class="af-footer__brand af-footer__brand--image">
+      <div
+        class="af-footer__brand af-footer__brand--image"
+        style="--af-footer-logo-max-width: {{ section.settings.footer_logo_max_width }}px; --af-footer-logo-max-height: {{ section.settings.footer_logo_max_height }}px;"
+      >
         <img
           src="{{ footer_logo_url }}"
           alt="{{ section.settings.brand | default: shop.name | escape }}"
@@ -21,7 +24,10 @@
         >
       </div>
     {% elsif footer_logo != blank %}
-      <div class="af-footer__brand af-footer__brand--image">
+      <div
+        class="af-footer__brand af-footer__brand--image"
+        style="--af-footer-logo-max-width: {{ section.settings.footer_logo_max_width }}px; --af-footer-logo-max-height: {{ section.settings.footer_logo_max_height }}px;"
+      >
         <img
           src="{{ footer_logo | image_url: width: 400 }}"
           alt="{{ footer_logo.alt | default: section.settings.brand | default: shop.name | escape }}"
@@ -159,6 +165,26 @@
       "id": "brand",
       "label": "Brand",
       "default": "Melyla"
+    },
+    {
+      "type": "range",
+      "id": "footer_logo_max_width",
+      "label": "Footer logo max width",
+      "min": 60,
+      "max": 300,
+      "step": 2,
+      "unit": "px",
+      "default": 130
+    },
+    {
+      "type": "range",
+      "id": "footer_logo_max_height",
+      "label": "Footer logo max height",
+      "min": 20,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 52
     },
     {
       "type": "text",

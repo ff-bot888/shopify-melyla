@@ -517,8 +517,8 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
 .af-footer__brand--image img {
   display: block;
   width: auto;
-  max-width: min(130px, 100%);
-  max-height: 52px;
+  max-width: min(var(--af-footer-logo-max-width, 130px), 100%);
+  max-height: var(--af-footer-logo-max-height, 52px);
   height: auto;
 }
 
