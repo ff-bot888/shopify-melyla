@@ -1,7 +1,6 @@
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
   class="section section--{{ section.settings.section_width }} {% if section.settings.color_scheme != blank %}color-{{ section.settings.color_scheme }}{% endif %}"
-  style="{% render 'spacing-padding', settings: section.settings %}"
 >
   <div class="af-footer">
     {% liquid
@@ -15,7 +14,7 @@
     {% if footer_logo_url != blank %}
       <div
         class="af-footer__brand af-footer__brand--image"
-        style="--af-footer-logo-max-width: {{ section.settings.footer_logo_max_width }}px; --af-footer-logo-max-height: {{ section.settings.footer_logo_max_height }}px;"
+        style="--af-footer-logo-max-width: {{ section.settings.padding-block-start }}px; --af-footer-logo-max-height: {{ section.settings.padding-block-end }}px;"
       >
         <img
           src="{{ footer_logo_url }}"
@@ -26,7 +25,7 @@
     {% elsif footer_logo != blank %}
       <div
         class="af-footer__brand af-footer__brand--image"
-        style="--af-footer-logo-max-width: {{ section.settings.footer_logo_max_width }}px; --af-footer-logo-max-height: {{ section.settings.footer_logo_max_height }}px;"
+        style="--af-footer-logo-max-width: {{ section.settings.padding-block-start }}px; --af-footer-logo-max-height: {{ section.settings.padding-block-end }}px;"
       >
         <img
           src="{{ footer_logo | image_url: width: 400 }}"
@@ -161,26 +160,6 @@
       "label": "Footer logo URL"
     },
     {
-      "type": "range",
-      "id": "footer_logo_max_width",
-      "label": "Footer logo max width",
-      "min": 60,
-      "max": 300,
-      "step": 2,
-      "unit": "px",
-      "default": 130
-    },
-    {
-      "type": "range",
-      "id": "footer_logo_max_height",
-      "label": "Footer logo max height",
-      "min": 20,
-      "max": 120,
-      "step": 2,
-      "unit": "px",
-      "default": 52
-    },
-    {
       "type": "text",
       "id": "brand",
       "label": "Brand",
@@ -240,27 +219,27 @@
     },
     {
       "type": "header",
-      "content": "t:content.padding"
+      "content": "Logo size"
     },
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
+      "label": "Logo max width",
+      "min": 60,
+      "max": 300,
+      "step": 2,
       "unit": "px",
-      "default": 0
+      "default": 130
     },
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
+      "label": "Logo max height",
+      "min": 20,
+      "max": 120,
+      "step": 2,
       "unit": "px",
-      "default": 0
+      "default": 52
     }
   ],
   "blocks": [
