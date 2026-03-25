@@ -14,7 +14,7 @@
     {% if footer_logo_url != blank %}
       <div
         class="af-footer__brand af-footer__brand--image"
-        style="--af-footer-logo-max-width: {{ section.settings.padding-block-start }}px; --af-footer-logo-max-height: {{ section.settings.padding-block-end }}px;"
+        style="--af-footer-logo-max-width: {{ settings.footer_logo_width | default: 130 }}px; --af-footer-logo-max-height: {{ settings.footer_logo_height | default: 52 }}px;"
       >
         <img
           src="{{ footer_logo_url }}"
@@ -25,7 +25,7 @@
     {% elsif footer_logo != blank %}
       <div
         class="af-footer__brand af-footer__brand--image"
-        style="--af-footer-logo-max-width: {{ section.settings.padding-block-start }}px; --af-footer-logo-max-height: {{ section.settings.padding-block-end }}px;"
+        style="--af-footer-logo-max-width: {{ settings.footer_logo_width | default: 130 }}px; --af-footer-logo-max-height: {{ settings.footer_logo_height | default: 52 }}px;"
       >
         <img
           src="{{ footer_logo | image_url: width: 400 }}"
@@ -219,27 +219,27 @@
     },
     {
       "type": "header",
-      "content": "Logo size"
+      "content": "t:content.padding"
     },
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "Logo max width",
-      "min": 60,
-      "max": 300,
-      "step": 2,
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
       "unit": "px",
-      "default": 130
+      "default": 0
     },
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "Logo max height",
-      "min": 20,
-      "max": 120,
-      "step": 2,
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
       "unit": "px",
-      "default": 52
+      "default": 0
     }
   ],
   "blocks": [
