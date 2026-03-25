@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Horizon",
-    "theme_version": "3.5.15",
+    "theme_version": "3.5.13",
     "theme_author": "Shopify",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
@@ -48,30 +48,6 @@
         "default": 28,
         "visible_if": "{{ settings.logo != blank or settings.logo_inverse != blank }}",
         "info": "t:info.logo_height"
-      },
-      {
-        "type": "header",
-        "content": "Footer logo"
-      },
-      {
-        "type": "range",
-        "id": "footer_logo_width",
-        "label": "Footer logo width",
-        "min": 60,
-        "max": 300,
-        "step": 2,
-        "unit": "px",
-        "default": 130
-      },
-      {
-        "type": "range",
-        "id": "footer_logo_height",
-        "label": "Footer logo height",
-        "min": 20,
-        "max": 120,
-        "step": 2,
-        "unit": "px",
-        "default": 52
       },
       {
         "type": "image_picker",

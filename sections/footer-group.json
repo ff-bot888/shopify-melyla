@@ -11,8 +11,8 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
-    "custom_liquid_melyla_footer_v3": {
-      "type": "af-custom-footer-v2",
+    "custom_liquid_melyla_footer": {
+      "type": "af-custom-footer",
       "blocks": {
         "support_founder": {
           "type": "link_item",
@@ -182,8 +182,11 @@
         "main_deal",
         "main_reviews"
       ],
+      "custom_css": [
+        ".af-footer {--af-footer-logo-max-width: 120px; --af-footer-logo-max-height: 44px;}"
+      ],
       "settings": {
-        "footer_logo_url": "https://cdn.shopify.com/s/files/1/0593/6339/3616/files/LOGO1.png?v=1774429894",
+        "footer_logo_url": "",
         "brand": "Melyla",
         "contact_heading": "CONTACT",
         "contact_body": "<p><strong>Address:</strong> 1209 Mountain Road Pl Ne Ste N, Albuquerque, NM 87110, United States</p><p><strong>Email:</strong> <a href=\"mailto:cs@melyla.com\">cs@melyla.com</a></p>",
@@ -198,6 +201,6 @@
     }
   },
   "order": [
-    "custom_liquid_melyla_footer_v3"
+    "custom_liquid_melyla_footer"
   ]
 }
