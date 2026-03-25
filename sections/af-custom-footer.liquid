@@ -4,7 +4,33 @@
   style="{% render 'spacing-padding', settings: section.settings %}"
 >
   <div class="af-footer">
-    {% if section.settings.brand != blank %}
+    {% liquid
+      assign footer_logo_url = section.settings.footer_logo_url | strip
+      assign footer_logo = section.settings.footer_logo
+      if footer_logo == blank
+        assign footer_logo = settings.logo
+      endif
+    %}
+
+    {% if footer_logo_url != blank %}
+      <div class="af-footer__brand af-footer__brand--image">
+        <img
+          src="{{ footer_logo_url }}"
+          alt="{{ section.settings.brand | default: shop.name | escape }}"
+          loading="lazy"
+        >
+      </div>
+    {% elsif footer_logo != blank %}
+      <div class="af-footer__brand af-footer__brand--image">
+        <img
+          src="{{ footer_logo | image_url: width: 400 }}"
+          alt="{{ footer_logo.alt | default: section.settings.brand | default: shop.name | escape }}"
+          loading="lazy"
+          width="{{ footer_logo.width }}"
+          height="{{ footer_logo.height }}"
+        >
+      </div>
+    {% elsif section.settings.brand != blank %}
       <div class="af-footer__brand">{{ section.settings.brand | escape }}</div>
     {% endif %}
 
@@ -118,6 +144,16 @@
     "groups": ["footer"]
   },
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Footer logo"
+    },
+    {
+      "type": "url",
+      "id": "footer_logo_url",
+      "label": "Footer logo URL"
+    },
     {
       "type": "text",
       "id": "brand",

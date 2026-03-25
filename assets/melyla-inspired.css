@@ -510,6 +510,17 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   text-transform: none;
 }
 
+.af-footer__brand--image {
+  line-height: 0;
+}
+
+.af-footer__brand--image img {
+  display: block;
+  width: auto;
+  max-width: min(220px, 100%);
+  height: auto;
+}
+
 .af-footer h4 {
   margin: 0 0 10px;
   font-size: clamp(1.15rem, 1.35vw, 1.45rem);
@@ -587,10 +598,6 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   .af-footer__top {
     grid-template-columns: 1fr;
     row-gap: 26px;
-  }
-
-  .af-footer__logo img {
-    max-width: 220px;
   }
 
   .af-footer__brand {
