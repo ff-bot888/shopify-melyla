@@ -7,13 +7,27 @@
     {% liquid
       assign footer_logo_url = section.settings.footer_logo_url | strip
       assign footer_logo = section.settings.footer_logo
+      assign footer_logo_width = section.settings.padding-block-start
+      assign footer_logo_height = section.settings.padding-block-end
+
+      if footer_logo_width == blank or footer_logo_width == 0
+        assign footer_logo_width = 120
+      endif
+
+      if footer_logo_height == blank or footer_logo_height == 0
+        assign footer_logo_height = 44
+      endif
+
       if footer_logo == blank
         assign footer_logo = settings.logo
       endif
     %}
 
     {% if footer_logo_url != blank %}
-      <div class="af-footer__brand af-footer__brand--image">
+      <div
+        class="af-footer__brand af-footer__brand--image"
+        style="--af-footer-logo-max-width: {{ footer_logo_width }}px; --af-footer-logo-max-height: {{ footer_logo_height }}px;"
+      >
         <img
           src="{{ footer_logo_url }}"
           alt="{{ section.settings.brand | default: shop.name | escape }}"
@@ -21,7 +35,10 @@
         >
       </div>
     {% elsif footer_logo != blank %}
-      <div class="af-footer__brand af-footer__brand--image">
+      <div
+        class="af-footer__brand af-footer__brand--image"
+        style="--af-footer-logo-max-width: {{ footer_logo_width }}px; --af-footer-logo-max-height: {{ footer_logo_height }}px;"
+      >
         <img
           src="{{ footer_logo | image_url: width: 400 }}"
           alt="{{ footer_logo.alt | default: section.settings.brand | default: shop.name | escape }}"
@@ -214,27 +231,27 @@
     },
     {
       "type": "header",
-      "content": "t:content.padding"
+      "content": "Logo size"
     },
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Logo width",
       "min": 0,
-      "max": 100,
-      "step": 1,
+      "max": 200,
+      "step": 2,
       "unit": "px",
-      "default": 0
+      "default": 120
     },
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Logo height",
       "min": 0,
-      "max": 100,
-      "step": 1,
+      "max": 120,
+      "step": 2,
       "unit": "px",
-      "default": 0
+      "default": 44
     }
   ],
   "blocks": [

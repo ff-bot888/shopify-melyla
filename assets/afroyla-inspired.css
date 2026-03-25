@@ -683,6 +683,18 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   text-transform: none;
 }
 
+.af-footer__brand--image {
+  line-height: 0;
+}
+
+.af-footer__brand--image img {
+  display: block;
+  width: auto;
+  max-width: min(var(--af-footer-logo-max-width, 120px), 100%);
+  max-height: var(--af-footer-logo-max-height, 44px);
+  height: auto;
+}
+
 .af-footer h4 {
   margin: 0 0 10px;
   font-size: clamp(1.15rem, 1.35vw, 1.45rem);
