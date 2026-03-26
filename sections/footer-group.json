@@ -186,6 +186,7 @@
         ".af-footer {--af-footer-logo-max-width: 120px; --af-footer-logo-max-height: 44px;}"
       ],
       "settings": {
+        "footer_logo": "shopify://shop_images/LOGO1.png",
         "footer_logo_url": "",
         "brand": "Melyla",
         "contact_heading": "CONTACT",
@@ -195,8 +196,8 @@
         "bottom_text": "&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} &nbsp;&nbsp; Powered by Shopify",
         "color_scheme": "scheme-1",
         "section_width": "full-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 200,
+        "padding-block-end": 72
       }
     }
   },
