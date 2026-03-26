@@ -555,6 +555,7 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
 }
 
 [id*='product_list_8aBFz9'] .resource-list__item product-title,
+[id*='product_list_8aBFz9'] .resource-list__item product-title a,
 [id*='product_list_8aBFz9'] .resource-list__item product-title .text-block,
 [id*='product_list_8aBFz9'] .resource-list__item product-title .text-block > *,
 [id*='product_list_8aBFz9'] .resource-list__item product-title p,
@@ -564,6 +565,14 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   width: 100%;
   text-align: center !important;
   justify-content: center;
+}
+
+[id*='product_list_8aBFz9'] .resource-list__item product-title {
+  display: block;
+}
+
+[id*='product_list_8aBFz9'] .resource-list__item product-title a {
+  display: block;
 }
 
 /* @AFROYLA image strip */
