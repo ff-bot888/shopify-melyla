@@ -678,6 +678,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "Black & Bold Collection",
       "settings": {
         "collection": "black-bold-collection",
