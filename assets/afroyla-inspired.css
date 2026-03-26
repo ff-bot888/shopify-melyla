@@ -554,6 +554,18 @@ marquee-component .marquee__repeated-items p:not(:has(strong)) {
   border-color: #111 !important;
 }
 
+[id*='product_list_8aBFz9'] .resource-list__item product-title,
+[id*='product_list_8aBFz9'] .resource-list__item product-title .text-block,
+[id*='product_list_8aBFz9'] .resource-list__item product-title .text-block > *,
+[id*='product_list_8aBFz9'] .resource-list__item product-title p,
+[id*='product_list_8aBFz9'] .resource-list__item product-price,
+[id*='product_list_8aBFz9'] .resource-list__item product-price .price,
+[id*='product_list_8aBFz9'] .resource-list__item product-price [ref='priceContainer'] {
+  width: 100%;
+  text-align: center !important;
+  justify-content: center;
+}
+
 /* @AFROYLA image strip */
 .af-melyla-strip {
   background: #fff;
