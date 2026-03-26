@@ -110,7 +110,7 @@
             "column": "main_menu",
             "page": "",
             "title": "Shop by Product",
-            "link": "/collections/all",
+            "link": "shopify://collections/mini-wallets-1",
             "note": ""
           }
         },
